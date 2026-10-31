@@ -283,7 +283,9 @@
           "savi_med": -0.0189,
           "ndmi_med": -0.1388,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -445,7 +447,9 @@
           "savi_med": -0.0074,
           "ndmi_med": 0.4166,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 12.5,
+          "suelo_rf_pct": 87.5
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -615,7 +619,9 @@
           "savi_med": -0.021,
           "ndmi_med": -0.3706,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -781,7 +787,9 @@
           "savi_med": 0.0001,
           "ndmi_med": -0.0997,
           "cv_pct": 304.06,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -947,7 +955,9 @@
           "savi_med": -0.003,
           "ndmi_med": -0.1636,
           "cv_pct": 2153.18,
-          "area_critica_pct": 71.43
+          "area_critica_pct": 71.43,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -1115,7 +1125,9 @@
           "savi_med": -0.0145,
           "ndmi_med": -0.189,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -1281,7 +1293,9 @@
           "savi_med": 0.0121,
           "ndmi_med": -0.2331,
           "cv_pct": 281.64,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -1447,7 +1461,9 @@
           "savi_med": -0.0144,
           "ndmi_med": 0.0883,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -1621,7 +1637,9 @@
           "savi_med": 0.0249,
           "ndmi_med": 0.1595,
           "cv_pct": 49.8,
-          "area_critica_pct": 40.0
+          "area_critica_pct": 40.0,
+          "cobertura_rf_pct": 60.0,
+          "suelo_rf_pct": 40.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -1791,7 +1809,9 @@
           "savi_med": 0.0105,
           "ndmi_med": -0.0282,
           "cv_pct": 1271.56,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 25.0,
+          "suelo_rf_pct": 75.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -1957,7 +1977,9 @@
           "savi_med": 0.0062,
           "ndmi_med": -0.0433,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -2123,7 +2145,9 @@
           "savi_med": 0.0023,
           "ndmi_med": 0.0691,
           "cv_pct": 170.18,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -2289,7 +2313,9 @@
           "savi_med": 0.0216,
           "ndmi_med": -0.1577,
           "cv_pct": 137.25,
-          "area_critica_pct": 28.57
+          "area_critica_pct": 28.57,
+          "cobertura_rf_pct": 85.7,
+          "suelo_rf_pct": 14.3
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -2459,7 +2485,9 @@
           "savi_med": -0.0048,
           "ndmi_med": -0.1034,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -2621,7 +2649,9 @@
           "savi_med": 0.0321,
           "ndmi_med": 0.2453,
           "cv_pct": 38.44,
-          "area_critica_pct": 40.0
+          "area_critica_pct": 40.0,
+          "cobertura_rf_pct": 80.0,
+          "suelo_rf_pct": 20.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -2783,7 +2813,9 @@
           "savi_med": 0.0322,
           "ndmi_med": 0.323,
           "cv_pct": 22.55,
-          "area_critica_pct": 25.0
+          "area_critica_pct": 25.0,
+          "cobertura_rf_pct": 100.0,
+          "suelo_rf_pct": 0.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -2949,7 +2981,9 @@
           "savi_med": 0.0128,
           "ndmi_med": -0.2768,
           "cv_pct": 447.13,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -3115,7 +3149,9 @@
           "savi_med": -0.0065,
           "ndmi_med": -0.2217,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -3281,7 +3317,9 @@
           "savi_med": 0.023,
           "ndmi_med": 0.2131,
           "cv_pct": 56.85,
-          "area_critica_pct": 62.5
+          "area_critica_pct": 62.5,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -3447,7 +3485,9 @@
           "savi_med": 0.0015,
           "ndmi_med": -0.1648,
           "cv_pct": 0.0,
-          "area_critica_pct": 73.91
+          "area_critica_pct": 73.91,
+          "cobertura_rf_pct": 26.1,
+          "suelo_rf_pct": 73.9
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -3613,7 +3653,9 @@
           "savi_med": 0.0134,
           "ndmi_med": -0.2367,
           "cv_pct": 86.58,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -3779,7 +3821,9 @@
           "savi_med": -0.0002,
           "ndmi_med": -0.1431,
           "cv_pct": 0.0,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 25.0,
+          "suelo_rf_pct": 75.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -3941,7 +3985,9 @@
           "savi_med": 0.0042,
           "ndmi_med": -0.159,
           "cv_pct": 398.98,
-          "area_critica_pct": 80.0
+          "area_critica_pct": 80.0,
+          "cobertura_rf_pct": 30.0,
+          "suelo_rf_pct": 70.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -4103,7 +4149,9 @@
           "savi_med": 0.0004,
           "ndmi_med": -0.0963,
           "cv_pct": 360.56,
-          "area_critica_pct": 58.82
+          "area_critica_pct": 58.82,
+          "cobertura_rf_pct": 41.2,
+          "suelo_rf_pct": 58.8
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -4269,7 +4317,9 @@
           "savi_med": 0.0069,
           "ndmi_med": -0.4252,
           "cv_pct": 0.0,
-          "area_critica_pct": 77.78
+          "area_critica_pct": 77.78,
+          "cobertura_rf_pct": 22.2,
+          "suelo_rf_pct": 77.8
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -4435,7 +4485,9 @@
           "savi_med": 0.0103,
           "ndmi_med": -0.1836,
           "cv_pct": 404.74,
-          "area_critica_pct": 62.5
+          "area_critica_pct": 62.5,
+          "cobertura_rf_pct": 37.5,
+          "suelo_rf_pct": 62.5
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -4601,7 +4653,9 @@
           "savi_med": 0.0129,
           "ndmi_med": 0.0659,
           "cv_pct": 184.84,
-          "area_critica_pct": 57.14
+          "area_critica_pct": 57.14,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -4767,7 +4821,9 @@
           "savi_med": -0.0154,
           "ndmi_med": -0.2365,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -4933,7 +4989,9 @@
           "savi_med": 0.004,
           "ndmi_med": 0.1904,
           "cv_pct": 910.23,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 12.5,
+          "suelo_rf_pct": 87.5
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -5107,7 +5165,9 @@
           "savi_med": 0.0061,
           "ndmi_med": -0.1336,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -5281,7 +5341,9 @@
           "savi_med": 0.0149,
           "ndmi_med": 0.0234,
           "cv_pct": 260.87,
-          "area_critica_pct": 58.82
+          "area_critica_pct": 58.82,
+          "cobertura_rf_pct": 47.1,
+          "suelo_rf_pct": 52.9
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -5449,7 +5511,9 @@
           "savi_med": 0.0178,
           "ndmi_med": 0.218,
           "cv_pct": 161.52,
-          "area_critica_pct": 57.14
+          "area_critica_pct": 57.14,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "BRILLANTINA",
@@ -5615,7 +5679,9 @@
           "savi_med": 0.0074,
           "ndmi_med": -0.3081,
           "cv_pct": 1453.2,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -5781,7 +5847,9 @@
           "savi_med": 0.0268,
           "ndmi_med": 0.3507,
           "cv_pct": 131.2,
-          "area_critica_pct": 57.14
+          "area_critica_pct": 57.14,
+          "cobertura_rf_pct": 57.1,
+          "suelo_rf_pct": 42.9
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -5947,7 +6015,9 @@
           "savi_med": 0.0008,
           "ndmi_med": 0.0371,
           "cv_pct": 4083.22,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -6109,7 +6179,9 @@
           "savi_med": 0.0243,
           "ndmi_med": 0.0254,
           "cv_pct": 204.98,
-          "area_critica_pct": 44.44
+          "area_critica_pct": 44.44,
+          "cobertura_rf_pct": 55.6,
+          "suelo_rf_pct": 44.4
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -6275,7 +6347,9 @@
           "savi_med": 0.0001,
           "ndmi_med": 0.2462,
           "cv_pct": 0.0,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -6441,7 +6515,9 @@
           "savi_med": -0.0024,
           "ndmi_med": -0.026,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 14.3,
+          "suelo_rf_pct": 85.7
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -6607,7 +6683,9 @@
           "savi_med": -0.0186,
           "ndmi_med": -0.2985,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 16.7,
+          "suelo_rf_pct": 83.3
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -6773,7 +6851,9 @@
           "savi_med": 0.0217,
           "ndmi_med": 0.2446,
           "cv_pct": 44.71,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -6939,7 +7019,9 @@
           "savi_med": -0.0264,
           "ndmi_med": -0.2516,
           "cv_pct": 0.0,
-          "area_critica_pct": 85.71
+          "area_critica_pct": 85.71,
+          "cobertura_rf_pct": 14.3,
+          "suelo_rf_pct": 85.7
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -7113,7 +7195,9 @@
           "savi_med": 0.0113,
           "ndmi_med": 0.0401,
           "cv_pct": 1797.39,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -7279,7 +7363,9 @@
           "savi_med": 0.0074,
           "ndmi_med": 0.2616,
           "cv_pct": 328.89,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 25.0,
+          "suelo_rf_pct": 75.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -7441,7 +7527,9 @@
           "savi_med": -0.0286,
           "ndmi_med": -0.068,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -7603,7 +7691,9 @@
           "savi_med": -0.0181,
           "ndmi_med": -0.3967,
           "cv_pct": 0.0,
-          "area_critica_pct": 83.33
+          "area_critica_pct": 83.33,
+          "cobertura_rf_pct": 16.7,
+          "suelo_rf_pct": 83.3
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -7769,7 +7859,9 @@
           "savi_med": -0.0096,
           "ndmi_med": 0.3883,
           "cv_pct": 0.0,
-          "area_critica_pct": 83.33
+          "area_critica_pct": 83.33,
+          "cobertura_rf_pct": 16.7,
+          "suelo_rf_pct": 83.3
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -7935,7 +8027,9 @@
           "savi_med": 0.015,
           "ndmi_med": 0.2506,
           "cv_pct": 65.02,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 66.7,
+          "suelo_rf_pct": 33.3
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -8101,7 +8195,9 @@
           "savi_med": 0.0226,
           "ndmi_med": -0.2029,
           "cv_pct": 194.37,
-          "area_critica_pct": 33.33
+          "area_critica_pct": 33.33,
+          "cobertura_rf_pct": 66.7,
+          "suelo_rf_pct": 33.3
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -8275,7 +8371,9 @@
           "savi_med": 0.008,
           "ndmi_med": -0.0662,
           "cv_pct": 173.81,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "GOLDEN GLORY YELLOW",
@@ -8441,7 +8539,9 @@
           "savi_med": -0.007,
           "ndmi_med": -0.2683,
           "cv_pct": 0.0,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "SKYLER SPLASH BLUE",
@@ -8607,7 +8707,9 @@
           "savi_med": 0.0095,
           "ndmi_med": -0.0202,
           "cv_pct": 197.52,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 25.0,
+          "suelo_rf_pct": 75.0
         }
       },
       "variedad": "SKYLER SPLASH PINK",
@@ -8773,7 +8875,9 @@
           "savi_med": -0.0141,
           "ndmi_med": 0.0289,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 12.5,
+          "suelo_rf_pct": 87.5
         }
       },
       "variedad": "SKYLER SPLASH BLUE",
@@ -8939,7 +9043,9 @@
           "savi_med": -0.0127,
           "ndmi_med": -0.0052,
           "cv_pct": 0.0,
-          "area_critica_pct": 83.33
+          "area_critica_pct": 83.33,
+          "cobertura_rf_pct": 16.7,
+          "suelo_rf_pct": 83.3
         }
       },
       "variedad": "SKYLER PINK",
@@ -9109,7 +9215,9 @@
           "savi_med": 0.0191,
           "ndmi_med": 0.1685,
           "cv_pct": 106.94,
-          "area_critica_pct": 83.33
+          "area_critica_pct": 83.33,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -9271,7 +9379,9 @@
           "savi_med": 0.0183,
           "ndmi_med": -0.2178,
           "cv_pct": 154.8,
-          "area_critica_pct": 60.0
+          "area_critica_pct": 60.0,
+          "cobertura_rf_pct": 40.0,
+          "suelo_rf_pct": 60.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -9433,7 +9543,9 @@
           "savi_med": -0.0021,
           "ndmi_med": -0.3143,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 14.3,
+          "suelo_rf_pct": 85.7
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -9595,7 +9707,9 @@
           "savi_med": -0.0142,
           "ndmi_med": -0.2683,
           "cv_pct": 0.0,
-          "area_critica_pct": 85.71
+          "area_critica_pct": 85.71,
+          "cobertura_rf_pct": 14.3,
+          "suelo_rf_pct": 85.7
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -9765,7 +9879,9 @@
           "savi_med": 0.0054,
           "ndmi_med": 0.3161,
           "cv_pct": 351.22,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 25.0,
+          "suelo_rf_pct": 75.0
         }
       },
       "variedad": "SKYLER SPLASH BLUE",
@@ -9933,7 +10049,9 @@
           "savi_med": -0.0055,
           "ndmi_med": -0.4843,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "SKYLER SPLASH BLUE",
@@ -10101,7 +10219,9 @@
           "savi_med": 0.0122,
           "ndmi_med": -0.1101,
           "cv_pct": 104.39,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "SKYLER BLUE",
@@ -10273,7 +10393,9 @@
           "savi_med": -0.0219,
           "ndmi_med": -0.1796,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "MAGICAL CHERRY",
@@ -10461,7 +10583,9 @@
           "savi_med": -0.0085,
           "ndmi_med": -0.2922,
           "cv_pct": 0.0,
-          "area_critica_pct": 60.0
+          "area_critica_pct": 60.0,
+          "cobertura_rf_pct": 40.0,
+          "suelo_rf_pct": 60.0
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -10627,7 +10751,9 @@
           "savi_med": -0.0076,
           "ndmi_med": -0.5599,
           "cv_pct": 156.54,
-          "area_critica_pct": 33.33
+          "area_critica_pct": 33.33,
+          "cobertura_rf_pct": 66.7,
+          "suelo_rf_pct": 33.3
         }
       },
       "variedad": "SKYLER BLUE",
@@ -10793,7 +10919,9 @@
           "savi_med": 0.0149,
           "ndmi_med": -0.1192,
           "cv_pct": 326.28,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "MAGICAL MAJESTIC PINK",
@@ -10965,7 +11093,9 @@
           "savi_med": 0.0065,
           "ndmi_med": -0.0222,
           "cv_pct": 614.55,
-          "area_critica_pct": 71.43
+          "area_critica_pct": 71.43,
+          "cobertura_rf_pct": 28.6,
+          "suelo_rf_pct": 71.4
         }
       },
       "variedad": "SKYLER BLUE",
@@ -11131,7 +11261,9 @@
           "savi_med": 0.0085,
           "ndmi_med": -0.0654,
           "cv_pct": 245.16,
-          "area_critica_pct": 71.43
+          "area_critica_pct": 71.43,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "MAGICAL ROYAL PRINCESS",
@@ -11297,7 +11429,9 @@
           "savi_med": 0.0016,
           "ndmi_med": 0.0796,
           "cv_pct": 0.0,
-          "area_critica_pct": 92.86
+          "area_critica_pct": 92.86,
+          "cobertura_rf_pct": 21.4,
+          "suelo_rf_pct": 78.6
         }
       },
       "variedad": "SKYLER SPLASH PINK",
@@ -11469,7 +11603,9 @@
           "savi_med": 0.0047,
           "ndmi_med": -0.2691,
           "cv_pct": 591.36,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "SIN DATO",
@@ -11631,7 +11767,9 @@
           "savi_med": 0.0,
           "ndmi_med": 0.0,
           "cv_pct": 0.0,
-          "area_critica_pct": 0.0
+          "area_critica_pct": 0.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "SIN DATO",
@@ -11793,7 +11931,9 @@
           "savi_med": 0.0015,
           "ndmi_med": 0.0023,
           "cv_pct": 4760.31,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "MAGICAL CHERRY",
@@ -12001,7 +12141,9 @@
           "savi_med": -0.0044,
           "ndmi_med": 0.1566,
           "cv_pct": 1958.44,
-          "area_critica_pct": 78.57
+          "area_critica_pct": 78.57,
+          "cobertura_rf_pct": 21.4,
+          "suelo_rf_pct": 78.6
         }
       },
       "variedad": "MAGICAL MAJESTIC PINK",
@@ -12195,7 +12337,9 @@
           "savi_med": -0.0015,
           "ndmi_med": -0.218,
           "cv_pct": 0.0,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 25.0,
+          "suelo_rf_pct": 75.0
         }
       },
       "variedad": "MAGICAL RED WINE",
@@ -12361,7 +12505,9 @@
           "savi_med": -0.0161,
           "ndmi_med": -0.2047,
           "cv_pct": 0.0,
-          "area_critica_pct": 83.33
+          "area_critica_pct": 83.33,
+          "cobertura_rf_pct": 16.7,
+          "suelo_rf_pct": 83.3
         }
       },
       "variedad": "H21-67-3",
@@ -12527,7 +12673,9 @@
           "savi_med": 0.0149,
           "ndmi_med": -0.0497,
           "cv_pct": 136.93,
-          "area_critica_pct": 57.14
+          "area_critica_pct": 57.14,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "MAGICAL RENATA GREEN",
@@ -12693,7 +12841,9 @@
           "savi_med": 0.0108,
           "ndmi_med": 0.1602,
           "cv_pct": 377.59,
-          "area_critica_pct": 60.0
+          "area_critica_pct": 60.0,
+          "cobertura_rf_pct": 40.0,
+          "suelo_rf_pct": 60.0
         }
       },
       "variedad": "H21-68-7",
@@ -12859,7 +13009,9 @@
           "savi_med": 0.0129,
           "ndmi_med": 0.195,
           "cv_pct": 120.71,
-          "area_critica_pct": 87.5
+          "area_critica_pct": 87.5,
+          "cobertura_rf_pct": 37.5,
+          "suelo_rf_pct": 62.5
         }
       },
       "variedad": "H21-117-1",
@@ -13025,7 +13177,9 @@
           "savi_med": -0.0096,
           "ndmi_med": -0.2515,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "SKYLER BLUE",
@@ -13191,7 +13345,9 @@
           "savi_med": 0.0157,
           "ndmi_med": -0.1859,
           "cv_pct": 101.46,
-          "area_critica_pct": 16.67
+          "area_critica_pct": 16.67,
+          "cobertura_rf_pct": 83.3,
+          "suelo_rf_pct": 16.7
         }
       },
       "variedad": "SKYLER DUO CRYSTAL",
@@ -13357,7 +13513,9 @@
           "savi_med": 0.0123,
           "ndmi_med": -0.2444,
           "cv_pct": 201.95,
-          "area_critica_pct": 60.0
+          "area_critica_pct": 60.0,
+          "cobertura_rf_pct": 60.0,
+          "suelo_rf_pct": 40.0
         }
       },
       "variedad": "SKYLER SPLASH BLUE",
@@ -13525,7 +13683,9 @@
           "savi_med": 0.0033,
           "ndmi_med": -0.101,
           "cv_pct": 499.06,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "MAGICAL SNOW PRINCE",
@@ -13693,7 +13853,9 @@
           "savi_med": 0.0169,
           "ndmi_med": 0.2535,
           "cv_pct": 113.18,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 75.0,
+          "suelo_rf_pct": 25.0
         }
       },
       "variedad": "MAGICAL RENATA GREEN",
@@ -13859,7 +14021,9 @@
           "savi_med": 0.0001,
           "ndmi_med": -0.2314,
           "cv_pct": 2542.1,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "MAGICAL SNOW PRINCE",
@@ -14033,7 +14197,9 @@
           "savi_med": -0.0069,
           "ndmi_med": -0.0149,
           "cv_pct": 10606.71,
-          "area_critica_pct": 80.0
+          "area_critica_pct": 80.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "MAGICAL MAJESTIC PINK",
@@ -14211,7 +14377,9 @@
           "savi_med": 0.0268,
           "ndmi_med": 0.1533,
           "cv_pct": 90.12,
-          "area_critica_pct": 60.0
+          "area_critica_pct": 60.0,
+          "cobertura_rf_pct": 40.0,
+          "suelo_rf_pct": 60.0
         }
       },
       "variedad": "SKYLER PINK",
@@ -14391,7 +14559,9 @@
           "savi_med": 0.0147,
           "ndmi_med": 0.1169,
           "cv_pct": 362.01,
-          "area_critica_pct": 57.14
+          "area_critica_pct": 57.14,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "SKYLER PINK",
@@ -14561,7 +14731,9 @@
           "savi_med": 0.0144,
           "ndmi_med": -0.1685,
           "cv_pct": 85.65,
-          "area_critica_pct": 60.0
+          "area_critica_pct": 60.0,
+          "cobertura_rf_pct": 60.0,
+          "suelo_rf_pct": 40.0
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -14727,7 +14899,9 @@
           "savi_med": -0.0082,
           "ndmi_med": -0.076,
           "cv_pct": 0.0,
-          "area_critica_pct": 90.91
+          "area_critica_pct": 90.91,
+          "cobertura_rf_pct": 9.1,
+          "suelo_rf_pct": 90.9
         }
       },
       "variedad": "SKYLER SPLASH PINK",
@@ -14903,7 +15077,9 @@
           "savi_med": 0.0062,
           "ndmi_med": -0.1153,
           "cv_pct": 219.3,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "COD 402",
@@ -15081,7 +15257,9 @@
           "savi_med": -0.0163,
           "ndmi_med": -0.1771,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 14.3,
+          "suelo_rf_pct": 85.7
         }
       },
       "variedad": "MAGICAL TRIUMPH",
@@ -15251,7 +15429,9 @@
           "savi_med": -0.0056,
           "ndmi_med": 0.0465,
           "cv_pct": 0.0,
-          "area_critica_pct": 93.75
+          "area_critica_pct": 93.75,
+          "cobertura_rf_pct": 6.2,
+          "suelo_rf_pct": 93.8
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -15421,7 +15601,9 @@
           "savi_med": 0.035,
           "ndmi_med": -0.0232,
           "cv_pct": 56.23,
-          "area_critica_pct": 28.57
+          "area_critica_pct": 28.57,
+          "cobertura_rf_pct": 71.4,
+          "suelo_rf_pct": 28.6
         }
       },
       "variedad": "H21-117-1",
@@ -15597,7 +15779,9 @@
           "savi_med": 0.0032,
           "ndmi_med": -0.0998,
           "cv_pct": 0.0,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "MAGICAL TRIUMPH",
@@ -15763,7 +15947,9 @@
           "savi_med": -0.0348,
           "ndmi_med": -0.3246,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -15933,7 +16119,9 @@
           "savi_med": -0.0345,
           "ndmi_med": -0.2933,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "MAGICAL TRIUMPH",
@@ -16099,7 +16287,9 @@
           "savi_med": -0.0206,
           "ndmi_med": -0.1707,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 14.3,
+          "suelo_rf_pct": 85.7
         }
       },
       "variedad": "H21-68-7",
@@ -16265,7 +16455,9 @@
           "savi_med": 0.0041,
           "ndmi_med": 0.0092,
           "cv_pct": 1047.56,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "H21-117-1",
@@ -16435,7 +16627,9 @@
           "savi_med": -0.0147,
           "ndmi_med": 0.068,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "H21-67-3",
@@ -16609,7 +16803,9 @@
           "savi_med": 0.0079,
           "ndmi_med": 0.2758,
           "cv_pct": 248.23,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "MAGICAL SNOW PRINCE",
@@ -16783,7 +16979,9 @@
           "savi_med": 0.0044,
           "ndmi_med": -0.337,
           "cv_pct": 117.74,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 75.0,
+          "suelo_rf_pct": 25.0
         }
       },
       "variedad": "MAGICAL RENATA GREEN",
@@ -16955,7 +17153,9 @@
           "savi_med": 0.0157,
           "ndmi_med": 0.0192,
           "cv_pct": 269.16,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -17125,7 +17325,9 @@
           "savi_med": 0.0056,
           "ndmi_med": -0.1024,
           "cv_pct": 647.91,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 25.0,
+          "suelo_rf_pct": 75.0
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -17291,7 +17493,9 @@
           "savi_med": -0.0077,
           "ndmi_med": -0.1016,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "SKYLER DUO CRYSTAL",
@@ -17457,7 +17661,9 @@
           "savi_med": -0.0136,
           "ndmi_med": 0.2945,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "SKYLER SPLASH PINK",
@@ -17623,7 +17829,9 @@
           "savi_med": 0.0098,
           "ndmi_med": -0.0487,
           "cv_pct": 242.77,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "SKYLER BLUE",
@@ -17797,7 +18005,9 @@
           "savi_med": 0.0203,
           "ndmi_med": -0.1003,
           "cv_pct": 86.79,
-          "area_critica_pct": 60.0
+          "area_critica_pct": 60.0,
+          "cobertura_rf_pct": 60.0,
+          "suelo_rf_pct": 40.0
         }
       },
       "variedad": "SKYLER PINK",
@@ -17963,7 +18173,9 @@
           "savi_med": 0.0069,
           "ndmi_med": -0.1676,
           "cv_pct": 102.31,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -18149,7 +18361,9 @@
           "savi_med": 0.0206,
           "ndmi_med": 0.1293,
           "cv_pct": 101.47,
-          "area_critica_pct": 62.5
+          "area_critica_pct": 62.5,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -18319,7 +18533,9 @@
           "savi_med": -0.0235,
           "ndmi_med": -0.4252,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -18489,7 +18705,9 @@
           "savi_med": 0.0391,
           "ndmi_med": 0.0817,
           "cv_pct": 0.0,
-          "area_critica_pct": 0.0
+          "area_critica_pct": 0.0,
+          "cobertura_rf_pct": 100.0,
+          "suelo_rf_pct": 0.0
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -18659,7 +18877,9 @@
           "savi_med": -0.0021,
           "ndmi_med": -0.3497,
           "cv_pct": 0.0,
-          "area_critica_pct": 57.14
+          "area_critica_pct": 57.14,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "MAGICAL SNOW PRINCE",
@@ -18859,7 +19079,9 @@
           "savi_med": -0.0057,
           "ndmi_med": 0.0838,
           "cv_pct": 0.0,
-          "area_critica_pct": 83.33
+          "area_critica_pct": 83.33,
+          "cobertura_rf_pct": 16.7,
+          "suelo_rf_pct": 83.3
         }
       },
       "variedad": "MAGICAL RENATA GREEN",
@@ -19067,7 +19289,9 @@
           "savi_med": 0.0139,
           "ndmi_med": 0.7342,
           "cv_pct": 175.37,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 25.0,
+          "suelo_rf_pct": 75.0
         }
       },
       "variedad": "MAGICAL RENATA GREEN",
@@ -19275,7 +19499,9 @@
           "savi_med": 0.0033,
           "ndmi_med": 0.1407,
           "cv_pct": 702.32,
-          "area_critica_pct": 80.0
+          "area_critica_pct": 80.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "MAGICAL SNOW PRINCE",
@@ -19479,7 +19705,9 @@
           "savi_med": -0.0302,
           "ndmi_med": -0.359,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "MAGICAL RED WINE",
@@ -19671,7 +19899,9 @@
           "savi_med": 0.0056,
           "ndmi_med": -0.1494,
           "cv_pct": 623.4,
-          "area_critica_pct": 57.14
+          "area_critica_pct": 57.14,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "MAGICAL TRIUMPH",
@@ -19839,7 +20069,9 @@
           "savi_med": -0.0047,
           "ndmi_med": -0.371,
           "cv_pct": 0.0,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 25.0,
+          "suelo_rf_pct": 75.0
         }
       },
       "variedad": "MAGICAL TRIUMPH",
@@ -20007,7 +20239,9 @@
           "savi_med": 0.0441,
           "ndmi_med": 0.4191,
           "cv_pct": 0.0,
-          "area_critica_pct": 0.0
+          "area_critica_pct": 0.0,
+          "cobertura_rf_pct": 100.0,
+          "suelo_rf_pct": 0.0
         }
       },
       "variedad": "MAGICAL RED WINE",
@@ -20207,7 +20441,9 @@
           "savi_med": -0.0046,
           "ndmi_med": 0.3979,
           "cv_pct": 180.54,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "MAGICAL RED WINE",
@@ -20399,7 +20635,9 @@
           "savi_med": -0.0004,
           "ndmi_med": -0.2445,
           "cv_pct": 409.15,
-          "area_critica_pct": 71.43
+          "area_critica_pct": 71.43,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "MAGICAL ROYAL PRINCESS",
@@ -20583,7 +20821,9 @@
           "savi_med": -0.0062,
           "ndmi_med": -0.1417,
           "cv_pct": 0.0,
-          "area_critica_pct": 87.5
+          "area_critica_pct": 87.5,
+          "cobertura_rf_pct": 12.5,
+          "suelo_rf_pct": 87.5
         }
       },
       "variedad": "MAGICAL ROYAL PRINCESS",
@@ -20767,7 +21007,9 @@
           "savi_med": 0.0042,
           "ndmi_med": -0.0691,
           "cv_pct": 685.18,
-          "area_critica_pct": 88.89
+          "area_critica_pct": 88.89,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "MAGICAL MAJESTIC PINK",
@@ -20959,7 +21201,9 @@
           "savi_med": -0.0229,
           "ndmi_med": -0.381,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "MAGICAL MAJESTIC PINK",
@@ -21155,7 +21399,9 @@
           "savi_med": 0.0064,
           "ndmi_med": 0.147,
           "cv_pct": 972.37,
-          "area_critica_pct": 87.5
+          "area_critica_pct": 87.5,
+          "cobertura_rf_pct": 12.5,
+          "suelo_rf_pct": 87.5
         }
       },
       "variedad": "MAGICAL CHERRY",
@@ -21361,7 +21607,9 @@
           "savi_med": -0.0164,
           "ndmi_med": -0.2358,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "MAGICAL CHERRY",
@@ -21563,7 +21811,9 @@
           "savi_med": -0.0084,
           "ndmi_med": -0.4781,
           "cv_pct": 0.0,
-          "area_critica_pct": 83.33
+          "area_critica_pct": 83.33,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "MAGICAL MAJESTIC PINK",
@@ -21765,7 +22015,9 @@
           "savi_med": -0.0038,
           "ndmi_med": 0.0291,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 16.7,
+          "suelo_rf_pct": 83.3
         }
       },
       "variedad": "MAGICAL MAJESTIC PINK",
@@ -21967,7 +22219,9 @@
           "savi_med": -0.0018,
           "ndmi_med": 0.066,
           "cv_pct": 0.0,
-          "area_critica_pct": 85.71
+          "area_critica_pct": 85.71,
+          "cobertura_rf_pct": 14.3,
+          "suelo_rf_pct": 85.7
         }
       },
       "variedad": "MAGICAL TRIUMPH",
@@ -22169,7 +22423,9 @@
           "savi_med": 0.0071,
           "ndmi_med": -0.0226,
           "cv_pct": 0.0,
-          "area_critica_pct": 87.5
+          "area_critica_pct": 87.5,
+          "cobertura_rf_pct": 25.0,
+          "suelo_rf_pct": 75.0
         }
       },
       "variedad": "MAGICAL TRIUMPH",
@@ -22371,7 +22627,9 @@
           "savi_med": -0.0052,
           "ndmi_med": 0.0928,
           "cv_pct": 0.0,
-          "area_critica_pct": 70.0
+          "area_critica_pct": 70.0,
+          "cobertura_rf_pct": 30.0,
+          "suelo_rf_pct": 70.0
         }
       },
       "variedad": "MAGICAL MAJESTIC PINK",
@@ -22573,7 +22831,9 @@
           "savi_med": 0.0067,
           "ndmi_med": 0.0333,
           "cv_pct": 203.74,
-          "area_critica_pct": 61.54
+          "area_critica_pct": 61.54,
+          "cobertura_rf_pct": 46.2,
+          "suelo_rf_pct": 53.8
         }
       },
       "variedad": "MAGICAL RED WINE",
@@ -22771,7 +23031,9 @@
           "savi_med": 0.0032,
           "ndmi_med": -0.0408,
           "cv_pct": 0.0,
-          "area_critica_pct": 90.0
+          "area_critica_pct": 90.0,
+          "cobertura_rf_pct": 10.0,
+          "suelo_rf_pct": 90.0
         }
       },
       "variedad": "MAGICAL RENATA GREEN",
@@ -22959,7 +23221,9 @@
           "savi_med": 0.0153,
           "ndmi_med": 0.0577,
           "cv_pct": 88.6,
-          "area_critica_pct": 70.0
+          "area_critica_pct": 70.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "MAGICAL RENATA GREEN",
@@ -23147,7 +23411,9 @@
           "savi_med": 0.0147,
           "ndmi_med": 0.1122,
           "cv_pct": 248.55,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 43.8,
+          "suelo_rf_pct": 56.2
         }
       },
       "variedad": "SKYLER BLUE",
@@ -23317,7 +23583,9 @@
           "savi_med": 0.0305,
           "ndmi_med": 0.0824,
           "cv_pct": 136.23,
-          "area_critica_pct": 22.22
+          "area_critica_pct": 22.22,
+          "cobertura_rf_pct": 77.8,
+          "suelo_rf_pct": 22.2
         }
       },
       "variedad": "SKYLER BLUE",
@@ -23487,7 +23755,9 @@
           "savi_med": 0.0066,
           "ndmi_med": 0.0924,
           "cv_pct": 4137.53,
-          "area_critica_pct": 90.91
+          "area_critica_pct": 90.91,
+          "cobertura_rf_pct": 9.1,
+          "suelo_rf_pct": 90.9
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -23659,7 +23929,9 @@
           "savi_med": 0.0007,
           "ndmi_med": -0.0457,
           "cv_pct": 0.0,
-          "area_critica_pct": 57.14
+          "area_critica_pct": 57.14,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "SIN DATO",
@@ -23821,7 +24093,9 @@
           "savi_med": -0.0139,
           "ndmi_med": -0.0582,
           "cv_pct": 0.0,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 25.0,
+          "suelo_rf_pct": 75.0
         }
       },
       "variedad": "MAGICAL RED WINE",
@@ -24017,7 +24291,9 @@
           "savi_med": 0.0165,
           "ndmi_med": -0.0212,
           "cv_pct": 201.44,
-          "area_critica_pct": 57.14
+          "area_critica_pct": 57.14,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -24183,7 +24459,9 @@
           "savi_med": 0.0039,
           "ndmi_med": -0.3028,
           "cv_pct": 0.0,
-          "area_critica_pct": 71.43
+          "area_critica_pct": 71.43,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "SKYLER SPLASH BLUE",
@@ -24351,7 +24629,9 @@
           "savi_med": 0.0376,
           "ndmi_med": -0.0234,
           "cv_pct": 66.37,
-          "area_critica_pct": 25.0
+          "area_critica_pct": 25.0,
+          "cobertura_rf_pct": 75.0,
+          "suelo_rf_pct": 25.0
         }
       },
       "variedad": "SKYLER BLUE",
@@ -24523,7 +24803,9 @@
           "savi_med": 0.0047,
           "ndmi_med": -0.0216,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 16.7,
+          "suelo_rf_pct": 83.3
         }
       },
       "variedad": "BABY BLUE",
@@ -24689,7 +24971,9 @@
           "savi_med": -0.0021,
           "ndmi_med": -0.2196,
           "cv_pct": 0.0,
-          "area_critica_pct": 80.0
+          "area_critica_pct": 80.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "BABY BLUE",
@@ -24855,7 +25139,9 @@
           "savi_med": -0.0072,
           "ndmi_med": -0.426,
           "cv_pct": 0.0,
-          "area_critica_pct": 60.0
+          "area_critica_pct": 60.0,
+          "cobertura_rf_pct": 40.0,
+          "suelo_rf_pct": 60.0
         }
       },
       "variedad": "BABY BLUE",
@@ -25021,7 +25307,9 @@
           "savi_med": 0.0028,
           "ndmi_med": -0.093,
           "cv_pct": 273.2,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "BABY BLUE",
@@ -25187,7 +25475,9 @@
           "savi_med": -0.0092,
           "ndmi_med": 0.1172,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -25353,7 +25643,9 @@
           "savi_med": -0.0038,
           "ndmi_med": -0.0979,
           "cv_pct": 0.0,
-          "area_critica_pct": 80.0
+          "area_critica_pct": 80.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -25519,7 +25811,9 @@
           "savi_med": -0.0113,
           "ndmi_med": 0.0444,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -25685,7 +25979,9 @@
           "savi_med": -0.0027,
           "ndmi_med": -0.0529,
           "cv_pct": 0.0,
-          "area_critica_pct": 87.5
+          "area_critica_pct": 87.5,
+          "cobertura_rf_pct": 12.5,
+          "suelo_rf_pct": 87.5
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -25851,7 +26147,9 @@
           "savi_med": 0.0049,
           "ndmi_med": 0.2745,
           "cv_pct": 2014.89,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 16.7,
+          "suelo_rf_pct": 83.3
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -26017,7 +26315,9 @@
           "savi_med": 0.0283,
           "ndmi_med": -0.128,
           "cv_pct": 0.0,
-          "area_critica_pct": 0.0
+          "area_critica_pct": 0.0,
+          "cobertura_rf_pct": 100.0,
+          "suelo_rf_pct": 0.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -26187,7 +26487,9 @@
           "savi_med": 0.0114,
           "ndmi_med": 0.1831,
           "cv_pct": 210.96,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -26353,7 +26655,9 @@
           "savi_med": -0.0025,
           "ndmi_med": 0.0288,
           "cv_pct": 0.0,
-          "area_critica_pct": 87.5
+          "area_critica_pct": 87.5,
+          "cobertura_rf_pct": 12.5,
+          "suelo_rf_pct": 87.5
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -26519,7 +26823,9 @@
           "savi_med": -0.0184,
           "ndmi_med": -0.3506,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -26695,7 +27001,9 @@
           "savi_med": -0.0014,
           "ndmi_med": -0.1517,
           "cv_pct": 0.0,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "G49",
@@ -26861,7 +27169,9 @@
           "savi_med": 0.0173,
           "ndmi_med": -0.0235,
           "cv_pct": 175.19,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 60.0,
+          "suelo_rf_pct": 40.0
         }
       },
       "variedad": "MAGICAL TRIUMPH",
@@ -27059,7 +27369,9 @@
           "savi_med": 0.018,
           "ndmi_med": -0.0202,
           "cv_pct": 168.23,
-          "area_critica_pct": 33.33
+          "area_critica_pct": 33.33,
+          "cobertura_rf_pct": 66.7,
+          "suelo_rf_pct": 33.3
         }
       },
       "variedad": "MAGICAL TRIUMPH",
@@ -27261,7 +27573,9 @@
           "savi_med": 0.0008,
           "ndmi_med": -0.1359,
           "cv_pct": 280.43,
-          "area_critica_pct": 71.43
+          "area_critica_pct": 71.43,
+          "cobertura_rf_pct": 28.6,
+          "suelo_rf_pct": 71.4
         }
       },
       "variedad": "MAGICAL ROYAL PRINCESS",
@@ -27437,7 +27751,9 @@
           "savi_med": -0.0013,
           "ndmi_med": -0.1649,
           "cv_pct": 560.31,
-          "area_critica_pct": 64.29
+          "area_critica_pct": 64.29,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "MAGICAL MAJESTIC PINK",
@@ -27605,7 +27921,9 @@
           "savi_med": 0.0203,
           "ndmi_med": -0.0018,
           "cv_pct": 140.04,
-          "area_critica_pct": 37.5
+          "area_critica_pct": 37.5,
+          "cobertura_rf_pct": 62.5,
+          "suelo_rf_pct": 37.5
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -27767,7 +28085,9 @@
           "savi_med": -0.0147,
           "ndmi_med": -0.2002,
           "cv_pct": 0.0,
-          "area_critica_pct": 83.33
+          "area_critica_pct": 83.33,
+          "cobertura_rf_pct": 16.7,
+          "suelo_rf_pct": 83.3
         }
       },
       "variedad": "MAGICAL ROYAL PRINCESS",
@@ -27947,7 +28267,9 @@
           "savi_med": -0.0074,
           "ndmi_med": -0.3021,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 10.0,
+          "suelo_rf_pct": 90.0
         }
       },
       "variedad": "MAGICAL TRIUMPH",
@@ -28163,7 +28485,9 @@
           "savi_med": 0.0138,
           "ndmi_med": -0.1207,
           "cv_pct": 128.61,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -28325,7 +28649,9 @@
           "savi_med": -0.0019,
           "ndmi_med": -0.0515,
           "cv_pct": 451.87,
-          "area_critica_pct": 62.5
+          "area_critica_pct": 62.5,
+          "cobertura_rf_pct": 37.5,
+          "suelo_rf_pct": 62.5
         }
       },
       "variedad": "MAGICAL TRIUMPH",
@@ -28553,7 +28879,9 @@
           "savi_med": 0.0283,
           "ndmi_med": 0.1611,
           "cv_pct": 59.83,
-          "area_critica_pct": 33.33
+          "area_critica_pct": 33.33,
+          "cobertura_rf_pct": 66.7,
+          "suelo_rf_pct": 33.3
         }
       },
       "variedad": "MAGICAL TRIUMPH",
@@ -28769,7 +29097,9 @@
           "savi_med": 0.0235,
           "ndmi_med": -0.1067,
           "cv_pct": 101.63,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "MAGICAL RENATA GREEN",
@@ -28993,7 +29323,9 @@
           "savi_med": -0.0192,
           "ndmi_med": -0.1736,
           "cv_pct": 0.0,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "MAGICAL RENATA GREEN",
@@ -29217,7 +29549,9 @@
           "savi_med": 0.012,
           "ndmi_med": -0.1906,
           "cv_pct": 0.0,
-          "area_critica_pct": 55.56
+          "area_critica_pct": 55.56,
+          "cobertura_rf_pct": 44.4,
+          "suelo_rf_pct": 55.6
         }
       },
       "variedad": "MAGICAL RENATA GREEN",
@@ -29441,7 +29775,9 @@
           "savi_med": 0.0197,
           "ndmi_med": -0.1676,
           "cv_pct": 101.21,
-          "area_critica_pct": 33.33
+          "area_critica_pct": 33.33,
+          "cobertura_rf_pct": 66.7,
+          "suelo_rf_pct": 33.3
         }
       },
       "variedad": "MAGICAL MAJESTIC PINK",
@@ -29669,7 +30005,9 @@
           "savi_med": 0.0,
           "ndmi_med": -0.2072,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "MAGICAL MAJESTIC PINK",
@@ -29905,7 +30243,9 @@
           "savi_med": 0.0019,
           "ndmi_med": 0.0642,
           "cv_pct": 100.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -30075,7 +30415,9 @@
           "savi_med": -0.0069,
           "ndmi_med": -0.0532,
           "cv_pct": 0.0,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 25.0,
+          "suelo_rf_pct": 75.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -30251,7 +30593,9 @@
           "savi_med": 0.0009,
           "ndmi_med": 0.0211,
           "cv_pct": 270.18,
-          "area_critica_pct": 55.56
+          "area_critica_pct": 55.56,
+          "cobertura_rf_pct": 44.4,
+          "suelo_rf_pct": 55.6
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -30421,7 +30765,9 @@
           "savi_med": 0.0396,
           "ndmi_med": -0.0631,
           "cv_pct": 58.3,
-          "area_critica_pct": 20.0
+          "area_critica_pct": 20.0,
+          "cobertura_rf_pct": 80.0,
+          "suelo_rf_pct": 20.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -30601,7 +30947,9 @@
           "savi_med": 0.0131,
           "ndmi_med": 0.0997,
           "cv_pct": 743.0,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -30767,7 +31115,9 @@
           "savi_med": 0.0512,
           "ndmi_med": 0.2157,
           "cv_pct": 14.97,
-          "area_critica_pct": 0.0
+          "area_critica_pct": 0.0,
+          "cobertura_rf_pct": 100.0,
+          "suelo_rf_pct": 0.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -30949,7 +31299,9 @@
           "savi_med": 0.033,
           "ndmi_med": 0.0601,
           "cv_pct": 79.54,
-          "area_critica_pct": 25.0
+          "area_critica_pct": 25.0,
+          "cobertura_rf_pct": 75.0,
+          "suelo_rf_pct": 25.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -31129,7 +31481,9 @@
           "savi_med": 0.0279,
           "ndmi_med": 0.1216,
           "cv_pct": 29.47,
-          "area_critica_pct": 25.0
+          "area_critica_pct": 25.0,
+          "cobertura_rf_pct": 100.0,
+          "suelo_rf_pct": 0.0
         }
       },
       "variedad": "G49",
@@ -31303,7 +31657,9 @@
           "savi_med": 0.0175,
           "ndmi_med": -0.2569,
           "cv_pct": 210.59,
-          "area_critica_pct": 40.0
+          "area_critica_pct": 40.0,
+          "cobertura_rf_pct": 60.0,
+          "suelo_rf_pct": 40.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -31471,7 +31827,9 @@
           "savi_med": 0.002,
           "ndmi_med": -0.0556,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 12.5,
+          "suelo_rf_pct": 87.5
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -31641,7 +31999,9 @@
           "savi_med": 0.0049,
           "ndmi_med": -0.1002,
           "cv_pct": 235.7,
-          "area_critica_pct": 33.33
+          "area_critica_pct": 33.33,
+          "cobertura_rf_pct": 66.7,
+          "suelo_rf_pct": 33.3
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -31807,7 +32167,9 @@
           "savi_med": -0.0187,
           "ndmi_med": -0.0883,
           "cv_pct": 0.0,
-          "area_critica_pct": 80.0
+          "area_critica_pct": 80.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -31973,7 +32335,9 @@
           "savi_med": 0.0301,
           "ndmi_med": -0.086,
           "cv_pct": 55.83,
-          "area_critica_pct": 25.0
+          "area_critica_pct": 25.0,
+          "cobertura_rf_pct": 75.0,
+          "suelo_rf_pct": 25.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -32139,7 +32503,9 @@
           "savi_med": 0.0001,
           "ndmi_med": 0.0681,
           "cv_pct": 2559.28,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -32305,7 +32671,9 @@
           "savi_med": -0.0009,
           "ndmi_med": -0.0305,
           "cv_pct": 4454.24,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -32471,7 +32839,9 @@
           "savi_med": 0.0053,
           "ndmi_med": -0.449,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -32637,7 +33007,9 @@
           "savi_med": 0.0003,
           "ndmi_med": 0.3982,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -32819,7 +33191,9 @@
           "savi_med": 0.0316,
           "ndmi_med": -0.1624,
           "cv_pct": 25.05,
-          "area_critica_pct": 0.0
+          "area_critica_pct": 0.0,
+          "cobertura_rf_pct": 100.0,
+          "suelo_rf_pct": 0.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -32985,7 +33359,9 @@
           "savi_med": 0.0189,
           "ndmi_med": -0.4729,
           "cv_pct": 0.0,
-          "area_critica_pct": 0.0
+          "area_critica_pct": 0.0,
+          "cobertura_rf_pct": 100.0,
+          "suelo_rf_pct": 0.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -33203,7 +33579,9 @@
           "savi_med": 0.0265,
           "ndmi_med": 0.1978,
           "cv_pct": 39.14,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 66.7,
+          "suelo_rf_pct": 33.3
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -33401,7 +33779,9 @@
           "savi_med": 0.0008,
           "ndmi_med": 0.088,
           "cv_pct": 0.0,
-          "area_critica_pct": 80.0
+          "area_critica_pct": 80.0,
+          "cobertura_rf_pct": 40.0,
+          "suelo_rf_pct": 60.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -33563,7 +33943,9 @@
           "savi_med": 0.0239,
           "ndmi_med": 0.2074,
           "cv_pct": 65.41,
-          "area_critica_pct": 62.5
+          "area_critica_pct": 62.5,
+          "cobertura_rf_pct": 62.5,
+          "suelo_rf_pct": 37.5
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -33725,7 +34107,9 @@
           "savi_med": -0.0024,
           "ndmi_med": 0.1044,
           "cv_pct": 0.0,
-          "area_critica_pct": 90.0
+          "area_critica_pct": 90.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -33887,7 +34271,9 @@
           "savi_med": -0.0138,
           "ndmi_med": -0.0342,
           "cv_pct": 0.0,
-          "area_critica_pct": 90.0
+          "area_critica_pct": 90.0,
+          "cobertura_rf_pct": 10.0,
+          "suelo_rf_pct": 90.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -34049,7 +34435,9 @@
           "savi_med": 0.0226,
           "ndmi_med": 0.3513,
           "cv_pct": 78.29,
-          "area_critica_pct": 57.14
+          "area_critica_pct": 57.14,
+          "cobertura_rf_pct": 57.1,
+          "suelo_rf_pct": 42.9
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -34215,7 +34603,9 @@
           "savi_med": 0.0004,
           "ndmi_med": -0.1585,
           "cv_pct": 0.0,
-          "area_critica_pct": 72.73
+          "area_critica_pct": 72.73,
+          "cobertura_rf_pct": 27.3,
+          "suelo_rf_pct": 72.7
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -34381,7 +34771,9 @@
           "savi_med": 0.0063,
           "ndmi_med": -0.1453,
           "cv_pct": 238.21,
-          "area_critica_pct": 42.86
+          "area_critica_pct": 42.86,
+          "cobertura_rf_pct": 57.1,
+          "suelo_rf_pct": 42.9
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -34555,7 +34947,9 @@
           "savi_med": 0.0033,
           "ndmi_med": -0.0261,
           "cv_pct": 382.29,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "MOSTAZA CALIENTE",
@@ -34721,7 +35115,9 @@
           "savi_med": -0.0065,
           "ndmi_med": -0.015,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "SKYLER WHITE IMPROVED",
@@ -34889,7 +35285,9 @@
           "savi_med": -0.0059,
           "ndmi_med": -0.0111,
           "cv_pct": 0.0,
-          "area_critica_pct": 77.78
+          "area_critica_pct": 77.78,
+          "cobertura_rf_pct": 22.2,
+          "suelo_rf_pct": 77.8
         }
       },
       "variedad": "SKYLER BLUE",
@@ -35065,7 +35463,9 @@
           "savi_med": -0.0066,
           "ndmi_med": -0.0455,
           "cv_pct": 0.0,
-          "area_critica_pct": 75.0
+          "area_critica_pct": 75.0,
+          "cobertura_rf_pct": 25.0,
+          "suelo_rf_pct": 75.0
         }
       },
       "variedad": "SKYLER PINK",
@@ -35231,7 +35631,9 @@
           "savi_med": 0.0005,
           "ndmi_med": 0.0339,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -35405,7 +35807,9 @@
           "savi_med": -0.0183,
           "ndmi_med": -0.056,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -35611,7 +36015,9 @@
           "savi_med": 0.0224,
           "ndmi_med": 0.1482,
           "cv_pct": 140.8,
-          "area_critica_pct": 57.14
+          "area_critica_pct": 57.14,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -35781,7 +36187,9 @@
           "savi_med": 0.0173,
           "ndmi_med": 0.253,
           "cv_pct": 164.23,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "VICIA-AVENA",
@@ -35951,7 +36359,9 @@
           "savi_med": -0.0142,
           "ndmi_med": -0.0443,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "G49",
@@ -36125,7 +36535,9 @@
           "savi_med": 0.0069,
           "ndmi_med": -0.1614,
           "cv_pct": 810.32,
-          "area_critica_pct": 81.82
+          "area_critica_pct": 81.82,
+          "cobertura_rf_pct": 18.2,
+          "suelo_rf_pct": 81.8
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -36287,7 +36699,9 @@
           "savi_med": -0.0013,
           "ndmi_med": -0.1093,
           "cv_pct": 0.0,
-          "area_critica_pct": 90.0
+          "area_critica_pct": 90.0,
+          "cobertura_rf_pct": 10.0,
+          "suelo_rf_pct": 90.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -36455,7 +36869,9 @@
           "savi_med": -0.0078,
           "ndmi_med": 0.1226,
           "cv_pct": 0.0,
-          "area_critica_pct": 80.0
+          "area_critica_pct": 80.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -36617,7 +37033,9 @@
           "savi_med": 0.0016,
           "ndmi_med": 0.2373,
           "cv_pct": 385.11,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -36783,7 +37201,9 @@
           "savi_med": -0.0057,
           "ndmi_med": -0.0993,
           "cv_pct": 0.0,
-          "area_critica_pct": 80.0
+          "area_critica_pct": 80.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -36953,7 +37373,9 @@
           "savi_med": -0.0087,
           "ndmi_med": -0.0609,
           "cv_pct": 0.0,
-          "area_critica_pct": 80.0
+          "area_critica_pct": 80.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -37119,7 +37541,9 @@
           "savi_med": 0.0099,
           "ndmi_med": 0.4064,
           "cv_pct": 333.57,
-          "area_critica_pct": 62.5
+          "area_critica_pct": 62.5,
+          "cobertura_rf_pct": 37.5,
+          "suelo_rf_pct": 62.5
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -37289,7 +37713,9 @@
           "savi_med": 0.0074,
           "ndmi_med": -0.0768,
           "cv_pct": 167.44,
-          "area_critica_pct": 53.85
+          "area_critica_pct": 53.85,
+          "cobertura_rf_pct": 53.8,
+          "suelo_rf_pct": 46.2
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -37455,7 +37881,9 @@
           "savi_med": -0.0078,
           "ndmi_med": -0.1424,
           "cv_pct": 0.0,
-          "area_critica_pct": 80.0
+          "area_critica_pct": 80.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -37617,7 +38045,9 @@
           "savi_med": 0.0292,
           "ndmi_med": 0.0685,
           "cv_pct": 79.53,
-          "area_critica_pct": 37.5
+          "area_critica_pct": 37.5,
+          "cobertura_rf_pct": 62.5,
+          "suelo_rf_pct": 37.5
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -37795,7 +38225,9 @@
           "savi_med": -0.0122,
           "ndmi_med": -0.0532,
           "cv_pct": 0.0,
-          "area_critica_pct": 85.71
+          "area_critica_pct": 85.71,
+          "cobertura_rf_pct": 21.4,
+          "suelo_rf_pct": 78.6
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -37961,7 +38393,9 @@
           "savi_med": 0.0052,
           "ndmi_med": 0.0955,
           "cv_pct": 199.51,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -38135,7 +38569,9 @@
           "savi_med": 0.0098,
           "ndmi_med": -0.1111,
           "cv_pct": 612.89,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -38309,7 +38745,9 @@
           "savi_med": 0.0048,
           "ndmi_med": -0.033,
           "cv_pct": 614.61,
-          "area_critica_pct": 80.0
+          "area_critica_pct": 80.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -38475,7 +38913,9 @@
           "savi_med": 0.0027,
           "ndmi_med": -0.0847,
           "cv_pct": 1553.25,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "BILLION LIGHTS",
@@ -38645,7 +39085,9 @@
           "savi_med": 0.0144,
           "ndmi_med": -0.1425,
           "cv_pct": 129.91,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "VICIA-AVENA",
@@ -38811,7 +39253,9 @@
           "savi_med": 0.0041,
           "ndmi_med": -0.2123,
           "cv_pct": 1362.66,
-          "area_critica_pct": 61.54
+          "area_critica_pct": 61.54,
+          "cobertura_rf_pct": 46.2,
+          "suelo_rf_pct": 53.8
         }
       },
       "variedad": "VICIA-AVENA",
@@ -38977,7 +39421,9 @@
           "savi_med": 0.0073,
           "ndmi_med": -0.0654,
           "cv_pct": 184.57,
-          "area_critica_pct": 58.33
+          "area_critica_pct": 58.33,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -39151,7 +39597,9 @@
           "savi_med": 0.0026,
           "ndmi_med": -0.112,
           "cv_pct": 0.0,
-          "area_critica_pct": 83.33
+          "area_critica_pct": 83.33,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "VICIA-AVENA",
@@ -39317,7 +39765,9 @@
           "savi_med": 0.0061,
           "ndmi_med": -0.0185,
           "cv_pct": 429.85,
-          "area_critica_pct": 76.92
+          "area_critica_pct": 76.92,
+          "cobertura_rf_pct": 30.8,
+          "suelo_rf_pct": 69.2
         }
       },
       "variedad": "VICIA-AVENA",
@@ -39495,7 +39945,9 @@
           "savi_med": -0.0074,
           "ndmi_med": -0.2272,
           "cv_pct": 22790.14,
-          "area_critica_pct": 50.0
+          "area_critica_pct": 50.0,
+          "cobertura_rf_pct": 50.0,
+          "suelo_rf_pct": 50.0
         }
       },
       "variedad": "VICIA-AVENA",
@@ -39665,7 +40117,9 @@
           "savi_med": 0.0086,
           "ndmi_med": 0.0451,
           "cv_pct": 224.64,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -39831,7 +40285,9 @@
           "savi_med": 0.0222,
           "ndmi_med": -0.2227,
           "cv_pct": 69.0,
-          "area_critica_pct": 28.57
+          "area_critica_pct": 28.57,
+          "cobertura_rf_pct": 71.4,
+          "suelo_rf_pct": 28.6
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -39993,7 +40449,9 @@
           "savi_med": 0.0024,
           "ndmi_med": 0.0316,
           "cv_pct": 492.96,
-          "area_critica_pct": 80.0
+          "area_critica_pct": 80.0,
+          "cobertura_rf_pct": 20.0,
+          "suelo_rf_pct": 80.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -40163,7 +40621,9 @@
           "savi_med": 0.0068,
           "ndmi_med": 0.1624,
           "cv_pct": 295.48,
-          "area_critica_pct": 92.86
+          "area_critica_pct": 92.86,
+          "cobertura_rf_pct": 21.4,
+          "suelo_rf_pct": 78.6
         }
       },
       "variedad": "MOSTAZA CALIENTE",
@@ -40329,7 +40789,9 @@
           "savi_med": -0.0084,
           "ndmi_med": -0.2188,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "MOSTAZA CALIENTE",
@@ -40495,7 +40957,9 @@
           "savi_med": -0.011,
           "ndmi_med": -0.1141,
           "cv_pct": 0.0,
-          "area_critica_pct": 88.89
+          "area_critica_pct": 88.89,
+          "cobertura_rf_pct": 22.2,
+          "suelo_rf_pct": 77.8
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -40657,7 +41121,9 @@
           "savi_med": -0.0085,
           "ndmi_med": 0.003,
           "cv_pct": 0.0,
-          "area_critica_pct": 72.73
+          "area_critica_pct": 72.73,
+          "cobertura_rf_pct": 27.3,
+          "suelo_rf_pct": 72.7
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -40819,7 +41285,9 @@
           "savi_med": -0.0083,
           "ndmi_med": -0.0343,
           "cv_pct": 0.0,
-          "area_critica_pct": 84.62
+          "area_critica_pct": 84.62,
+          "cobertura_rf_pct": 15.4,
+          "suelo_rf_pct": 84.6
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -40981,7 +41449,9 @@
           "savi_med": 0.0172,
           "ndmi_med": -0.1805,
           "cv_pct": 148.45,
-          "area_critica_pct": 46.67
+          "area_critica_pct": 46.67,
+          "cobertura_rf_pct": 53.3,
+          "suelo_rf_pct": 46.7
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -41143,7 +41613,9 @@
           "savi_med": -0.0104,
           "ndmi_med": -0.0663,
           "cv_pct": 0.0,
-          "area_critica_pct": 92.86
+          "area_critica_pct": 92.86,
+          "cobertura_rf_pct": 7.1,
+          "suelo_rf_pct": 92.9
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -41305,7 +41777,9 @@
           "savi_med": 0.0088,
           "ndmi_med": -0.0512,
           "cv_pct": 373.85,
-          "area_critica_pct": 68.75
+          "area_critica_pct": 68.75,
+          "cobertura_rf_pct": 31.2,
+          "suelo_rf_pct": 68.8
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -41467,7 +41941,9 @@
           "savi_med": 0.0106,
           "ndmi_med": -0.3366,
           "cv_pct": 286.36,
-          "area_critica_pct": 46.67
+          "area_critica_pct": 46.67,
+          "cobertura_rf_pct": 53.3,
+          "suelo_rf_pct": 46.7
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -41633,7 +42109,9 @@
           "savi_med": 0.0245,
           "ndmi_med": 0.1262,
           "cv_pct": 106.79,
-          "area_critica_pct": 26.67
+          "area_critica_pct": 26.67,
+          "cobertura_rf_pct": 73.3,
+          "suelo_rf_pct": 26.7
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -41799,7 +42277,9 @@
           "savi_med": 0.008,
           "ndmi_med": -0.0269,
           "cv_pct": 365.71,
-          "area_critica_pct": 53.33
+          "area_critica_pct": 53.33,
+          "cobertura_rf_pct": 46.7,
+          "suelo_rf_pct": 53.3
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -41965,7 +42445,9 @@
           "savi_med": -0.0001,
           "ndmi_med": -0.2539,
           "cv_pct": 1183.6,
-          "area_critica_pct": 72.73
+          "area_critica_pct": 72.73,
+          "cobertura_rf_pct": 36.4,
+          "suelo_rf_pct": 63.6
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -42155,7 +42637,9 @@
           "savi_med": 0.0054,
           "ndmi_med": 0.0473,
           "cv_pct": 621.63,
-          "area_critica_pct": 45.45
+          "area_critica_pct": 45.45,
+          "cobertura_rf_pct": 54.5,
+          "suelo_rf_pct": 45.5
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -42333,7 +42817,9 @@
           "savi_med": 0.0045,
           "ndmi_med": -0.1559,
           "cv_pct": 25527.76,
-          "area_critica_pct": 90.48
+          "area_critica_pct": 90.48,
+          "cobertura_rf_pct": 23.8,
+          "suelo_rf_pct": 76.2
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -42515,7 +43001,9 @@
           "savi_med": -0.0,
           "ndmi_med": 0.0662,
           "cv_pct": 7144.12,
-          "area_critica_pct": 77.78
+          "area_critica_pct": 77.78,
+          "cobertura_rf_pct": 22.2,
+          "suelo_rf_pct": 77.8
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -42677,7 +43165,9 @@
           "savi_med": 0.003,
           "ndmi_med": -0.1307,
           "cv_pct": 457.77,
-          "area_critica_pct": 57.14
+          "area_critica_pct": 57.14,
+          "cobertura_rf_pct": 42.9,
+          "suelo_rf_pct": 57.1
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -42839,7 +43329,9 @@
           "savi_med": -0.0145,
           "ndmi_med": 0.0075,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 0.0,
+          "suelo_rf_pct": 100.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -43025,7 +43517,9 @@
           "savi_med": 0.0028,
           "ndmi_med": -0.2378,
           "cv_pct": 0.0,
-          "area_critica_pct": 87.5
+          "area_critica_pct": 87.5,
+          "cobertura_rf_pct": 12.5,
+          "suelo_rf_pct": 87.5
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -43235,7 +43729,9 @@
           "savi_med": 0.0079,
           "ndmi_med": -0.1316,
           "cv_pct": 312.94,
-          "area_critica_pct": 60.0
+          "area_critica_pct": 60.0,
+          "cobertura_rf_pct": 40.0,
+          "suelo_rf_pct": 60.0
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -43397,7 +43893,9 @@
           "savi_med": -0.0109,
           "ndmi_med": -0.3012,
           "cv_pct": 0.0,
-          "area_critica_pct": 100.0
+          "area_critica_pct": 100.0,
+          "cobertura_rf_pct": 14.3,
+          "suelo_rf_pct": 85.7
         }
       },
       "variedad": "VACIO / TUMBA",
@@ -43563,7 +44061,9 @@
           "savi_med": 0.0088,
           "ndmi_med": -0.4415,
           "cv_pct": 1118.39,
-          "area_critica_pct": 66.67
+          "area_critica_pct": 66.67,
+          "cobertura_rf_pct": 33.3,
+          "suelo_rf_pct": 66.7
         }
       },
       "variedad": "MAGICAL RENATA GREEN",

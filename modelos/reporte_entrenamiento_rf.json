@@ -1,0 +1,48 @@
+{
+  "fecha_entrenamiento": "2026-10-31T16:49:16.531688",
+  "total_pixeles_entrenamiento": 1811,
+  "variables_entrada": [
+    "b04_red",
+    "b08_nir",
+    "b11_swir",
+    "ndvi",
+    "savi",
+    "ndmi",
+    "ratio_nir_red",
+    "ratio_nir_swir"
+  ],
+  "modelo_binario_cobertura": {
+    "accuracy": 0.9956,
+    "f1_score": 0.9958,
+    "confusion_matrix": [
+      [
+        215,
+        0
+      ],
+      [
+        2,
+        236
+      ]
+    ],
+    "importancia_variables": {
+      "b04_red": 0.0325,
+      "b08_nir": 0.0578,
+      "b11_swir": 0.0119,
+      "ndvi": 0.2831,
+      "savi": 0.1146,
+      "ndmi": 0.1285,
+      "ratio_nir_red": 0.2609,
+      "ratio_nir_swir": 0.1107
+    }
+  },
+  "modelo_multiclase_cultivos": {
+    "accuracy": 0.7925,
+    "clases": [
+      "GYPSOPHILA",
+      "HYPERICUM",
+      "SOLIDAGO",
+      "SUELO_DESNUDO",
+      "VERONICA"
+    ]
+  }
+}
