@@ -1097,6 +1097,7 @@
               <strong>NDVI Promedio:</strong> ${h.ndvi_med} (P10: ${h.ndvi_p10} | P90: ${h.ndvi_p90 !== undefined ? h.ndvi_p90 : '--'})<br>
               <strong>SAVI:</strong> ${h.savi_med} | <strong>NDMI:</strong> ${h.ndmi_med}<br>
               <strong>Uniformidad (CV):</strong> ${h.cv_pct}%<br>
+              ${(h.cobertura_rf_pct !== undefined && !isTumba) ? `<strong>Cobertura Foliar (IA):</strong> <span class="badge bg-success font-mono-num">${h.cobertura_rf_pct}% Dosel</span> <span class="text-white-50 small">(${h.suelo_rf_pct}% suelo)</span><br>` : ''}
               <strong>Diagnóstico:</strong> ${getDiagnosticoBadge(p, h, indiceKey, umbralCritico)}
             </div>
           `);
