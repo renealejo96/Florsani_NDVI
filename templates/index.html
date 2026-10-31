@@ -997,6 +997,40 @@
       return "bg-info text-dark";
     }
 
+    function getCoberturaIABadge(coberturaPct, sueloPct, esTumba) {
+      if (esTumba || coberturaPct === undefined || coberturaPct === null) return '';
+      const c = Number(coberturaPct);
+      const s = (sueloPct !== undefined && sueloPct !== null) ? Number(sueloPct) : Math.max(0, 100 - c);
+
+      let badgeClass = "bg-success text-light";
+      let icon = "🌿";
+      let label = "Dosel Pleno";
+
+      if (c >= 75) {
+        badgeClass = "bg-success text-light";
+        icon = "🌿";
+        label = "Dosel Pleno";
+      } else if (c >= 40) {
+        badgeClass = "bg-info text-dark";
+        icon = "🌱";
+        label = "Dosel Medio";
+      } else if (c >= 20) {
+        badgeClass = "bg-warning text-dark";
+        icon = "⚠️";
+        label = "Poco Follaje";
+      } else if (c > 0) {
+        badgeClass = "bg-danger text-light";
+        icon = "🚨";
+        label = "Follaje Mínimo";
+      } else {
+        badgeClass = "bg-secondary text-light";
+        icon = "🟫";
+        label = "Suelo Puro";
+      }
+
+      return `<span class="badge ${badgeClass} font-mono-num fw-bold">${icon} ${c.toFixed(1)}% ${label}</span> <span class="text-white-50 small">(${s.toFixed(1)}% suelo)</span>`;
+    }
+
     function renderMapPolygons(fecha, indiceKey, umbralCritico) {
       if (geojsonLayer) {
         map.removeLayer(geojsonLayer);
@@ -1062,11 +1096,12 @@
               </div>
             `;
           } else {
+            const rfShort = (h.cobertura_rf_pct !== undefined && !esTumba) ? ` | IA: <strong>${h.cobertura_rf_pct}%</strong>` : '';
             tooltipHtml = `
               <div class="small">
                 <strong>Bloque ${p.bloque_nombre}</strong> ${p.candidato_estrella ? '⭐' : ''} (${p.cultivo})<br>
                 ${indiceKey.toUpperCase()}: <strong>${h[indiceKey] !== undefined ? h[indiceKey] : '--'}</strong><br>
-                Camas: <strong>${p.camas_activas || 0}/${p.camas_total || 0}</strong> | % Crítico: ${h.area_critica_pct}%
+                Camas: <strong>${p.camas_activas || 0}/${p.camas_total || 0}</strong>${rfShort} | % Crítico: ${h.area_critica_pct}%
               </div>
             `;
           }
@@ -1081,6 +1116,8 @@
             const deltaStr = (deltaVal > 0 ? "+" : "") + deltaVal.toFixed(3);
             valInfo = `<strong>Δ Cambio Temporal:</strong> <span class="badge ${deltaVal < -0.02 ? 'bg-danger' : (deltaVal > 0.02 ? 'bg-success' : 'bg-secondary')} font-mono-num">${deltaStr}</span> (vs ${prevFecha})<br>`;
           }
+
+          const coberturaHtml = getCoberturaIABadge(h.cobertura_rf_pct, h.suelo_rf_pct, esTumba);
 
           layer.bindPopup(`
             <div class="p-1 small">
@@ -1097,7 +1134,7 @@
               <strong>NDVI Promedio:</strong> ${h.ndvi_med} (P10: ${h.ndvi_p10} | P90: ${h.ndvi_p90 !== undefined ? h.ndvi_p90 : '--'})<br>
               <strong>SAVI:</strong> ${h.savi_med} | <strong>NDMI:</strong> ${h.ndmi_med}<br>
               <strong>Uniformidad (CV):</strong> ${h.cv_pct}%<br>
-              ${(h.cobertura_rf_pct !== undefined && !esTumba) ? `<strong>Cobertura Foliar (IA):</strong> <span class="badge bg-success font-mono-num">${h.cobertura_rf_pct}% Dosel</span> <span class="text-white-50 small">(${h.suelo_rf_pct}% suelo)</span><br>` : ''}
+              ${coberturaHtml ? `<strong>Cobertura Foliar (IA):</strong> ${coberturaHtml}<br>` : ''}
               <strong>Diagnóstico:</strong> ${getDiagnosticoBadge(p, h, indiceKey, umbralCritico)}
             </div>
           `);
@@ -1347,6 +1384,9 @@
         }
 
         const badgeHtml = getDiagnosticoBadge(p, h, indiceKey, umbralCritico);
+        const rfTableBadge = (h.cobertura_rf_pct !== undefined && !isTumba)
+          ? `<br><small class="mt-1 d-inline-block">${getCoberturaIABadge(h.cobertura_rf_pct, h.suelo_rf_pct, isTumba)}</small>`
+          : '';
 
         const tr = document.createElement("tr");
         tr.id = `row-block-${p.id}`;
@@ -1356,7 +1396,7 @@
           <td><small class="text-muted font-mono-num">${p.camas_activas || 0}/${p.camas_total || 0}</small></td>
           <td>${valIndiceDisplay}</td>
           <td>${colCritHtml}</td>
-          <td>${badgeHtml}</td>
+          <td>${badgeHtml}${rfTableBadge}</td>
         `;
 
         tr.addEventListener("click", () => {
