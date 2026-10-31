@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PyGan AgroSat - Monitoreo Satelital de Precisión</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <style>
+    :root {
+      --bg-main: #090d16;
+      --card-bg: rgba(17, 24, 39, 0.78);
+      --card-border: rgba(255, 255, 255, 0.09);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-emerald: #10b981;
+      --accent-sky: #38bdf8;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 0%, #131d31 0%, #090d16 75%);
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background: rgba(14, 22, 38, 0.88) !important;
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .card-kpi, .card-custom {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .card-kpi:hover {
+      transform: translateY(-2.5px);
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 14px 28px -6px rgba(0, 0, 0, 0.55), 0 0 16px -2px rgba(56, 189, 248, 0.12);
+    }
+
+    .card-kpi:active {
+      transform: scale(0.985);
+    }
+
+    /* Bordes acentuados por KPI */
+    .kpi-border-emerald {
+      border-left: 4px solid var(--accent-emerald) !important;
+    }
+    .kpi-border-sky {
+      border-left: 4px solid var(--accent-sky) !important;
+    }
+    .kpi-border-amber {
+      border-left: 4px solid var(--accent-amber) !important;
+    }
+    .kpi-border-rose {
+      border-left: 4px solid var(--accent-rose) !important;
+    }
+
+    .font-mono-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-variant-numeric: tabular-nums;
+    }
+
+    #map-card-wrapper:fullscreen {
+      width: 100vw !important;
+      height: 100vh !important;
+      padding: 14px !important;
+      background: #090d16 !important;
+      border-radius: 0 !important;
+      border: none !important;
+      display: flex !important;
+      flex-direction: column !important;
+      z-index: 999999 !important;
+    }
+    #map-card-wrapper:fullscreen #map {
+      height: 100% !important;
+      flex-grow: 1 !important;
+      border-radius: 10px !important;
+    }
+
+    .block-map-label {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      color: #ffffff;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 10px;
+      text-align: center;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .block-map-label-inner {
+      background: rgba(11, 17, 30, 0.88);
+      backdrop-filter: blur(4px);
+      padding: 1px 5px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #f8fafc;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      display: inline-block;
+    }
+
+    #map {
+      height: 550px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 1;
+    }
+
+    .table-container {
+      max-height: 550px;
+      overflow-y: auto;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      background-color: rgba(15, 23, 42, 0.65);
+    }
+
+    /* Scrollbar personalizada sutil */
+    .table-container::-webkit-scrollbar {
+      width: 6px;
+    }
+    .table-container::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.4);
+    }
+    .table-container::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 3px;
+    }
+    .table-container::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+
+    .table-hover tbody tr {
+      transition: background-color 140ms ease;
+    }
+    .table-hover tbody tr:hover {
+      background-color: rgba(56, 189, 248, 0.09) !important;
+      cursor: pointer;
+    }
+
+    /* Badges modernos translúcidos */
+    .badge-optimo {
+      background-color: rgba(16, 185, 129, 0.18);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+    .badge-critico {
+      background-color: rgba(244, 63, 94, 0.18);
+      color: #fb7185;
+      border: 1px solid rgba(244, 63, 94, 0.35);
+    }
+    .badge-alerta {
+      background-color: rgba(245, 158, 11, 0.18);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+    .badge-desuniforme {
+      background-color: rgba(168, 85, 247, 0.18);
+      color: #c084fc;
+      border: 1px solid rgba(168, 85, 247, 0.35);
+    }
+
+    .legend-scale {
+      background: rgba(11, 17, 30, 0.94);
+      backdrop-filter: blur(12px);
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 12px;
+      line-height: 20px;
+      color: #e2e8f0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+    }
+
+    .legend-color-box {
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      margin-right: 6px;
+      border-radius: 3px;
+    }
+
+    .pulse-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark px-3 py-2">
+    <div class="container-fluid">
+      <span class="navbar-brand fw-bold text-success d-flex align-items-center">
+        <i class="fa-solid fa-satellite me-2 fs-4 text-emerald"></i> PyGan AgroSat
+        <span class="badge bg-dark border border-secondary text-light ms-2 fs-6 fw-normal d-flex align-items-center">
+          <span class="pulse-dot me-2"></span> Sentinel-2 L2A (10m)
+        </span>
+      </span>
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-sm btn-outline-info rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#modalRadar" id="btn-open-radar">
+          <i class="fa-solid fa-cloud-sun me-1"></i> Radar de Pasadas y Nubes
+        </button>
+        <span class="text-muted small d-none d-md-inline ms-2">
+          <i class="fa-solid fa-location-dot text-danger me-1"></i> Finca PyGan (250 Bloques | 36.5 ha)
+        </span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid p-3">
+    
+    <!-- Barra de Controles -->
+    <div class="card p-3 mb-3 border-secondary bg-dark-subtle shadow-sm">
+      <div class="row g-3 align-items-center">
+        <!-- Selector de Fecha con % de Nubes Local vs Regional -->
+        <div class="col-md-3">
+          <label class="form-label small fw-bold text-uppercase mb-1 d-flex justify-content-between">
+            <span><i class="fa-regular fa-calendar text-info me-1"></i> Fecha Satelital:</span>
+            <span id="badge-nubes-fecha" class="badge bg-secondary">Cargando...</span>
+          </label>
+          <select id="select-fecha" class="form-select form-select-sm bg-dark text-light border-secondary">
+            <!-- Se llena dinámicamente con % de nubes local y regional -->
+          </select>
+        </div>
+
+        <!-- Selector de Índice y Modo -->
+        <div class="col-md-2">
+          <label class="form-label small fw-bold text-uppercase mb-1">
+            <i class="fa-solid fa-layer-group text-warning me-1"></i> Modo / Índice
+          </label>
+          <select id="select-indice" class="form-select form-select-sm bg-dark text-light border-secondary">
+            <optgroup label="Valores Absolutos">
+              <option value="ndvi_med" selected>NDVI (Vigor)</option>
+              <option value="savi_med">SAVI (Ajustado)</option>
+              <option value="ndmi_med">NDMI (Humedad)</option>
+              <option value="ndvi_p90">NDVI P90 (Max Cama)</option>
+            </optgroup>
+            <optgroup label="Mapa de Cambio (Δ Temporal)">
+              <option value="delta_ndvi">📈 Δ Cambio Vigor (vs anterior)</option>
+              <option value="delta_ndmi">💧 Δ Cambio Humedad (vs anterior)</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <!-- Selector de Cultivo / Estado -->
+        <div class="col-md-3">
+          <label class="form-label small fw-bold text-uppercase mb-1">
+            <i class="fa-solid fa-seedling text-success me-1"></i> Flor / Estado
+          </label>
+          <select id="select-cultivo" class="form-select form-select-sm bg-dark text-light border-secondary">
+            <option value="TODOS" selected>Todos los Bloques (250)</option>
+            <option value="ESTRELLA">⭐ Solo Candidatos Estrella (63)</option>
+            <option value="GYPSOPHILA">Gypsophila</option>
+            <option value="HYPERICUM">Hypericum</option>
+            <option value="VERONICA">Veronica</option>
+            <option value="SOLIDAGO">Solidago</option>
+            <option value="SIEMBRA_ESCALONADA">🌱 Siembra Parcial (~5 camas)</option>
+            <option value="VACIO / TUMBA">Suelo / Tumba</option>
+            <option value="CON_ENSAYOS">🔬 Con Ensayos (1-6 camas)</option>
+          </select>
+        </div>
+
+        <!-- Slider de Umbral Crítico Adaptativo -->
+        <div class="col-md-3">
+          <label class="form-label small fw-bold text-uppercase mb-1 d-flex justify-content-between">
+            <span id="slider-title-wrap"><i class="fa-solid fa-triangle-exclamation text-danger me-1"></i> <span id="slider-title">Umbral Vigor (NDVI):</span></span>
+            <span id="label-umbral" class="text-warning fw-bold">0.35</span>
+          </label>
+          <input type="range" class="form-range" id="slider-umbral" min="0.15" max="0.60" step="0.05" value="0.35">
+        </div>
+
+        <!-- Botón Recargar -->
+        <div class="col-md-1 text-end d-flex align-items-end justify-content-end">
+          <button id="btn-refresh" class="btn btn-sm btn-outline-success" title="Recargar datos">
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Tarjetas KPI -->
+    <div class="row g-3 mb-3">
+      <!-- KPI 1: Vigor NDVI / Δ Cambio -->
+      <div class="col-md-3">
+        <div class="card card-kpi kpi-border-emerald p-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <div class="text-muted small text-uppercase fw-semibold" style="letter-spacing: 0.04em;" id="kpi-title-1">Vigor Promedio (NDVI)</div>
+              <h3 id="kpi-ndvi" class="fw-bold mb-0 text-success font-mono-num">--</h3>
+              <small id="kpi-savi" class="text-muted font-mono-num">SAVI: --</small>
+            </div>
+            <div class="fs-1 text-success opacity-75">
+              <i class="fa-solid fa-seedling" id="kpi-icon-1"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI 2: Estrés Hídrico NDMI / Lotes en Aumento -->
+      <div class="col-md-3">
+        <div class="card card-kpi kpi-border-sky p-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <div class="text-muted small text-uppercase fw-semibold" style="letter-spacing: 0.04em;" id="kpi-title-2">Índice Hídrico (NDMI)</div>
+              <h3 id="kpi-ndmi" class="fw-bold mb-0 text-info font-mono-num">--</h3>
+              <small id="kpi-ndmi-desc" class="text-muted">Estado del dosel</small>
+            </div>
+            <div class="fs-1 text-info opacity-75">
+              <i class="fa-solid fa-droplet" id="kpi-icon-2"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI 3: Bloques en Alerta / Lotes en Declive -->
+      <div class="col-md-3">
+        <div class="card card-kpi kpi-border-amber p-3" id="card-kpi-alerta" style="cursor: pointer;" title="Haz clic para ver la lista resumida">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <div class="text-muted small text-uppercase fw-semibold d-flex align-items-center" style="letter-spacing: 0.04em;">
+                <span id="kpi-title-3">Bloques en Alerta</span>
+                <span class="badge bg-warning text-dark ms-2" style="font-size: 0.65rem;"><i class="fa-solid fa-list-ul me-1"></i>Ver lista</span>
+              </div>
+              <h3 id="kpi-alerta" class="fw-bold mb-0 text-warning font-mono-num">--</h3>
+              <small id="kpi-alerta-pct" class="text-muted">Clic para ver detalle</small>
+            </div>
+            <div class="fs-1 text-warning opacity-75">
+              <i class="fa-solid fa-triangle-exclamation" id="kpi-icon-3"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI 4: Bloque Más Crítico / Mayor Caída -->
+      <div class="col-md-3">
+        <div class="card card-kpi kpi-border-rose p-3" id="card-kpi-critico" style="cursor: pointer;" title="Haz clic para ubicar en el mapa">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <div class="text-muted small text-uppercase fw-semibold d-flex align-items-center" style="letter-spacing: 0.04em;">
+                <span id="kpi-title-4">Bloque Más Crítico</span>
+                <span class="badge bg-danger text-light ms-2" style="font-size: 0.65rem;"><i class="fa-solid fa-crosshairs me-1"></i>Ubicar</span>
+              </div>
+              <h3 id="kpi-crit-bloque" class="fw-bold mb-0 text-danger font-mono-num">--</h3>
+              <small id="kpi-crit-pct" class="text-muted">Clic para ir al mapa</small>
+            </div>
+            <div class="fs-1 text-danger opacity-75">
+              <i class="fa-solid fa-circle-exclamation" id="kpi-icon-4"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila Central: Mapa Leaflet + Tabla Agronómica -->
+    <div class="row g-3 mb-3">
+      <!-- Mapa con soporte Fullscreen y Labels -->
+      <div class="col-lg-7">
+        <div class="card card-kpi p-2 position-relative" id="map-card-wrapper">
+          <div class="d-flex justify-content-between align-items-center px-2 py-1 mb-1">
+            <div class="d-flex align-items-center gap-2">
+              <span class="small fw-bold text-uppercase d-flex align-items-center">
+                <i class="fa-solid fa-map-location-dot me-1 text-primary"></i> 
+                <span>Mapa Satelital</span>
+              </span>
+              <span id="badge-comparativa-fecha" class="badge bg-secondary font-mono-num small d-none" style="font-size: 0.7rem;"></span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <!-- Botón Toggle Etiquetas de Bloques -->
+              <button id="btn-toggle-labels" class="btn btn-sm btn-outline-light d-flex align-items-center gap-1 py-1 px-2" style="font-size: 0.72rem;" title="Mostrar u ocultar los nombres permanentes de los bloques">
+                <i class="fa-solid fa-tags text-warning"></i>
+                <span id="txt-toggle-labels">Nombres: OFF</span>
+              </button>
+              <!-- Botón Pantalla Completa -->
+              <button id="btn-fullscreen-map" class="btn btn-sm btn-outline-info d-flex align-items-center gap-1 py-1 px-2" style="font-size: 0.72rem;" title="Expandir a pantalla completa">
+                <i class="fa-solid fa-expand" id="icon-fullscreen"></i>
+                <span>Pantalla Completa</span>
+              </button>
+              <span id="map-indicator-title" class="badge bg-dark border border-secondary text-light font-mono-num">NDVI</span>
+            </div>
+          </div>
+          <div id="map"></div>
+        </div>
+      </div>
+
+      <!-- Tabla de Priorización Agronómica -->
+      <div class="col-lg-5">
+        <div class="card card-kpi p-2">
+          <div class="d-flex justify-content-between align-items-center px-2 py-1 mb-2">
+            <div>
+              <span class="small fw-bold text-uppercase d-block">
+                <i class="fa-solid fa-arrow-down-short-wide me-1 text-warning"></i> Priorización de Bloques
+              </span>
+              <small class="text-muted" style="font-size: 0.7rem;">Ordenado: Alerta de vigor &rsaquo; Cultivo &rsaquo; Bloque</small>
+            </div>
+            <input type="text" id="filtro-tabla" class="form-control form-control-sm bg-dark text-light border-secondary w-45 rounded-pill px-3" placeholder="Buscar bloque o flor...">
+          </div>
+          <div class="table-container">
+            <table class="table table-dark table-hover table-sm align-middle mb-0">
+              <thead class="table-secondary text-uppercase small sticky-top" style="letter-spacing: 0.05em; font-size: 0.72rem;">
+                <tr>
+                  <th>Bloque</th>
+                  <th>Flor</th>
+                  <th>Camas</th>
+                  <th id="th-indice">Índice</th>
+                  <th id="th-crit">% Crítico</th>
+                  <th>Diagnóstico</th>
+                </tr>
+              </thead>
+              <tbody id="tabla-body" class="small">
+                <!-- Se llena dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila Inferior: Serie de Tiempo Chart.js -->
+    <div class="row g-3">
+      <div class="col-12">
+        <div class="card card-kpi p-3">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="fw-bold small text-uppercase">
+              <i class="fa-solid fa-chart-line text-success me-1"></i> Evolución Temporal Histórica (Sentinel-2)
+            </span>
+            <span id="chart-subtitle" class="text-muted small">Promedio Finca Completa</span>
+          </div>
+          <div style="height: 240px;">
+            <canvas id="timeSeriesChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MODAL: RADAR DE PASADAS SATELITALES Y NUBES (ÚLTIMOS 60 DÍAS) -->
+  <div class="modal fade" id="modalRadar" tabindex="-1" aria-labelledby="modalRadarLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content bg-dark border-secondary">
+        <div class="modal-header border-secondary">
+          <h5 class="modal-title text-info fw-bold" id="modalRadarLabel">
+            <i class="fa-solid fa-satellite-dish me-2"></i> Radar de Pasadas Sentinel-2 (Últimos 60 Días)
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="small text-muted mb-3">
+            Consulta en vivo del catálogo satelital de la ESA sobre la finca PyGan (Tile MGRS: <code>17NQA</code>). 
+            Recuerda que si el valor regional es alto, pero la finca está en un claro de sol, la imagen puede ser 100% útil.
+          </p>
+          <div id="radar-loading" class="text-center py-4">
+            <div class="spinner-border text-info" role="status"></div>
+            <div class="small text-muted mt-2">Consultando catálogo satelital europeo...</div>
+          </div>
+          <div id="radar-content" class="table-responsive d-none">
+            <table class="table table-dark table-hover table-sm align-middle">
+              <thead class="table-secondary small text-uppercase">
+                <tr>
+                  <th>Fecha y Hora</th>
+                  <th>Satélite</th>
+                  <th>% Nubes Región</th>
+                  <th>Condición General</th>
+                </tr>
+              </thead>
+              <tbody id="radar-table-body" class="small">
+                <!-- Se llena vía AJAX -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer border-secondary">
+          <small class="text-muted me-auto"><i class="fa-solid fa-circle-check text-success me-1"></i> Datos 100% gratuitos y abiertos (Copernicus)</small>
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: DETALLE Y RESUMEN DE BLOQUES EN ALERTA -->
+  <div class="modal fade" id="modalAlertas" tabindex="-1" aria-labelledby="modalAlertasLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content bg-dark border-secondary">
+        <div class="modal-header border-secondary bg-warning-subtle text-dark">
+          <h5 class="modal-title fw-bold" id="modalAlertasLabel">
+            <i class="fa-solid fa-triangle-exclamation text-danger me-2"></i> Resumen de Bloques en Alerta
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="small text-muted" id="modal-alertas-subtitle">
+              Mostrando lotes que requieren revisión agronómica en campo.
+            </span>
+            <span class="badge bg-danger fs-6" id="badge-modal-alertas-count">0 alertas</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-dark table-hover table-sm align-middle mb-0">
+              <thead class="table-secondary small text-uppercase">
+                <tr>
+                  <th>Bloque</th>
+                  <th>Flor / Cultivo</th>
+                  <th>Camas Activas</th>
+                  <th>Técnico</th>
+                  <th>Valor Índice</th>
+                  <th>Motivo de Alerta</th>
+                  <th class="text-center">Acción</th>
+                </tr>
+              </thead>
+              <tbody id="tabla-modal-alertas" class="small">
+                <!-- Se llena dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer border-secondary">
+          <small class="text-muted me-auto"><i class="fa-solid fa-seedling text-success me-1"></i> Calibrado para la floricultura de tu predio</small>
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts: Bootstrap, Leaflet, Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    let rawData = null;
+    let map = null;
+    let geojsonLayer = null;
+    let chartInstance = null;
+    let selectedBlockId = null;
+    let cloudMap = {}; // Mapa fecha -> { local, region }
+    let currentMostCriticalBlock = null;
+    let currentBloquesEnAlerta = 0;
+    let labelsLayer = null;
+    let labelsVisible = false;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initMap();
+      fetchDatos();
+
+      document.getElementById("select-fecha").addEventListener("change", renderDashboard);
+      document.getElementById("select-indice").addEventListener("change", handleIndiceChange);
+      document.getElementById("select-cultivo").addEventListener("change", renderDashboard);
+      document.getElementById("slider-umbral").addEventListener("input", (e) => {
+        document.getElementById("label-umbral").innerText = e.target.value;
+        renderDashboard();
+      });
+      document.getElementById("btn-refresh").addEventListener("click", fetchDatos);
+      document.getElementById("filtro-tabla").addEventListener("input", filterTable);
+      document.getElementById("btn-open-radar").addEventListener("click", loadRadarData);
+      document.getElementById("card-kpi-alerta").addEventListener("click", openModalAlertas);
+      document.getElementById("card-kpi-critico").addEventListener("click", goToMostCriticalBlock);
+      document.getElementById("btn-toggle-labels").addEventListener("click", toggleLabels);
+      document.getElementById("btn-fullscreen-map").addEventListener("click", toggleFullScreen);
+
+      document.addEventListener("fullscreenchange", () => {
+        const icon = document.getElementById("icon-fullscreen");
+        if (document.fullscreenElement) {
+          if (icon) icon.className = "fa-solid fa-compress";
+        } else {
+          if (icon) icon.className = "fa-solid fa-expand";
+        }
+        setTimeout(() => {
+          if (map) map.invalidateSize();
+        }, 150);
+      });
+    });
+
+    function initMap() {
+      map = L.map('map').setView([0.142241, -78.393670], 16);
+
+      const googleSat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+        maxZoom: 21,
+        attribution: '&copy; Google Satellite'
+      });
+
+      const googleHybrid = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+        maxZoom: 21,
+        attribution: '&copy; Google Hybrid'
+      });
+
+      googleHybrid.addTo(map);
+
+      L.control.layers({
+        "Google Híbrido (Satélite + Vías)": googleHybrid,
+        "Google Satélite Puro": googleSat
+      }, null, { position: 'topright' }).addTo(map);
+
+      const legend = L.control({ position: 'bottomright' });
+      legend.onAdd = function () {
+        const div = L.DomUtil.create('div', 'legend-scale');
+        div.id = 'map-legend';
+        return div;
+      };
+      legend.addTo(map);
+    }
+
+    async function fetchDatos() {
+      try {
+        const res = await fetch('/api/datos');
+        rawData = await res.json();
+        
+        // Mapear nubes locales y regionales
+        cloudMap = {};
+        if (rawData.fechas_info) {
+          rawData.fechas_info.forEach(fi => {
+            const loc = fi.cloud_cover_finca !== undefined ? fi.cloud_cover_finca : (fi.cloud_cover || 0);
+            const reg = fi.cloud_cover_region !== undefined ? fi.cloud_cover_region : (fi.cloud_cover || 0);
+            cloudMap[fi.fecha] = { local: loc, region: reg };
+          });
+        }
+
+        // Cargar selector de fechas mostrando Finca vs Región
+        const selectFecha = document.getElementById("select-fecha");
+        selectFecha.innerHTML = "";
+        rawData.metadata.fechas.forEach(f => {
+          const opt = document.createElement("option");
+          opt.value = f;
+          const c = cloudMap[f] || { local: 0, region: 0 };
+          const icon = c.local < 15 ? '☀️' : (c.local < 40 ? '⛅' : '☁️');
+          opt.innerText = `📅 ${f} ${icon} (Finca: ${c.local}% | Región: ${c.region}%)`;
+          selectFecha.appendChild(opt);
+        });
+
+        selectFecha.value = rawData.metadata.fechas[rawData.metadata.fechas.length - 1];
+
+        if (rawData.metadata.centroide) {
+          map.setView([rawData.metadata.centroide.lat, rawData.metadata.centroide.lon], 16);
+        }
+
+        renderDashboard();
+        initOrUpdateChart();
+      } catch (err) {
+        console.error("Error al cargar datos:", err);
+      }
+    }
+
+    function getIndiceValue(p, fecha, indiceKey) {
+      if (!p || !p.historial) return 0;
+      const hCurr = p.historial[fecha];
+      if (!hCurr) return 0;
+
+      if (indiceKey.startsWith("delta_")) {
+        if (!rawData.metadata || !rawData.metadata.fechas) return 0;
+        const fIdx = rawData.metadata.fechas.indexOf(fecha);
+        if (fIdx <= 0) return 0;
+        const prevFecha = rawData.metadata.fechas[fIdx - 1];
+        const hPrev = p.historial[prevFecha];
+        if (!hPrev) return 0;
+
+        const baseKey = indiceKey === "delta_ndvi" ? "ndvi_med" : "ndmi_med";
+        const valCurr = hCurr[baseKey] !== undefined ? hCurr[baseKey] : 0;
+        const valPrev = hPrev[baseKey] !== undefined ? hPrev[baseKey] : 0;
+        return valCurr - valPrev;
+      }
+
+      return hCurr[indiceKey] !== undefined ? hCurr[indiceKey] : (hCurr.ndvi_med || 0);
+    }
+
+    function handleIndiceChange() {
+      const idx = document.getElementById("select-indice").value;
+      const slider = document.getElementById("slider-umbral");
+      const label = document.getElementById("label-umbral");
+      const title = document.getElementById("slider-title");
+
+      if (idx === "delta_ndvi") {
+        if (title) title.innerText = "Umbral Caída Vigor (Δ):";
+        slider.min = "-0.15";
+        slider.max = "0.00";
+        slider.step = "0.01";
+        slider.value = "-0.04";
+        label.innerText = "-0.04";
+      } else if (idx === "delta_ndmi") {
+        if (title) title.innerText = "Umbral Pérdida Agua (Δ):";
+        slider.min = "-0.15";
+        slider.max = "0.00";
+        slider.step = "0.01";
+        slider.value = "-0.03";
+        label.innerText = "-0.03";
+      } else if (idx === "ndmi_med") {
+        if (title) title.innerText = "Umbral Hídrico (NDMI):";
+        slider.min = "-0.10";
+        slider.max = "0.20";
+        slider.step = "0.02";
+        slider.value = "0.00";
+        label.innerText = "0.00";
+      } else {
+        if (title) title.innerText = "Umbral Vigor (NDVI):";
+        slider.min = "0.15";
+        slider.max = "0.60";
+        slider.step = "0.05";
+        slider.value = "0.35";
+        label.innerText = "0.35";
+      }
+      renderDashboard();
+    }
+
+    function isBlockInAlert(p, h, indiceKey, umbral) {
+      if (!h) return false;
+      const cat = p.categoria_agronomica || "";
+      if (cat.includes("100% VACIO") || cat.includes("SIEMBRA ESCALONADA") || p.cultivo === "VACIO / TUMBA") {
+        return false;
+      }
+
+      if (indiceKey.startsWith("delta_")) {
+        const fecha = document.getElementById("select-fecha").value;
+        const delta = getIndiceValue(p, fecha, indiceKey);
+        return delta < umbral;
+      } else if (indiceKey === "ndmi_med") {
+        const val = h.ndmi_med !== undefined ? h.ndmi_med : 0;
+        return val < umbral;
+      } else {
+        const flor = (p.cultivo || "").toUpperCase();
+        const val = h[indiceKey] !== undefined ? h[indiceKey] : h.ndvi_med;
+        if (flor.includes("GYPSOPHILA")) return val < 0.24;
+        if (flor.includes("HYPERICUM")) return val < 0.35;
+        if (flor.includes("SOLIDAGO")) return val < 0.32;
+        if (flor.includes("VERONICA")) return val < 0.29;
+        return val < umbral;
+      }
+    }
+
+    function getDiagnosticoBadge(p, h, indiceKey, umbral) {
+      const cat = p.categoria_agronomica || "";
+      if (cat.includes("100% VACIO") || p.cultivo === "VACIO / TUMBA") {
+        return '<span class="badge bg-secondary">Tumba / Suelo</span>';
+      }
+      if (cat.includes("SIEMBRA ESCALONADA")) {
+        return '<span class="badge bg-info text-dark">🌱 Siembra Parcial</span>';
+      }
+      if (p.tiene_ensayos) {
+        return '<span class="badge bg-warning text-dark">🔬 Con Ensayo</span>';
+      }
+
+      if (indiceKey.startsWith("delta_")) {
+        const fecha = document.getElementById("select-fecha").value;
+        const delta = getIndiceValue(p, fecha, indiceKey);
+        if (delta >= 0.05) return '<span class="badge bg-success">🚀 Fuerte Subida</span>';
+        if (delta >= 0.02) return '<span class="badge badge-optimo">📈 En Crecimiento</span>';
+        if (delta > -0.02 && delta < 0.02) return '<span class="badge bg-secondary">⚖️ Estable</span>';
+        if (delta > -0.05 && delta <= -0.02) return '<span class="badge badge-alerta">📉 Declive</span>';
+        return '<span class="badge badge-critico">🚨 Caída Crítica</span>';
+      } else if (indiceKey === "ndmi_med") {
+        const val = h.ndmi_med !== undefined ? h.ndmi_med : 0;
+        if (val >= 0.15) return '<span class="badge bg-primary">💧 Alta Hidratación</span>';
+        if (val >= 0.05) return '<span class="badge badge-optimo">💧 Hidratación Adecuada</span>';
+        if (val >= 0.00) return '<span class="badge badge-alerta">⚠️ Humedad Moderada/Baja</span>';
+        return '<span class="badge badge-critico">🔥 Estrés Hídrico</span>';
+      } else {
+        const flor = (p.cultivo || "").toUpperCase();
+        const val = h[indiceKey] !== undefined ? h[indiceKey] : 0;
+        let esAlerta = false;
+
+        if (flor.includes("GYPSOPHILA")) {
+          esAlerta = val < 0.24;
+        } else if (flor.includes("HYPERICUM")) {
+          esAlerta = val < 0.35;
+        } else if (flor.includes("SOLIDAGO")) {
+          esAlerta = val < 0.32;
+        } else if (flor.includes("VERONICA")) {
+          esAlerta = val < 0.29;
+        } else {
+          esAlerta = val < umbral;
+        }
+
+        if (esAlerta) {
+          return '<span class="badge badge-critico">Alerta Vigor</span>';
+        } else if (h.cv_pct > 25.0) {
+          return '<span class="badge badge-desuniforme">Desuniforme</span>';
+        } else {
+          return '<span class="badge badge-optimo">Óptimo</span>';
+        }
+      }
+    }
+
+    function renderDashboard() {
+      if (!rawData) return;
+
+      const fecha = document.getElementById("select-fecha").value;
+      const indiceKey = document.getElementById("select-indice").value;
+      const umbralCritico = parseFloat(document.getElementById("slider-umbral").value);
+      const isDeltaMode = indiceKey.startsWith("delta_");
+
+      const fIdx = rawData.metadata.fechas.indexOf(fecha);
+      const prevFecha = fIdx > 0 ? rawData.metadata.fechas[fIdx - 1] : null;
+
+      const badgeComp = document.getElementById("badge-comparativa-fecha");
+      if (badgeComp) {
+        if (isDeltaMode) {
+          badgeComp.classList.remove("d-none");
+          badgeComp.innerText = prevFecha ? `vs ${prevFecha}` : `Fecha inicial`;
+        } else {
+          badgeComp.classList.add("d-none");
+        }
+      }
+
+      // Actualizar insignia de nubes con énfasis en la finca
+      const c = cloudMap[fecha] || { local: 0, region: 0 };
+      const badgeNubes = document.getElementById("badge-nubes-fecha");
+      
+      let badgeColor = "bg-success";
+      let estadoTxt = "Despejado";
+      if (c.local > 40) {
+        badgeColor = "bg-danger";
+        estadoTxt = "Nublado en Finca";
+      } else if (c.local >= 15) {
+        badgeColor = "bg-warning text-dark";
+        estadoTxt = "Nubes Ligeras";
+      }
+      
+      badgeNubes.className = `badge ${badgeColor}`;
+      badgeNubes.innerHTML = `<i class="fa-solid fa-sun me-1"></i> Finca: ${c.local}% nubes (${estadoTxt}) | Región: ${c.region}%`;
+
+      document.getElementById("map-indicator-title").innerText = indiceKey.toUpperCase().replace("_MED", "").replace("DELTA_", "Δ ");
+      updateLegend(indiceKey);
+
+      let sumNdvi = 0, sumSavi = 0, sumNdmi = 0, sumDelta = 0, countValid = 0;
+      let lotesAumento = 0, lotesCaida = 0;
+      let bloquesEnAlerta = 0;
+      let mostCriticalBlock = null;
+      let maxCritScore = -999;
+
+      // Filtrar bloques según el selector activo para que las tarjetas KPI reflejen la realidad seleccionada
+      const poligonos = rawData.poligonos.filter(matchesCropFilter);
+
+      poligonos.forEach(p => {
+        const h = p.historial[fecha];
+        if (h && (h.ndvi_med > 0 || h.ndmi_med !== undefined)) {
+          const esTumba = (p.cultivo === "VACIO / TUMBA") || (p.categoria_agronomica && p.categoria_agronomica.includes("100% VACIO"));
+          const esSiembraParcial = p.categoria_agronomica && p.categoria_agronomica.includes("SIEMBRA ESCALONADA");
+
+          // Excluir tumbas y siembras parciales del promedio de vigor para no distorsionar las tarjetas
+          const incluirEnProm = (!esTumba && !esSiembraParcial) || document.getElementById("select-cultivo").value === "VACIO / TUMBA";
+          const deltaVal = getIndiceValue(p, fecha, indiceKey);
+
+          if (incluirEnProm && h.ndvi_med > 0) {
+            sumNdvi += h.ndvi_med;
+            sumSavi += h.savi_med;
+            sumNdmi += h.ndmi_med;
+            sumDelta += deltaVal;
+            countValid++;
+            if (deltaVal >= 0.02) lotesAumento++;
+            if (deltaVal <= -0.02) lotesCaida++;
+          }
+
+          const enAlerta = isBlockInAlert(p, h, indiceKey, umbralCritico);
+          if (enAlerta) {
+            bloquesEnAlerta++;
+          }
+
+          if (!esTumba && !esSiembraParcial) {
+            let baseScore = 0;
+            if (isDeltaMode) {
+              baseScore = -deltaVal; // Mayor puntuación a la mayor caída negativa
+            } else if (indiceKey === "ndmi_med") {
+              baseScore = -(h.ndmi_med !== undefined ? h.ndmi_med : 0);
+            } else {
+              baseScore = (h.area_critica_pct !== undefined ? h.area_critica_pct : 0);
+            }
+            // Dar máxima prioridad de alerta a los que realmente superan el límite
+            let totalScore = (enAlerta ? 1000 : 0) + baseScore;
+            if (totalScore > maxCritScore) {
+              maxCritScore = totalScore;
+              mostCriticalBlock = p;
+            }
+          }
+        }
+      });
+
+      currentMostCriticalBlock = mostCriticalBlock;
+      currentBloquesEnAlerta = bloquesEnAlerta;
+
+      // Adaptar las 4 tarjetas KPI dinámicamente según sea modo Absoluto o Modo Cambio (Delta)
+      if (isDeltaMode) {
+        const avgDelta = countValid > 0 ? (sumDelta / countValid) : 0;
+        const signDelta = avgDelta > 0 ? "+" : "";
+        document.getElementById("kpi-title-1").innerText = "Δ Cambio Promedio Finca";
+        document.getElementById("kpi-ndvi").innerText = countValid > 0 ? `${signDelta}${avgDelta.toFixed(3)}` : "--";
+        document.getElementById("kpi-ndvi").className = `fw-bold mb-0 font-mono-num ${avgDelta >= 0 ? 'text-success' : 'text-danger'}`;
+        document.getElementById("kpi-savi").innerText = prevFecha ? `vs pasada ${prevFecha}` : "Fecha inicial de registro";
+
+        document.getElementById("kpi-title-2").innerText = "Lotes en Crecimiento (Δ)";
+        document.getElementById("kpi-ndmi").innerText = `${lotesAumento} lotes`;
+        document.getElementById("kpi-ndmi").className = "fw-bold mb-0 text-success font-mono-num";
+        document.getElementById("kpi-ndmi-desc").innerText = "Δ ≥ +0.02 (Vigor en aumento)";
+
+        document.getElementById("kpi-title-3").innerText = "Lotes en Declive (Δ)";
+        document.getElementById("kpi-alerta").innerText = `${bloquesEnAlerta} / ${poligonos.length}`;
+        document.getElementById("kpi-alerta").className = "fw-bold mb-0 text-warning font-mono-num";
+        document.getElementById("kpi-alerta-pct").innerText = `Caída < ${umbralCritico} (Ver lista)`;
+
+        document.getElementById("kpi-title-4").innerText = "Mayor Caída Registrada";
+        if (mostCriticalBlock && bloquesEnAlerta > 0) {
+          const dCrit = getIndiceValue(mostCriticalBlock, fecha, indiceKey);
+          document.getElementById("kpi-crit-bloque").innerText = `Bloque ${mostCriticalBlock.bloque_nombre}`;
+          document.getElementById("kpi-crit-pct").innerText = `Caída: ${dCrit.toFixed(3)} (${mostCriticalBlock.cultivo})`;
+        } else {
+          document.getElementById("kpi-crit-bloque").innerText = "Sin caídas críticas";
+          document.getElementById("kpi-crit-pct").innerText = "Lotes con vigor estable o en subida";
+        }
+      } else {
+        const avgNdvi = countValid > 0 ? (sumNdvi / countValid).toFixed(3) : "--";
+        const avgSavi = countValid > 0 ? (sumSavi / countValid).toFixed(3) : "--";
+        const avgNdmi = countValid > 0 ? (sumNdmi / countValid).toFixed(3) : "--";
+
+        document.getElementById("kpi-title-1").innerText = "Vigor Promedio (NDVI)";
+        document.getElementById("kpi-ndvi").innerText = avgNdvi;
+        document.getElementById("kpi-ndvi").className = "fw-bold mb-0 text-success font-mono-num";
+        document.getElementById("kpi-savi").innerText = `SAVI Prom: ${avgSavi}`;
+
+        document.getElementById("kpi-title-2").innerText = "Índice Hídrico (NDMI)";
+        document.getElementById("kpi-ndmi").innerText = avgNdmi;
+        document.getElementById("kpi-ndmi").className = "fw-bold mb-0 text-info font-mono-num";
+        let descHumedad = "Humedad Moderada";
+        if (avgNdmi !== "--") {
+          const nVal = parseFloat(avgNdmi);
+          if (nVal >= 0.15) descHumedad = "💧 Alta Hidratación";
+          else if (nVal >= 0.05) descHumedad = "💧 Hidratación Adecuada";
+          else if (nVal >= 0.00) descHumedad = "⚠️ Humedad Moderada/Baja";
+          else descHumedad = "🔥 Estrés Hídrico";
+        }
+        document.getElementById("kpi-ndmi-desc").innerText = descHumedad;
+
+        document.getElementById("kpi-title-3").innerText = "Bloques en Alerta";
+        document.getElementById("kpi-alerta").innerText = `${bloquesEnAlerta} / ${poligonos.length}`;
+        document.getElementById("kpi-alerta").className = "fw-bold mb-0 text-warning font-mono-num";
+        document.getElementById("kpi-alerta-pct").innerText = "Clic para ver detalle";
+
+        document.getElementById("kpi-title-4").innerText = "Bloque Más Crítico";
+        if (mostCriticalBlock && bloquesEnAlerta > 0) {
+          document.getElementById("kpi-crit-bloque").innerText = `Bloque ${mostCriticalBlock.bloque_nombre}`;
+          const hCrit = mostCriticalBlock.historial[fecha] || {};
+          const detalle = indiceKey === "ndmi_med" ? `NDMI: ${hCrit.ndmi_med}` : `${hCrit.area_critica_pct}% bajo umbral`;
+          document.getElementById("kpi-crit-pct").innerText = `${detalle} (${mostCriticalBlock.cultivo})`;
+        } else {
+          document.getElementById("kpi-crit-bloque").innerText = "Sin alertas críticas";
+          document.getElementById("kpi-crit-pct").innerText = "Lotes seleccionados en buen estado";
+        }
+      }
+
+      renderMapPolygons(fecha, indiceKey, umbralCritico);
+      renderTable(fecha, indiceKey, umbralCritico);
+    }
+
+    function matchesCropFilter(p) {
+      const f = document.getElementById("select-cultivo").value;
+      if (f === "TODOS") return true;
+      if (f === "ESTRELLA") return p.candidato_estrella === true;
+      if (f === "SIEMBRA_ESCALONADA") return p.categoria_agronomica && p.categoria_agronomica.includes("SIEMBRA ESCALONADA");
+      if (f === "CON_ENSAYOS") return p.tiene_ensayos === true;
+      if (f === "VACIO / TUMBA") return p.cultivo === "VACIO / TUMBA";
+      return p.cultivo === f;
+    }
+
+    function getCropBadge(c) {
+      if (!c) return "bg-secondary";
+      if (c.includes("HYPERICUM")) return "bg-success";
+      if (c.includes("GYPSOPHILA")) return "bg-light text-dark";
+      if (c.includes("VERONICA")) return "bg-primary";
+      if (c.includes("SOLIDAGO")) return "bg-warning text-dark";
+      if (c.includes("VACIO")) return "bg-secondary";
+      return "bg-info text-dark";
+    }
+
+    function renderMapPolygons(fecha, indiceKey, umbralCritico) {
+      if (geojsonLayer) {
+        map.removeLayer(geojsonLayer);
+      }
+
+      geojsonLayer = L.geoJSON(rawData.poligonos.map(p => ({
+        type: "Feature",
+        id: p.id,
+        properties: { ...p, current_hist: p.historial[fecha] },
+        geometry: p.geojson
+      })), {
+        style: function (feature) {
+          const p = feature.properties;
+          const val = getIndiceValue(p, fecha, indiceKey);
+          const matches = matchesCropFilter(p);
+          const esTumba = (p.cultivo === "VACIO / TUMBA") || 
+                          (p.categoria_agronomica && p.categoria_agronomica.includes("100% VACIO"));
+
+          if (esTumba) {
+            // No pintar nada (relleno transparente) para no causar asombro ni alarma en tierra desnuda
+            return {
+              color: selectedBlockId === feature.id ? "#38bdf8" : "#94a3b8",
+              weight: selectedBlockId === feature.id ? 2.5 : 0.8,
+              dashArray: "3, 3",
+              fillColor: "transparent",
+              fillOpacity: 0
+            };
+          }
+
+          return {
+            color: selectedBlockId === feature.id ? "#38bdf8" : (p.candidato_estrella ? "#eab308" : "#ffffff"),
+            weight: selectedBlockId === feature.id ? 3 : (matches ? 1.5 : 0.5),
+            fillColor: getColorForIndex(indiceKey, val, umbralCritico),
+            fillOpacity: matches ? 0.78 : 0.12
+          };
+        },
+        onEachFeature: function (feature, layer) {
+          const p = feature.properties;
+          const h = p.current_hist || {};
+          const esTumba = (p.cultivo === "VACIO / TUMBA") || 
+                          (p.categoria_agronomica && p.categoria_agronomica.includes("100% VACIO"));
+
+          let tooltipHtml = "";
+          if (esTumba) {
+            tooltipHtml = `
+              <div class="small">
+                <strong>Bloque ${p.bloque_nombre}</strong> <span class="badge bg-secondary ms-1">Tumba / Suelo</span><br>
+                Área: <strong>${p.area_m2} m² (${p.area_ha} ha)</strong><br>
+                Camas: <strong>0 / ${p.camas_total || 0}</strong> (Lote libre/descanso)
+              </div>
+            `;
+          } else if (indiceKey.startsWith("delta_")) {
+            const fIdx = rawData.metadata.fechas.indexOf(fecha);
+            const prevFecha = fIdx > 0 ? rawData.metadata.fechas[fIdx - 1] : "inicio";
+            const deltaVal = getIndiceValue(p, fecha, indiceKey);
+            const deltaStr = (deltaVal > 0 ? "+" : "") + deltaVal.toFixed(3);
+            const deltaColor = deltaVal <= -0.04 ? "text-danger fw-bold" : (deltaVal >= 0.02 ? "text-success fw-bold" : "text-light");
+            tooltipHtml = `
+              <div class="small">
+                <strong>Bloque ${p.bloque_nombre}</strong> ${p.candidato_estrella ? '⭐' : ''} (${p.cultivo})<br>
+                Δ CAMBIO: <span class="${deltaColor}">${deltaStr}</span> (vs ${prevFecha})<br>
+                Camas: <strong>${p.camas_activas || 0}/${p.camas_total || 0}</strong> | ${getDiagnosticoBadge(p, h, indiceKey, umbralCritico)}
+              </div>
+            `;
+          } else {
+            tooltipHtml = `
+              <div class="small">
+                <strong>Bloque ${p.bloque_nombre}</strong> ${p.candidato_estrella ? '⭐' : ''} (${p.cultivo})<br>
+                ${indiceKey.toUpperCase()}: <strong>${h[indiceKey] !== undefined ? h[indiceKey] : '--'}</strong><br>
+                Camas: <strong>${p.camas_activas || 0}/${p.camas_total || 0}</strong> | % Crítico: ${h.area_critica_pct}%
+              </div>
+            `;
+          }
+
+          layer.bindTooltip(tooltipHtml, { sticky: true });
+
+          let valInfo = "";
+          if (indiceKey.startsWith("delta_")) {
+            const fIdx = rawData.metadata.fechas.indexOf(fecha);
+            const prevFecha = fIdx > 0 ? rawData.metadata.fechas[fIdx - 1] : "inicio";
+            const deltaVal = getIndiceValue(p, fecha, indiceKey);
+            const deltaStr = (deltaVal > 0 ? "+" : "") + deltaVal.toFixed(3);
+            valInfo = `<strong>Δ Cambio Temporal:</strong> <span class="badge ${deltaVal < -0.02 ? 'bg-danger' : (deltaVal > 0.02 ? 'bg-success' : 'bg-secondary')} font-mono-num">${deltaStr}</span> (vs ${prevFecha})<br>`;
+          }
+
+          layer.bindPopup(`
+            <div class="p-1 small">
+              <h6 class="fw-bold text-success mb-1">
+                Bloque ${p.bloque_nombre} ${p.candidato_estrella ? '<span class="badge bg-warning text-dark ms-1">⭐ Estrella</span>' : ''}
+              </h6>
+              <hr class="my-1">
+              <strong>Flor / Cultivo:</strong> <span class="badge ${getCropBadge(p.cultivo)}">${p.cultivo || 'Sin datos'}</span><br>
+              <strong>Camas:</strong> ${p.camas_activas || 0} de ${p.camas_total || 0} activas (${p.pct_activa || 0}%)<br>
+              <strong>Estado Agronómico:</strong> <span class="text-warning">${p.categoria_agronomica || '--'}</span><br>
+              <strong>Área:</strong> ${p.area_m2} m² (${p.area_ha} ha) | <strong>Técnico:</strong> Técnico ${p.tecnico}<br>
+              <hr class="my-1">
+              ${valInfo}
+              <strong>NDVI Promedio:</strong> ${h.ndvi_med} (P10: ${h.ndvi_p10} | P90: ${h.ndvi_p90 !== undefined ? h.ndvi_p90 : '--'})<br>
+              <strong>SAVI:</strong> ${h.savi_med} | <strong>NDMI:</strong> ${h.ndmi_med}<br>
+              <strong>Uniformidad (CV):</strong> ${h.cv_pct}%<br>
+              <strong>Diagnóstico:</strong> ${getDiagnosticoBadge(p, h, indiceKey, umbralCritico)}
+            </div>
+          `);
+
+          layer.on("click", () => {
+            selectedBlockId = feature.id;
+            updateBlockHighlight(p);
+          });
+        }
+      }).addTo(map);
+
+      buildLabelsLayer();
+    }
+
+    function buildLabelsLayer() {
+      if (labelsLayer) {
+        map.removeLayer(labelsLayer);
+        labelsLayer = null;
+      }
+      labelsLayer = L.layerGroup();
+      if (!geojsonLayer) return;
+
+      geojsonLayer.eachLayer(layer => {
+        const p = layer.feature.properties;
+        const center = layer.getBounds().getCenter();
+        const isTumba = (p.cultivo === "VACIO / TUMBA") || 
+                        (p.categoria_agronomica && p.categoria_agronomica.includes("100% VACIO"));
+
+        const labelHtml = `
+          <div class="block-map-label">
+            <span class="block-map-label-inner" style="${isTumba ? 'opacity: 0.5; border-color: rgba(255,255,255,0.1);' : ''}">
+              ${p.bloque_nombre}${p.candidato_estrella ? '⭐' : ''}
+            </span>
+          </div>
+        `;
+
+        const marker = L.marker(center, {
+          icon: L.divIcon({
+            className: '',
+            html: labelHtml,
+            iconSize: [40, 20],
+            iconAnchor: [20, 10]
+          }),
+          interactive: false
+        });
+
+        labelsLayer.addLayer(marker);
+      });
+
+      if (labelsVisible) {
+        labelsLayer.addTo(map);
+      }
+    }
+
+    function toggleLabels() {
+      labelsVisible = !labelsVisible;
+      const btn = document.getElementById("btn-toggle-labels");
+      const txt = document.getElementById("txt-toggle-labels");
+      
+      if (labelsVisible) {
+        if (labelsLayer) labelsLayer.addTo(map);
+        btn.classList.remove("btn-outline-light");
+        btn.classList.add("btn-warning", "text-dark");
+        txt.innerText = "Nombres: ON";
+      } else {
+        if (labelsLayer) map.removeLayer(labelsLayer);
+        btn.classList.remove("btn-warning", "text-dark");
+        btn.classList.add("btn-outline-light");
+        txt.innerText = "Nombres: OFF";
+      }
+    }
+
+    function toggleFullScreen() {
+      const elem = document.getElementById("map-card-wrapper");
+      if (!document.fullscreenElement) {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          elem.msRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    function getColorForIndex(indiceKey, val, umbral = 0.35) {
+      if (val === undefined || isNaN(val) || val === null) return "#6b7280";
+
+      if (indiceKey.startsWith("delta_")) {
+        // Escala divergente de cambio
+        if (val >= 0.06) return "#15803d"; // Fuerte crecimiento
+        if (val >= 0.02) return "#10b981"; // Crecimiento
+        if (val > -0.02 && val < 0.02) return "#64748b"; // Estable
+        if (val > -0.06 && val <= -0.02) return "#f97316"; // Caída moderada
+        return "#ef4444"; // Pérdida crítica
+      } else if (indiceKey === "ndmi_med") {
+        if (val < 0.0) return "#b45309";
+        if (val < 0.10) return "#fde047";
+        if (val < 0.20) return "#38bdf8";
+        return "#1d4ed8";
+      } else {
+        // Escala semáforo adaptada a campo abierto
+        if (val < (umbral - 0.10)) return "#dc2626"; // Suelo desnudo / rastrojo
+        if (val < umbral) return "#ea580c";          // Cerca del límite
+        if (val < 0.45) return "#eab308";            // En desarrollo / rebrote
+        if (val < 0.55) return "#84cc16";            // Bueno
+        return "#15803d";                            // Óptimo / follaje pleno
+      }
+    }
+
+    function updateLegend(indiceKey) {
+      const legendDiv = document.getElementById("map-legend");
+      if (!legendDiv) return;
+
+      if (indiceKey.startsWith("delta_")) {
+        const nombreTipo = indiceKey === "delta_ndvi" ? "Vigor (NDVI)" : "Humedad (NDMI)";
+        legendDiv.innerHTML = `
+          <strong>Δ Cambio en ${nombreTipo}</strong><br>
+          <span class="legend-color-box" style="background:#15803d;"></span> > +0.06 (Fuerte Crecimiento)<br>
+          <span class="legend-color-box" style="background:#10b981;"></span> +0.02 a +0.06 (Crecimiento)<br>
+          <span class="legend-color-box" style="background:#64748b;"></span> -0.02 a +0.02 (Estable)<br>
+          <span class="legend-color-box" style="background:#f97316;"></span> -0.06 a -0.02 (Caída Moderada)<br>
+          <span class="legend-color-box" style="background:#ef4444;"></span> < -0.06 (Pérdida Crítica)<br>
+          <span class="legend-color-box" style="background:transparent; border:1px dashed #94a3b8;"></span> Tumba / Suelo (Sin color)
+        `;
+      } else if (indiceKey === "ndmi_med") {
+        legendDiv.innerHTML = `
+          <strong>NDMI (Humedad)</strong><br>
+          <span class="legend-color-box" style="background:#1d4ed8;"></span> > 0.20 (Alta)<br>
+          <span class="legend-color-box" style="background:#38bdf8;"></span> 0.10 - 0.20 (Adecuada)<br>
+          <span class="legend-color-box" style="background:#fde047;"></span> 0.00 - 0.10 (Baja)<br>
+          <span class="legend-color-box" style="background:#b45309;"></span> < 0.00 (Estrés Hídrico)<br>
+          <span class="legend-color-box" style="background:transparent; border:1px dashed #94a3b8;"></span> Tumba / Suelo (Sin color)
+        `;
+      } else {
+        legendDiv.innerHTML = `
+          <strong>${indiceKey.toUpperCase().replace('_MED', '')} (Vigor)</strong><br>
+          <span class="legend-color-box" style="background:#15803d;"></span> > 0.55 (Excelente)<br>
+          <span class="legend-color-box" style="background:#84cc16;"></span> 0.45 - 0.55 (Bueno)<br>
+          <span class="legend-color-box" style="background:#eab308;"></span> 0.35 - 0.45 (Rebrote)<br>
+          <span class="legend-color-box" style="background:#ea580c;"></span> 0.25 - 0.35 (Límite)<br>
+          <span class="legend-color-box" style="background:#dc2626;"></span> < 0.25 (Rastrojo/Bajo)<br>
+          <span class="legend-color-box" style="background:transparent; border:1px dashed #94a3b8;"></span> Tumba / Suelo (Sin color)
+        `;
+      }
+    }
+
+    function renderTable(fecha, indiceKey, umbralCritico) {
+      const tbody = document.getElementById("tabla-body");
+      tbody.innerHTML = "";
+
+      const thIndice = document.getElementById("th-indice");
+      const thCrit = document.getElementById("th-crit");
+      if (indiceKey.startsWith("delta_")) {
+        if (thIndice) thIndice.innerText = "Δ Cambio";
+        if (thCrit) thCrit.innerText = "Tendencia";
+      } else if (indiceKey === "ndmi_med") {
+        if (thIndice) thIndice.innerText = "NDMI (Agua)";
+        if (thCrit) thCrit.innerText = "Condición Hídrica";
+      } else {
+        if (thIndice) thIndice.innerText = indiceKey.toUpperCase().replace("_MED", "");
+        if (thCrit) thCrit.innerText = "% Crítico";
+      }
+
+      const filtered = rawData.poligonos.filter(matchesCropFilter);
+      const sorted = [...filtered].sort((a, b) => {
+        const hA = a.historial[fecha] || {};
+        const hB = b.historial[fecha] || {};
+
+        // 1. Alerta de vigor / hídrica primero (los bloques en alerta van al inicio)
+        const alertA = isBlockInAlert(a, hA, indiceKey, umbralCritico) ? 1 : 0;
+        const alertB = isBlockInAlert(b, hB, indiceKey, umbralCritico) ? 1 : 0;
+        if (alertA !== alertB) {
+          return alertB - alertA;
+        }
+
+        // Tumbas al final de su respectivo grupo
+        const isTumbaA = (a.cultivo === "VACIO / TUMBA") || (a.categoria_agronomica && a.categoria_agronomica.includes("100% VACIO")) ? 1 : 0;
+        const isTumbaB = (b.cultivo === "VACIO / TUMBA") || (b.categoria_agronomica && b.categoria_agronomica.includes("100% VACIO")) ? 1 : 0;
+        if (isTumbaA !== isTumbaB) {
+          return isTumbaA - isTumbaB;
+        }
+
+        // 2. Cultivo / Flor (Orden alfabético: Gypsophila, Hypericum, Solidago, Veronica...)
+        const cropA = (a.cultivo || "").toUpperCase();
+        const cropB = (b.cultivo || "").toUpperCase();
+        const cmpCrop = cropA.localeCompare(cropB, 'es');
+        if (cmpCrop !== 0) {
+          return cmpCrop;
+        }
+
+        // 3. Bloque (Orden natural alfanumérico para agrupar 11, 11A, 12, etc.)
+        return String(a.bloque_nombre).localeCompare(String(b.bloque_nombre), 'es', { numeric: true, sensitivity: 'base' });
+      });
+
+      sorted.forEach(p => {
+        const h = p.historial[fecha] || {};
+        const isTumba = (p.cultivo === "VACIO / TUMBA") || (p.categoria_agronomica && p.categoria_agronomica.includes("100% VACIO"));
+        let valIndiceDisplay = "--";
+        let colCritHtml = "";
+
+        if (indiceKey.startsWith("delta_")) {
+          const deltaVal = getIndiceValue(p, fecha, indiceKey);
+          const sign = deltaVal > 0 ? "+" : "";
+          const valIndiceStr = sign + deltaVal.toFixed(3);
+          const valBadgeClass = deltaVal < -0.04 ? "text-danger fw-bold border-danger" : (deltaVal > 0.02 ? "text-success fw-bold border-success" : "text-light border-secondary");
+          valIndiceDisplay = `<span class="badge bg-dark border ${valBadgeClass} font-mono-num">${valIndiceStr}</span>`;
+
+          if (isTumba) {
+            colCritHtml = '<span class="text-muted">--</span>';
+          } else if (deltaVal <= -0.05) {
+            colCritHtml = '<span class="text-danger fw-bold"><i class="fa-solid fa-arrow-trend-down me-1"></i>Fuerte caída</span>';
+          } else if (deltaVal <= -0.02) {
+            colCritHtml = '<span class="text-warning"><i class="fa-solid fa-arrow-down me-1"></i>Declive</span>';
+          } else if (deltaVal >= 0.05) {
+            colCritHtml = '<span class="text-success fw-bold"><i class="fa-solid fa-arrow-trend-up me-1"></i>Subida fuerte</span>';
+          } else if (deltaVal >= 0.02) {
+            colCritHtml = '<span class="text-success"><i class="fa-solid fa-arrow-up me-1"></i>Creciendo</span>';
+          } else {
+            colCritHtml = '<span class="text-muted"><i class="fa-solid fa-minus me-1"></i>Estable</span>';
+          }
+        } else if (indiceKey === "ndmi_med") {
+          const ndmi = h.ndmi_med !== undefined ? h.ndmi_med : 0;
+          valIndiceDisplay = `<span class="badge bg-dark border border-secondary font-mono-num">${ndmi.toFixed(3)}</span>`;
+          if (ndmi >= 0.12) colCritHtml = '<span class="text-info fw-bold">💧 Turgente</span>';
+          else if (ndmi >= 0.05) colCritHtml = '<span class="text-success">💧 Adecuada</span>';
+          else if (ndmi >= 0.00) colCritHtml = '<span class="text-warning">⚠️ Moderada</span>';
+          else colCritHtml = '<span class="text-danger fw-bold">🔥 Estrés</span>';
+        } else {
+          const valIndice = h[indiceKey] !== undefined ? h[indiceKey].toFixed(3) : "--";
+          valIndiceDisplay = `<span class="badge bg-dark border border-secondary font-mono-num">${valIndice}</span>`;
+          const critPct = h.area_critica_pct !== undefined ? h.area_critica_pct : 0;
+          const enAlerta = isBlockInAlert(p, h, indiceKey, umbralCritico);
+          if (isTumba) {
+            colCritHtml = '<span class="text-muted">--</span>';
+          } else if (enAlerta) {
+            colCritHtml = `<span class="text-danger fw-bold">${critPct.toFixed(1)}%</span>`;
+          } else if (critPct > 35) {
+            colCritHtml = `<span class="text-warning" title="Variación perimetral / bordes">${critPct.toFixed(1)}%</span>`;
+          } else {
+            colCritHtml = `<span class="text-success">${critPct.toFixed(1)}%</span>`;
+          }
+        }
+
+        const badgeHtml = getDiagnosticoBadge(p, h, indiceKey, umbralCritico);
+
+        const tr = document.createElement("tr");
+        tr.id = `row-block-${p.id}`;
+        tr.innerHTML = `
+          <td class="fw-bold">${p.bloque_nombre} ${p.candidato_estrella ? '⭐' : ''}</td>
+          <td><span class="badge ${getCropBadge(p.cultivo)}">${p.cultivo}</span></td>
+          <td><small class="text-muted font-mono-num">${p.camas_activas || 0}/${p.camas_total || 0}</small></td>
+          <td>${valIndiceDisplay}</td>
+          <td>${colCritHtml}</td>
+          <td>${badgeHtml}</td>
+        `;
+
+        tr.addEventListener("click", () => {
+          selectedBlockId = p.id;
+          zoomToPolygon(p);
+          updateBlockHighlight(p);
+        });
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    function zoomToPolygon(p) {
+      if (!geojsonLayer) return;
+      const layer = geojsonLayer.getLayers().find(l => String(l.feature.id) === String(p.id));
+      if (layer) {
+        map.invalidateSize();
+        map.fitBounds(layer.getBounds(), { padding: [50, 50], maxZoom: 18 });
+        layer.openPopup();
+      }
+    }
+
+    function updateBlockHighlight(p) {
+      document.getElementById("chart-subtitle").innerText = `Evolución Bloque ${p.bloque_nombre} (${p.cultivo}) vs Finca`;
+      initOrUpdateChart(p);
+    }
+
+    function goToMostCriticalBlock() {
+      if (!currentMostCriticalBlock || currentBloquesEnAlerta === 0) {
+        alert("¡Excelente! En este momento no hay ningún bloque comercial en alerta crítica para la fecha y filtro seleccionados.");
+        return;
+      }
+      
+      const mapContainer = document.getElementById("map");
+      if (mapContainer) {
+        mapContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      setTimeout(() => {
+        selectedBlockId = currentMostCriticalBlock.id;
+        zoomToPolygon(currentMostCriticalBlock);
+        updateBlockHighlight(currentMostCriticalBlock);
+
+        const row = document.getElementById(`row-block-${currentMostCriticalBlock.id}`);
+        if (row) {
+          row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          row.classList.add('table-warning');
+          setTimeout(() => row.classList.remove('table-warning'), 2500);
+        }
+      }, 300);
+    }
+
+    function openModalAlertas() {
+      if (!rawData) return;
+      const fecha = document.getElementById("select-fecha").value;
+      const indiceKey = document.getElementById("select-indice").value;
+      const umbralCritico = parseFloat(document.getElementById("slider-umbral").value);
+      const tbody = document.getElementById("tabla-modal-alertas");
+      tbody.innerHTML = "";
+
+      const poligonos = rawData.poligonos.filter(matchesCropFilter);
+      const alertBlocks = [];
+
+      poligonos.forEach(p => {
+        const h = p.historial[fecha];
+        if (h && isBlockInAlert(p, h, indiceKey, umbralCritico)) {
+          alertBlocks.push(p);
+        }
+      });
+
+      // Ordenar bloques en alerta por severidad
+      alertBlocks.sort((a, b) => {
+        const hA = a.historial[fecha] || {};
+        const hB = b.historial[fecha] || {};
+        if (indiceKey.startsWith("delta_")) {
+          return getIndiceValue(a, fecha, indiceKey) - getIndiceValue(b, fecha, indiceKey); // Las caídas más negativas primero
+        } else if (indiceKey === "ndmi_med") {
+          return (hA.ndmi_med || 0) - (hB.ndmi_med || 0);
+        } else {
+          return (hB.area_critica_pct || 0) - (hA.area_critica_pct || 0);
+        }
+      });
+
+      document.getElementById("badge-modal-alertas-count").innerText = `${alertBlocks.length} alertas`;
+      document.getElementById("modal-alertas-subtitle").innerText = 
+        `Fecha: ${fecha} | Índice: ${indiceKey.toUpperCase().replace('_MED', '').replace('DELTA_', 'Δ ')} | Filtro: ${document.getElementById("select-cultivo").value}`;
+
+      if (alertBlocks.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="7" class="text-center py-4 text-success">
+              <i class="fa-solid fa-circle-check fs-3 mb-2 d-block"></i>
+              <strong>¡Excelente! No hay bloques en alerta para la fecha y filtro activos.</strong>
+            </td>
+          </tr>
+        `;
+      } else {
+        alertBlocks.forEach(p => {
+          const h = p.historial[fecha] || {};
+          let valIndice = "--";
+          let motivo = "";
+
+          if (indiceKey.startsWith("delta_")) {
+            const fIdx = rawData.metadata.fechas.indexOf(fecha);
+            const prevFecha = fIdx > 0 ? rawData.metadata.fechas[fIdx - 1] : "inicio";
+            const delta = getIndiceValue(p, fecha, indiceKey);
+            valIndice = (delta > 0 ? "+" : "") + delta.toFixed(3);
+            motivo = `Caída severa de ${Math.abs(delta).toFixed(3)} en ${p.cultivo} respecto a la pasada del ${prevFecha}.`;
+          } else if (indiceKey === "ndmi_med") {
+            valIndice = h.ndmi_med !== undefined ? h.ndmi_med.toFixed(3) : "--";
+            motivo = `NDMI muy bajo (${valIndice} < ${umbralCritico}). Posible déficit de riego o estrés hídrico.`;
+          } else {
+            valIndice = h[indiceKey] !== undefined ? h[indiceKey].toFixed(3) : "--";
+            const flor = (p.cultivo || "").toUpperCase();
+            let umbralFlor = umbralCritico;
+            if (flor.includes("GYPSOPHILA")) umbralFlor = 0.24;
+            else if (flor.includes("HYPERICUM")) umbralFlor = 0.35;
+            else if (flor.includes("SOLIDAGO")) umbralFlor = 0.32;
+            else if (flor.includes("VERONICA")) umbralFlor = 0.29;
+            motivo = `Vigor bajo para ${p.cultivo} (${valIndice} < ${umbralFlor}). ${h.area_critica_pct || 0}% de área crítica.`;
+          }
+
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td class="fw-bold text-warning">${p.bloque_nombre} ${p.candidato_estrella ? '⭐' : ''}</td>
+            <td><span class="badge ${getCropBadge(p.cultivo)}">${p.cultivo}</span></td>
+            <td>${p.camas_activas || 0} / ${p.camas_total || 0} (${p.pct_activa || 0}%)</td>
+            <td>Técnico ${p.tecnico || '--'}</td>
+            <td><span class="badge bg-dark border border-danger text-danger fw-bold">${valIndice}</span></td>
+            <td class="text-light small">${motivo}</td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-outline-info" onclick="zoomFromModal('${p.id}')">
+                <i class="fa-solid fa-crosshairs me-1"></i>Ver en Mapa
+              </button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      const modalEl = document.getElementById("modalAlertas");
+      const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+      modal.show();
+    }
+
+    function zoomFromModal(blockId) {
+      const modalEl = document.getElementById("modalAlertas");
+      const modal = bootstrap.Modal.getInstance(modalEl);
+      if (modal) modal.hide();
+
+      // 1. Desplazar la pantalla suavemente hacia el mapa
+      const mapContainer = document.getElementById("map");
+      if (mapContainer) {
+        mapContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      // 2. Buscar polígono asegurando compatibilidad de tipos (string vs int)
+      const p = rawData.poligonos.find(x => String(x.id) === String(blockId) || String(x.bloque_nombre) === String(blockId));
+      if (p) {
+        setTimeout(() => {
+          selectedBlockId = p.id;
+          zoomToPolygon(p);
+          updateBlockHighlight(p);
+          const row = document.getElementById(`row-block-${p.id}`);
+          if (row) {
+            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            row.classList.add('table-warning');
+            setTimeout(() => row.classList.remove('table-warning'), 2500);
+          }
+        }, 380);
+      }
+    }
+
+    function filterTable() {
+      const query = document.getElementById("filtro-tabla").value.toLowerCase();
+      const rows = document.querySelectorAll("#tabla-body tr");
+      rows.forEach(r => {
+        const text = r.innerText.toLowerCase();
+        r.style.display = text.includes(query) ? "" : "none";
+      });
+    }
+
+    function initOrUpdateChart(selectedBlock = null) {
+      if (!rawData) return;
+
+      const fechas = rawData.metadata.fechas;
+
+      const avgNdvis = fechas.map(f => {
+        const vals = rawData.poligonos.map(p => p.historial[f] ? p.historial[f].ndvi_med : 0).filter(v => v > 0);
+        return vals.length > 0 ? (vals.reduce((a, b) => a + b, 0) / vals.length).toFixed(3) : 0;
+      });
+
+      const avgNdmis = fechas.map(f => {
+        const vals = rawData.poligonos.map(p => p.historial[f] ? p.historial[f].ndmi_med : 0).filter(v => v > 0);
+        return vals.length > 0 ? (vals.reduce((a, b) => a + b, 0) / vals.length).toFixed(3) : 0;
+      });
+
+      const datasets = [
+        {
+          label: "NDVI Promedio Finca",
+          data: avgNdvis,
+          borderColor: "#10b981",
+          backgroundColor: "rgba(16, 185, 129, 0.1)",
+          borderWidth: 2,
+          tension: 0.3,
+          fill: true
+        },
+        {
+          label: "NDMI Humedad Finca",
+          data: avgNdmis,
+          borderColor: "#38bdf8",
+          backgroundColor: "transparent",
+          borderWidth: 2,
+          borderDash: [5, 5],
+          tension: 0.3
+        }
+      ];
+
+      if (selectedBlock) {
+        const blockNdvis = fechas.map(f => selectedBlock.historial[f] ? selectedBlock.historial[f].ndvi_med : 0);
+        datasets.push({
+          label: `NDVI Bloque ${selectedBlock.bloque_nombre}`,
+          data: blockNdvis,
+          borderColor: "#f59e0b",
+          backgroundColor: "transparent",
+          borderWidth: 3,
+          tension: 0.2
+        });
+      }
+
+      const ctx = document.getElementById("timeSeriesChart").getContext("2d");
+
+      if (chartInstance) {
+        chartInstance.data.labels = fechas;
+        chartInstance.data.datasets = datasets;
+        chartInstance.update();
+      } else {
+        chartInstance = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: fechas,
+            datasets: datasets
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                labels: { color: "#e2e8f0", font: { size: 11 } }
+              }
+            },
+            scales: {
+              x: {
+                ticks: { color: "#94a3b8" },
+                grid: { color: "#334155" }
+              },
+              y: {
+                min: -0.1,
+                max: 0.8,
+                ticks: { color: "#94a3b8" },
+                grid: { color: "#334155" }
+              }
+            }
+          }
+        });
+      }
+    }
+
+    async function loadRadarData() {
+      const loadingDiv = document.getElementById("radar-loading");
+      const contentDiv = document.getElementById("radar-content");
+      const tbody = document.getElementById("radar-table-body");
+
+      loadingDiv.classList.remove("d-none");
+      contentDiv.classList.add("d-none");
+      tbody.innerHTML = "";
+
+      try {
+        const res = await fetch('/api/satelite/pasadas-recientes');
+        const json = await res.json();
+
+        if (json.status === "success") {
+          json.pasadas.forEach(p => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td>
+                <span class="fw-bold">${p.fecha}</span>
+                <span class="text-muted d-block small">${p.hora}</span>
+              </td>
+              <td><span class="badge bg-secondary">${p.satelite}</span></td>
+              <td style="min-width: 140px;">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="progress flex-grow-1" style="height: 6px;">
+                    <div class="progress-bar bg-${p.color_alerta}" style="width: ${p.nubes_pct}%"></div>
+                  </div>
+                  <span class="fw-bold text-${p.color_alerta}">${p.nubes_pct}%</span>
+                </div>
+              </td>
+              <td><span class="badge bg-${p.color_alerta}">${p.estado_calidad}</span></td>
+            `;
+            tbody.appendChild(tr);
+          });
+
+          loadingDiv.classList.add("d-none");
+          contentDiv.classList.remove("d-none");
+        } else {
+          tbody.innerHTML = `<tr><td colspan="4" class="text-danger text-center">Error: ${json.message}</td></tr>`;
+          loadingDiv.classList.add("d-none");
+          contentDiv.classList.remove("d-none");
+        }
+      } catch (err) {
+        tbody.innerHTML = `<tr><td colspan="4" class="text-danger text-center">Error de conexión al catálogo STAC</td></tr>`;
+        loadingDiv.classList.add("d-none");
+        contentDiv.classList.remove("d-none");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+services:
+  pygan-agrosat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pygan-agrosat
+    restart: unless-stopped
+    ports:
+      # Puerto personalizable (por defecto 5055, evitando colisiones con 80, 443, 3000, 5000, 8080)
+      - "${APP_PORT:-5055}:${APP_PORT:-5055}"
+    environment:
+      - PORT=${APP_PORT:-5055}
+    volumes:
+      # Persistencia de datos y archivos agronómicos para actualización continua
+      - ./datos_procesados.json:/app/datos_procesados.json
+      - ./bq_sentinel.csv:/app/bq_sentinel.csv
+      - ./cultivos_por_bloque.json:/app/cultivos_por_bloque.json
+      - ./cultivos_resumen_bloques.csv:/app/cultivos_resumen_bloques.csv
+      - ./satelital:/app/satelital

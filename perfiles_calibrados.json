@@ -1,0 +1,69 @@
+{
+  "version": "1.0",
+  "descripcion": "Perfiles espectrales y umbrales calibrados para flores de verano en Finca PyGan",
+  "calibrado_en": "2026-10-24",
+  "cultivos": {
+    "GYPSOPHILA": {
+      "nombre": "Gypsophila (Velo de Novia)",
+      "caracteristicas": "Follaje fino, floración blanca masiva que eleva reflectancia roja",
+      "ndvi_optimo_min": 0.27,
+      "ndvi_optimo_max": 0.33,
+      "savi_optimo_min": 0.22,
+      "ndmi_hidratado_min": 0.01,
+      "cv_max_homogeneo": 12.0,
+      "umbral_alerta_ndvi": 0.23,
+      "umbral_estres_ndmi": -0.01
+    },
+    "HYPERICUM": {
+      "nombre": "Hypericum (Hipérico)",
+      "caracteristicas": "Hojas anchas, verde oscuro ceroso, dosel cerrado con alta biomasa",
+      "ndvi_optimo_min": 0.42,
+      "ndvi_optimo_max": 0.58,
+      "savi_optimo_min": 0.35,
+      "ndmi_hidratado_min": 0.10,
+      "cv_max_homogeneo": 22.0,
+      "umbral_alerta_ndvi": 0.35,
+      "umbral_estres_ndmi": 0.05
+    },
+    "SOLIDAGO": {
+      "nombre": "Solidago (Vara de Oro)",
+      "caracteristicas": "Follaje denso homogéneo con espigas amarillas en floración",
+      "ndvi_optimo_min": 0.38,
+      "ndvi_optimo_max": 0.46,
+      "savi_optimo_min": 0.32,
+      "ndmi_hidratado_min": 0.08,
+      "cv_max_homogeneo": 15.0,
+      "umbral_alerta_ndvi": 0.32,
+      "umbral_estres_ndmi": 0.04
+    },
+    "VERONICA": {
+      "nombre": "Veronica",
+      "caracteristicas": "Hábito erecto con espigas azules/violetas",
+      "ndvi_optimo_min": 0.35,
+      "ndvi_optimo_max": 0.45,
+      "savi_optimo_min": 0.29,
+      "ndmi_hidratado_min": 0.06,
+      "cv_max_homogeneo": 20.0,
+      "umbral_alerta_ndvi": 0.29,
+      "umbral_estres_ndmi": 0.03
+    }
+  },
+  "estados_especiales": {
+    "SIEMBRA_ESCALONADA": {
+      "criterio": "Camas activas <= 35% y Camas vacías >= 10",
+      "ndvi_p90_min_vigor": 0.32,
+      "cv_esperado_min": 25.0,
+      "diagnostico": "Camas nacientes en establecimiento sobre suelo preparado"
+    },
+    "VACIO_TUMBA": {
+      "criterio": "Camas vacías = 100%",
+      "ndvi_rango": [0.12, 0.26],
+      "ndmi_rango": [-0.05, 0.01],
+      "diagnostico": "Lote en descanso o preparación de suelo"
+    },
+    "PODA": {
+      "criterio": "Camas en poda > Camas en siembra",
+      "diagnostico": "Lote en corte/poda reciente, caída temporal de vigor esperada"
+    }
+  }
+}
