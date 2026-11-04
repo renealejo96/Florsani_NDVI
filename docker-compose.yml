@@ -17,3 +17,5 @@ services:
       - ./cultivos_por_bloque.json:/app/cultivos_por_bloque.json
       - ./cultivos_resumen_bloques.csv:/app/cultivos_resumen_bloques.csv
       - ./satelital:/app/satelital
+      - ./templates:/app/templates
+      - ./modelos:/app/modelos
