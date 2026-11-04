@@ -214,6 +214,75 @@
       0%, 100% { transform: scale(1); opacity: 0.8; }
       50% { transform: scale(1.3); opacity: 1; }
     }
+    /* Estilos Estrictos de Alto Contraste para Popups de Leaflet */
+    .leaflet-popup-content-wrapper {
+      background: #0f172a !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+      border-radius: 12px !important;
+      color: #ffffff !important;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85) !important;
+    }
+    .leaflet-popup-tip {
+      background: #0f172a !important;
+      border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    }
+    .leaflet-popup-content {
+      color: #ffffff !important;
+      font-size: 13px !important;
+      line-height: 1.55 !important;
+      margin: 10px 14px !important;
+    }
+    .leaflet-popup-content strong {
+      color: #ffffff !important;
+      font-weight: 600 !important;
+    }
+    .leaflet-popup-content .text-muted {
+      color: #cbd5e1 !important;
+    }
+    .leaflet-popup-content hr {
+      border-color: rgba(255, 255, 255, 0.22) !important;
+      opacity: 0.85 !important;
+      margin: 6px 0 !important;
+    }
+    .popup-box-suelo {
+      background: #0f1f38 !important;
+      border: 1.5px solid #38bdf8 !important;
+      border-radius: 8px !important;
+      padding: 9px 11px !important;
+      color: #ffffff !important;
+    }
+    .popup-box-suelo span, .popup-box-suelo strong, .popup-box-suelo div {
+      color: #ffffff !important;
+    }
+    .popup-box-suelo .text-info {
+      color: #38bdf8 !important;
+    }
+    .popup-box-suelo .text-white-50 {
+      color: #cbd5e1 !important;
+    }
+    .popup-box-tumba {
+      background: #2e1503 !important;
+      border: 1.5px solid #f59e0b !important;
+      border-radius: 8px !important;
+      padding: 9px 11px !important;
+      color: #ffffff !important;
+    }
+    .popup-box-tumba span, .popup-box-tumba strong {
+      color: #ffffff !important;
+    }
+    .popup-box-tumba .text-warning {
+      color: #fbbf24 !important;
+    }
+    .popup-box-calicata {
+      background: #082f49 !important;
+      border: 1.5px solid #7dd3fc !important;
+      border-radius: 8px !important;
+      padding: 9px 11px !important;
+      color: #ffffff !important;
+    }
+    .popup-box-calicata span, .popup-box-calicata strong {
+      color: #ffffff !important;
+    }
   </style>
 </head>
 <body>
@@ -263,15 +332,15 @@
             <i class="fa-solid fa-layer-group text-warning me-1"></i> Modo / Índice
           </label>
           <select id="select-indice" class="form-select form-select-sm bg-dark text-light border-secondary">
-            <optgroup label="Valores Absolutos">
-              <option value="ndvi_med" selected>NDVI (Vigor)</option>
-              <option value="savi_med">SAVI (Ajustado)</option>
-              <option value="ndmi_med">NDMI (Humedad)</option>
-              <option value="ndvi_p90">NDVI P90 (Max Cama)</option>
+            <optgroup label="Valores Absolutos de Finca">
+              <option value="ndvi_med" selected>🌿 NDVI (Vigor Vegetativo)</option>
+              <option value="savi_med">🌾 SAVI (Ajustado a Suelo Arenoso)</option>
+              <option value="ndmi_med">💧 Humedad & TDR (Riego y Gutación)</option>
+              <option value="ndvi_p90">⭐ NDVI P90 (Vigor Máximo Cama)</option>
             </optgroup>
             <optgroup label="Mapa de Cambio (Δ Temporal)">
               <option value="delta_ndvi">📈 Δ Cambio Vigor (vs anterior)</option>
-              <option value="delta_ndmi">💧 Δ Cambio Humedad (vs anterior)</option>
+              <option value="delta_ndmi">🌊 Δ Cambio Humedad (vs anterior)</option>
             </optgroup>
           </select>
         </div>
@@ -994,12 +1063,12 @@
         slider.value = "-0.03";
         label.innerText = "-0.03";
       } else if (idx === "ndmi_med") {
-        if (title) title.innerText = "Umbral Hídrico (NDMI):";
-        slider.min = "-0.10";
-        slider.max = "0.20";
+        if (title) title.innerText = "Umbral Déficit Hídrico (NDMI):";
+        slider.min = "-0.15";
+        slider.max = "0.15";
         slider.step = "0.02";
-        slider.value = "0.00";
-        label.innerText = "0.00";
+        slider.value = "0.01";
+        label.innerText = "0.01";
       } else {
         if (title) title.innerText = "Umbral Vigor (NDVI):";
         slider.min = "0.15";
@@ -1024,7 +1093,10 @@
         return delta < umbral;
       } else if (indiceKey === "ndmi_med") {
         const val = h.ndmi_med !== undefined ? h.ndmi_med : 0;
-        return val < umbral;
+        const p90 = h.ndvi_p90 !== undefined ? h.ndvi_p90 : 0;
+        const cob = h.cobertura_rf_pct !== undefined ? h.cobertura_rf_pct : 0;
+        const tieneGutacion = (val >= 0.17 && (p90 > 0.52 || cob > 65));
+        return val < (umbral !== undefined ? umbral : 0.01) || tieneGutacion;
       } else {
         const flor = (p.cultivo || "").toUpperCase();
         const val = h[indiceKey] !== undefined ? h[indiceKey] : h.ndvi_med;
@@ -1058,10 +1130,16 @@
         return '<span class="badge badge-critico">🚨 Caída Crítica</span>';
       } else if (indiceKey === "ndmi_med") {
         const val = h.ndmi_med !== undefined ? h.ndmi_med : 0;
-        if (val >= 0.15) return '<span class="badge bg-primary">💧 Alta Hidratación</span>';
-        if (val >= 0.05) return '<span class="badge badge-optimo">💧 Hidratación Adecuada</span>';
-        if (val >= 0.00) return '<span class="badge badge-alerta">⚠️ Humedad Moderada/Baja</span>';
-        return '<span class="badge badge-critico">🔥 Estrés Hídrico</span>';
+        const p90 = h.ndvi_p90 !== undefined ? h.ndvi_p90 : 0;
+        const cob = h.cobertura_rf_pct !== undefined ? h.cobertura_rf_pct : 0;
+        const tieneGutacion = (val >= 0.17 && (p90 > 0.52 || cob > 65));
+
+        if (tieneGutacion) return '<span class="badge bg-danger text-light"><i class="fa-solid fa-biohazard me-1"></i>Alerta Gutación (Botrytis)</span>';
+        if (val >= 0.17) return '<span class="badge bg-info text-dark">🌊 Suelo Saturado</span>';
+        if (val >= 0.07) return '<span class="badge bg-success text-light">💧 Óptimo Capacidad Campo</span>';
+        if (val >= 0.01) return '<span class="badge bg-warning text-dark">⚠️ Humedad Moderada</span>';
+        if (val >= -0.06) return '<span class="badge bg-warning text-dark border border-warning">📉 Déficit Hídrico</span>';
+        return '<span class="badge bg-danger text-light">🔥 Estrés Hídrico Crítico</span>';
       } else {
         const flor = (p.cultivo || "").toUpperCase();
         const val = h[indiceKey] !== undefined ? h[indiceKey] : 0;
@@ -1079,7 +1157,11 @@
           esAlerta = val < umbral;
         }
 
-        if (esAlerta) {
+        if (val < 0.12 && (h.ndvi_p90 || 0) > 0.35) {
+          return '<span class="badge bg-secondary text-light font-mono-num" title="Camas en corte o cosecha: camas cosechadas conviven con follaje en pie.">✂️ Corte / Cosechado</span>';
+        } else if (val < 0.10) {
+          return '<span class="badge bg-secondary text-light font-mono-num" title="Post-cosecha o poda baja">✂️ Poda / Rastrojo</span>';
+        } else if (esAlerta) {
           return '<span class="badge badge-critico">Alerta Vigor</span>';
         } else if (h.cv_pct > 25.0) {
           return '<span class="badge badge-desuniforme">Desuniforme</span>';
@@ -1169,7 +1251,11 @@
             if (isDeltaMode) {
               baseScore = -deltaVal; // Mayor puntuación a la mayor caída negativa
             } else if (indiceKey === "ndmi_med") {
-              baseScore = -(h.ndmi_med !== undefined ? h.ndmi_med : 0);
+              const nVal = h.ndmi_med !== undefined ? h.ndmi_med : 0;
+              const p90 = h.ndvi_p90 !== undefined ? h.ndvi_p90 : 0;
+              const cob = h.cobertura_rf_pct !== undefined ? h.cobertura_rf_pct : 0;
+              const tieneGutacion = (nVal >= 0.17 && (p90 > 0.52 || cob > 65));
+              baseScore = tieneGutacion ? (nVal * 10) : -nVal;
             } else {
               baseScore = (h.area_critica_pct !== undefined ? h.area_critica_pct : 0);
             }
@@ -1214,6 +1300,41 @@
           document.getElementById("kpi-crit-bloque").innerText = "Sin caídas críticas";
           document.getElementById("kpi-crit-pct").innerText = "Lotes con vigor estable o en subida";
         }
+      } else if (indiceKey === "ndmi_med") {
+        const avgNdmi = countValid > 0 ? (sumNdmi / countValid).toFixed(3) : "--";
+        const tdrProm = avgNdmi !== "--" ? estimateTDR(parseFloat(avgNdmi)) : "--";
+
+        document.getElementById("kpi-title-1").innerText = "Humedad Promedio (NDMI)";
+        document.getElementById("kpi-ndvi").innerText = avgNdmi;
+        document.getElementById("kpi-ndvi").className = "fw-bold mb-0 text-info font-mono-num";
+        document.getElementById("kpi-savi").innerText = `TDR Virtual Prom: ~${tdrProm}% (CC)`;
+
+        document.getElementById("kpi-title-2").innerText = "Lámina Máx por Pulso";
+        document.getElementById("kpi-ndmi").innerText = "3.18 mm";
+        document.getElementById("kpi-ndmi").className = "fw-bold mb-0 text-primary font-mono-num";
+        document.getElementById("kpi-ndmi-desc").innerText = "10% Agua Disp. (Evita lavado N)";
+
+        document.getElementById("kpi-title-3").innerText = "Bloques Alerta Hídrica";
+        document.getElementById("kpi-alerta").innerText = `${bloquesEnAlerta} / ${poligonos.length}`;
+        document.getElementById("kpi-alerta").className = "fw-bold mb-0 text-warning font-mono-num";
+        document.getElementById("kpi-alerta-pct").innerText = "Déficit (<0.01) o Gutación (>0.17)";
+
+        document.getElementById("kpi-title-4").innerText = "Bloque Crítico Hídrico";
+        if (mostCriticalBlock && bloquesEnAlerta > 0) {
+          const hCrit = mostCriticalBlock.historial[fecha] || {};
+          const nCrit = hCrit.ndmi_med !== undefined ? hCrit.ndmi_med : 0;
+          const tdrCrit = estimateTDR(nCrit);
+          const p90Crit = hCrit.ndvi_p90 !== undefined ? hCrit.ndvi_p90 : 0;
+          const cobCrit = hCrit.cobertura_rf_pct !== undefined ? hCrit.cobertura_rf_pct : 0;
+          const esGuta = (nCrit >= 0.17 && (p90Crit > 0.52 || cobCrit > 65));
+          document.getElementById("kpi-crit-bloque").innerText = `Bloque ${mostCriticalBlock.bloque_nombre}`;
+          document.getElementById("kpi-crit-pct").innerText = esGuta 
+            ? `NDMI: ${nCrit.toFixed(3)} (Alerta Gutación) - ${mostCriticalBlock.cultivo}`
+            : `NDMI: ${nCrit.toFixed(3)} (TDR ~${tdrCrit}% Déficit) - ${mostCriticalBlock.cultivo}`;
+        } else {
+          document.getElementById("kpi-crit-bloque").innerText = "Riego Equilibrado";
+          document.getElementById("kpi-crit-pct").innerText = "Sin bloques en estrés hídrico";
+        }
       } else {
         const avgNdvi = countValid > 0 ? (sumNdvi / countValid).toFixed(3) : "--";
         const avgSavi = countValid > 0 ? (sumSavi / countValid).toFixed(3) : "--";
@@ -1246,7 +1367,7 @@
         if (mostCriticalBlock && bloquesEnAlerta > 0) {
           document.getElementById("kpi-crit-bloque").innerText = `Bloque ${mostCriticalBlock.bloque_nombre}`;
           const hCrit = mostCriticalBlock.historial[fecha] || {};
-          const detalle = indiceKey === "ndmi_med" ? `NDMI: ${hCrit.ndmi_med}` : `${hCrit.area_critica_pct}% bajo umbral`;
+          const detalle = `${hCrit.area_critica_pct}% bajo umbral`;
           document.getElementById("kpi-crit-pct").innerText = `${detalle} (${mostCriticalBlock.cultivo})`;
         } else {
           document.getElementById("kpi-crit-bloque").innerText = "Sin alertas críticas";
@@ -1312,19 +1433,45 @@
       return `<span class="badge ${badgeClass} font-mono-num fw-bold">${icon} ${c.toFixed(1)}% ${label}</span> <span class="text-white-50 small">(${s.toFixed(1)}% suelo)</span>`;
     }
 
+    function estimateTDR(ndmiVal) {
+      if (ndmiVal === undefined || ndmiVal === null) return 18.0;
+      const n = Number(ndmiVal);
+      let tdr = 16.0 + (n * 50.0);
+      if (tdr < 6.0) tdr = 6.0;
+      if (tdr > 36.0) tdr = 36.0;
+      return Math.round(tdr * 10) / 10;
+    }
+
     function getTDRVirtualBadge(ndmiVal) {
       if (ndmiVal === undefined || ndmiVal === null) return '<span class="badge bg-secondary font-mono-num">--</span>';
-      let tdr = 14.0 + (Number(ndmiVal) + 0.02) * 50.0;
-      if (tdr < 8.0) tdr = 8.0;
-      if (tdr > 35.0) tdr = 35.0;
-      tdr = Math.round(tdr * 10) / 10;
+      const tdr = estimateTDR(ndmiVal);
 
-      if (tdr < 18.0) {
+      if (tdr < 13.0) {
+        return `<span class="badge bg-danger text-light font-mono-num"><i class="fa-solid fa-triangle-exclamation me-1"></i>${tdr}% (Estrés Hídrico)</span>`;
+      } else if (tdr < 18.0) {
         return `<span class="badge bg-warning text-dark font-mono-num"><i class="fa-solid fa-droplet-slash me-1"></i>${tdr}% (Déficit / Regar)</span>`;
       } else if (tdr <= 25.0) {
         return `<span class="badge bg-success text-light font-mono-num"><i class="fa-solid fa-droplet me-1"></i>${tdr}% (Óptimo CC)</span>`;
       } else {
         return `<span class="badge bg-info text-dark font-mono-num"><i class="fa-solid fa-water me-1"></i>${tdr}% (Saturado / Alerta Gutación)</span>`;
+      }
+    }
+
+    function formatCVBadge(cvVal, ndviMed) {
+      if (cvVal === undefined || cvVal === null || isNaN(cvVal)) return '<span class="text-muted">--</span>';
+      const cv = Number(cvVal);
+      const ndvi = Number(ndviMed || 0);
+
+      // Si el NDVI medio es menor a 0.15 (suelo, poda, cosecha), la media cercana a 0 infla matemáticamente el CV por división entre casi cero
+      if (ndvi < 0.15) {
+        return `<span class="badge bg-secondary font-mono-num" title="Con NDVI medio menor a 0.15, la división matemática entre casi cero infla el CV a ${cv.toFixed(1)}%. Refleja camas cosechadas o transición de poda.">Heterogéneo (Poda/Corte)</span>`;
+      }
+      if (cv > 25) {
+        return `<span class="badge bg-danger font-mono-num" title="Camas desparejas: variabilidad alta">${cv.toFixed(1)}% (Desparejo)</span>`;
+      } else if (cv > 15) {
+        return `<span class="badge bg-warning text-dark font-mono-num" title="Variabilidad moderada">${cv.toFixed(1)}% (Moderado)</span>`;
+      } else {
+        return `<span class="badge bg-success font-mono-num" title="Excelente uniformidad intra-bloque">${cv.toFixed(1)}% (Uniforme)</span>`;
       }
     }
 
@@ -1356,14 +1503,18 @@
       if (p.calicata) {
         const c = p.calicata;
         return `
-          <div class="alert alert-info py-1 px-2 my-1 small border-info">
-            <i class="fa-solid fa-location-dot text-danger me-1"></i><strong>Calicata #${c.id} en este bloque:</strong> Capa A: <strong>${c.profundidad_a_cm} cm</strong> (${c.textura_a}). Horizonte B: <em>${c.horizonte_b}</em>. TDR campo: <strong>${c.tdr_despues}%</strong>.
+          <div class="popup-box-calicata mt-2 small">
+            <span class="d-block fw-bold text-white mb-1"><i class="fa-solid fa-circle-dot text-white me-1"></i> Calicata #${c.id} en este bloque:</span>
+            <span class="text-white">Capa Arable (H-A): <strong>${c.profundidad_a_cm} cm</strong> (${c.textura_a})</span><br>
+            <span class="text-white">Horizonte B: <em>${c.horizonte_b}</em></span><br>
+            <span class="text-white">TDR campo: <strong class="text-warning">${c.tdr_despues}%</strong> | Lab: ${c.humedad_lab_despues}%</span>
           </div>
         `;
       } else if (esTumba) {
         return `
-          <div class="alert alert-warning py-1 px-2 my-1 small border-warning text-dark">
-            <i class="fa-solid fa-tractor text-dark me-1"></i><strong>Mecanización / Pie de Arado:</strong> Bloque libre en descanso. Subsoleo con cincel profundo (40-50 cm) recomendado antes de encamar y sembrar.
+          <div class="popup-box-tumba mt-2 small">
+            <span class="d-block fw-bold text-warning mb-1"><i class="fa-solid fa-tractor me-1"></i> Mecanización / Pie de Arado:</span>
+            <span class="text-white">Bloque libre en descanso. <strong>Subsoleo con cincel profundo (40-50 cm)</strong> recomendado antes de encamar y sembrar para romper el horizonte B compactado.</span>
           </div>
         `;
       }
@@ -1434,6 +1585,18 @@
                 Camas: <strong>${p.camas_activas || 0}/${p.camas_total || 0}</strong> | ${getDiagnosticoBadge(p, h, indiceKey, umbralCritico)}
               </div>
             `;
+          } else if (indiceKey === "ndmi_med") {
+            const nVal = h.ndmi_med !== undefined ? h.ndmi_med : 0;
+            const tdrEst = estimateTDR(nVal);
+            const diagAgua = getDiagnosticoBadge(p, h, indiceKey, umbralCritico);
+            tooltipHtml = `
+              <div class="small">
+                <strong>Bloque ${p.bloque_nombre}</strong> ${p.candidato_estrella ? '⭐' : ''} (${p.cultivo})<br>
+                💧 NDMI: <strong>${nVal.toFixed(3)}</strong> | <strong>TDR Est: ~${tdrEst}%</strong><br>
+                Estado: ${diagAgua}<br>
+                Camas: <strong>${p.camas_activas || 0}/${p.camas_total || 0}</strong> | Pulso Máx: <strong>3.18 mm</strong>
+              </div>
+            `;
           } else {
             const rfShort = (h.cobertura_rf_pct !== undefined && !esTumba) ? ` | IA: <strong>${h.cobertura_rf_pct}%</strong>` : '';
             tooltipHtml = `
@@ -1476,16 +1639,28 @@
               ${valInfo}
               <strong>NDVI Promedio:</strong> ${h.ndvi_med} (P10: ${h.ndvi_p10} | P90: ${h.ndvi_p90 !== undefined ? h.ndvi_p90 : '--'})<br>
               <strong>SAVI:</strong> ${h.savi_med} | <strong>NDMI:</strong> ${h.ndmi_med}<br>
-              <strong>Uniformidad (CV):</strong> ${h.cv_pct}%<br>
+              <strong>Uniformidad (CV):</strong> ${formatCVBadge(h.cv_pct, h.ndvi_med)}<br>
               ${coberturaHtml ? `<strong>Cobertura Foliar (IA):</strong> ${coberturaHtml}<br>` : ''}
               <strong>Diagnóstico Vigor:</strong> ${getDiagnosticoBadge(p, h, indiceKey, umbralCritico)}
               <hr class="my-1">
-              <div class="bg-dark-subtle border border-secondary p-2 rounded mt-1">
-                <span class="text-info fw-bold small d-block mb-1"><i class="fa-solid fa-droplet me-1"></i> Suelo & Riego (PyGan 2026):</span>
-                <strong>Humedad TDR Estimada:</strong> ${tdrBadge}<br>
-                <strong>Lámina Máx por Pulso:</strong> <span class="badge bg-dark border border-secondary text-light">3.18 mm (62% arena)</span><br>
-                <strong>Riesgo Lixiviación (N):</strong> ${lixiviacionBadge}<br>
-                <strong>Riesgo Gutación (Botrytis):</strong> ${gutacionBadge}
+              <div class="popup-box-suelo mt-2">
+                <span class="text-info fw-bold small d-block mb-1"><i class="fa-solid fa-droplet me-1"></i> Balance Hídrico & Suelo (Estudio PyGan 2026):</span>
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <span class="text-white-50">Humedad TDR Estimada:</span>
+                  ${tdrBadge}
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <span class="text-white-50">Lámina Máx por Pulso:</span>
+                  <span class="badge bg-primary text-light font-mono-num">3.18 mm (62% arena)</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <span class="text-white-50">Riesgo Lixiviación (N):</span>
+                  ${lixiviacionBadge}
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="text-white-50">Riesgo Gutación (Botrytis):</span>
+                  ${gutacionBadge}
+                </div>
               </div>
               ${pieAradoHtml}
             </div>
@@ -1697,10 +1872,17 @@
         if (val > -0.06 && val <= -0.02) return "#f97316"; // Caída moderada
         return "#ef4444"; // Pérdida crítica
       } else if (indiceKey === "ndmi_med") {
-        if (val < 0.0) return "#b45309";
-        if (val < 0.10) return "#fde047";
-        if (val < 0.20) return "#38bdf8";
-        return "#1d4ed8";
+        // Escala Biofísica de Humedad de Suelo y Dosel (Estudio PyGan 2026)
+        // NDMI >= 0.17 -> TDR >= 25% (Saturado / Alerta Gutación y Botrytis)
+        if (val >= 0.17) return "#1e40af"; // Azul Profundo Saturado
+        // NDMI 0.07 a 0.17 -> TDR 19.5% a 24.5% (Óptimo Capacidad de Campo)
+        if (val >= 0.07) return "#059669"; // Verde Esmeralda Óptimo CC
+        // NDMI 0.01 a 0.07 -> TDR 16.5% a 19.5% (Humedad Moderada)
+        if (val >= 0.01) return "#eab308"; // Amarillo Moderado
+        // NDMI -0.06 a 0.01 -> TDR 13% a 16.5% (Déficit Hídrico / Requiere Riego)
+        if (val >= -0.06) return "#ea580c"; // Naranja Déficit Hídrico
+        // NDMI < -0.06 -> TDR < 13% (Estrés Hídrico Crítico)
+        return "#dc2626"; // Rojo Estrés Severo
       } else {
         // Escala semáforo adaptada a campo abierto
         if (val < (umbral - 0.10)) return "#dc2626"; // Suelo desnudo / rastrojo
@@ -1728,11 +1910,12 @@
         `;
       } else if (indiceKey === "ndmi_med") {
         legendDiv.innerHTML = `
-          <strong>NDMI (Humedad)</strong><br>
-          <span class="legend-color-box" style="background:#1d4ed8;"></span> > 0.20 (Alta)<br>
-          <span class="legend-color-box" style="background:#38bdf8;"></span> 0.10 - 0.20 (Adecuada)<br>
-          <span class="legend-color-box" style="background:#fde047;"></span> 0.00 - 0.10 (Baja)<br>
-          <span class="legend-color-box" style="background:#b45309;"></span> < 0.00 (Estrés Hídrico)<br>
+          <strong>💧 Humedad & TDR (Biofísica)</strong><br>
+          <span class="legend-color-box" style="background:#1e40af;"></span> &ge; 0.17 | TDR &ge; 25% (Saturado / Gutación)<br>
+          <span class="legend-color-box" style="background:#059669;"></span> 0.07 a 0.17 | TDR ~20-25% (Óptimo CC)<br>
+          <span class="legend-color-box" style="background:#eab308;"></span> 0.01 a 0.07 | TDR ~16-20% (Moderada)<br>
+          <span class="legend-color-box" style="background:#ea580c;"></span> -0.06 a 0.01 | TDR ~13-16% (Déficit / Regar)<br>
+          <span class="legend-color-box" style="background:#dc2626;"></span> &lt; -0.06 | TDR &lt; 13% (Estrés Severo)<br>
           <span class="legend-color-box" style="background:transparent; border:1px dashed #94a3b8;"></span> Tumba / Suelo (Sin color)
         `;
       } else {
@@ -1758,8 +1941,8 @@
         if (thIndice) thIndice.innerText = "Δ Cambio";
         if (thCrit) thCrit.innerText = "Tendencia";
       } else if (indiceKey === "ndmi_med") {
-        if (thIndice) thIndice.innerText = "NDMI (Agua)";
-        if (thCrit) thCrit.innerText = "Condición Hídrica";
+        if (thIndice) thIndice.innerText = "NDMI | TDR Est.";
+        if (thCrit) thCrit.innerText = "Acción Riego";
       } else {
         if (thIndice) thIndice.innerText = indiceKey.toUpperCase().replace("_MED", "");
         if (thCrit) thCrit.innerText = "% Crítico";
@@ -1775,6 +1958,13 @@
         const alertB = isBlockInAlert(b, hB, indiceKey, umbralCritico) ? 1 : 0;
         if (alertA !== alertB) {
           return alertB - alertA;
+        }
+
+        // Si es modo Humedad & TDR (ndmi_med), ordenar por déficit hídrico más severo primero
+        if (indiceKey === "ndmi_med") {
+          const ndmiA = hA.ndmi_med !== undefined ? hA.ndmi_med : 0;
+          const ndmiB = hB.ndmi_med !== undefined ? hB.ndmi_med : 0;
+          if (ndmiA !== ndmiB) return ndmiA - ndmiB;
         }
 
         // Tumbas al final de su respectivo grupo
@@ -1824,11 +2014,24 @@
           }
         } else if (indiceKey === "ndmi_med") {
           const ndmi = h.ndmi_med !== undefined ? h.ndmi_med : 0;
-          valIndiceDisplay = `<span class="badge bg-dark border border-secondary font-mono-num">${ndmi.toFixed(3)}</span>`;
-          if (ndmi >= 0.12) colCritHtml = '<span class="text-info fw-bold">💧 Turgente</span>';
-          else if (ndmi >= 0.05) colCritHtml = '<span class="text-success">💧 Adecuada</span>';
-          else if (ndmi >= 0.00) colCritHtml = '<span class="text-warning">⚠️ Moderada</span>';
-          else colCritHtml = '<span class="text-danger fw-bold">🔥 Estrés</span>';
+          const tdr = estimateTDR(ndmi);
+          const p90 = h.ndvi_p90 !== undefined ? h.ndvi_p90 : 0;
+          const cob = h.cobertura_rf_pct !== undefined ? h.cobertura_rf_pct : 0;
+          valIndiceDisplay = `<span class="badge bg-dark border border-info font-mono-num text-info">${ndmi.toFixed(3)}</span> <small class="text-white-50 font-mono-num">~${tdr}%</small>`;
+
+          if (isTumba) {
+            colCritHtml = '<span class="badge bg-secondary font-mono-num">Fraccionar &lt;2 mm</span>';
+          } else if (ndmi >= 0.17 && (p90 > 0.52 || cob > 65)) {
+            colCritHtml = '<span class="badge bg-danger text-light fw-bold font-mono-num"><i class="fa-solid fa-ban me-1"></i>Cortar &lt;14h</span>';
+          } else if (ndmi < -0.06) {
+            colCritHtml = '<span class="badge bg-danger text-light fw-bold font-mono-num"><i class="fa-solid fa-triangle-exclamation me-1"></i>Pulso Urgente 3.18mm</span>';
+          } else if (ndmi < 0.01) {
+            colCritHtml = '<span class="badge bg-warning text-dark fw-bold font-mono-num"><i class="fa-solid fa-droplet me-1"></i>Regar 3.18 mm</span>';
+          } else if (ndmi < 0.07) {
+            colCritHtml = '<span class="badge bg-warning text-dark font-mono-num">Planificar Riego</span>';
+          } else {
+            colCritHtml = '<span class="badge bg-success text-light font-mono-num"><i class="fa-solid fa-check me-1"></i>Humedad OK</span>';
+          }
         } else {
           const valIndice = h[indiceKey] !== undefined ? h[indiceKey].toFixed(3) : "--";
           valIndiceDisplay = `<span class="badge bg-dark border border-secondary font-mono-num">${valIndice}</span>`;
@@ -1969,7 +2172,14 @@
             motivo = `Caída severa de ${Math.abs(delta).toFixed(3)} en ${p.cultivo} respecto a la pasada del ${prevFecha}.`;
           } else if (indiceKey === "ndmi_med") {
             valIndice = h.ndmi_med !== undefined ? h.ndmi_med.toFixed(3) : "--";
-            motivo = `NDMI muy bajo (${valIndice} < ${umbralCritico}). Posible déficit de riego o estrés hídrico.`;
+            const tdrEst = estimateTDR(h.ndmi_med);
+            const p90 = h.ndvi_p90 !== undefined ? h.ndvi_p90 : 0;
+            const cob = h.cobertura_rf_pct !== undefined ? h.cobertura_rf_pct : 0;
+            if (h.ndmi_med >= 0.17 && (p90 > 0.52 || cob > 65)) {
+              motivo = `🚨 Alerta Gutación y Botrytis: Canopia densa (P90: ${p90}) y saturación hídrica (NDMI ${valIndice}, TDR ~${tdrEst}%). Cortar riego antes de 14:00.`;
+            } else {
+              motivo = `Déficit hídrico (NDMI ${valIndice} < ${umbralCritico}, TDR Est: ~${tdrEst}%). Suelo permeable (62% arena); aplicar pulso máx 3.18 mm.`;
+            }
           } else {
             valIndice = h[indiceKey] !== undefined ? h[indiceKey].toFixed(3) : "--";
             const flor = (p.cultivo || "").toUpperCase();
