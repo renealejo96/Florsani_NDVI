@@ -260,4 +260,171 @@ En la interfaz visual de [https://satelital.velezrapp.cloud](https://satelital.v
 
 ---
 
+## 🔬 10. Física de Suelos, Dinámica Hídrica y Calibración TDR (Estudio de Octubre 2026)
+
+En octubre de 2026, el especialista en manejo de suelos y nutrición vegetal **José L. Pantoja, Ph.D.** (ANALYTIC S.A.S. / AGNLatam S.A.) realizó una evaluación física, hidráulica y nutricional in situ en Finca Pygan (*"Informe de evaluación de suelos de la Finca Pygan, de la empresa FLORSANI"*). Este estudio aportó los parámetros edáficos fundamentales para calibrar y enriquecer el sistema satelital.
+
+### A. Caracterización Textural y Estructural
+* **Composición Granulométrica Promedio (Textura Liviana):**
+  * **Arena:** **`62%`** (predominio de arena fina de alta permeabilidad).
+  * **Limo:** **`29%`** (fracción intermedia).
+  * **Arcilla:** **`9%`** (muy baja fracción coloidal).
+  * **Clasificación Textural:** Suelos Franco-Arenosos a Arenosos-Limosos.
+* **Materia Orgánica (MO):** Promedio de **`2.1%`** en el horizonte superficial A (considerablemente bajo, favorece el drenaje rápido y limita la retención de cationes).
+* **Densidad Aparente ($Da$):** Promedio de **`1.22 g/mL`** en horizonte A, aumentando hasta **`1.49 g/mL`** en el horizonte B compactado.
+* **Porosidad Total:** Promedio de **`47.0% a 49.8%`** de espacio poroso.
+* **Problemática Crítica Subterránea (Pie de Arado):** En la mayoría de los perfiles no subsolados, el horizonte B (a partir de los 20–30 cm) presenta una **compactación severa con estructura masiva**, generada por la mecanización histórica con arados de disco.
+
+---
+
+### B. Constantes Hidráulicas y Lámina Máxima de Riego
+
+Aplicando el modelo de **Silva et al. (1988)** para suelos con corrección por materia orgánica sobre el horizonte A (profundidad media de 17.0 cm, $Da = 1.22\text{ g/mL}$):
+
+$$CC = 8.658 + 2.571(\% \text{MO}) + 0.296(\% \text{Limo}) = 16.71\% \text{ gravimétrico} \rightarrow \mathbf{56.81\text{ mm}}$$
+$$PMP = 0.74(CC) - 5 = 7.37\% \text{ gravimétrico} \rightarrow \mathbf{25.06\text{ mm}}$$
+$$AD = CC - PMP = \mathbf{31.75\text{ mm}}$$
+
+* **Agua Fácilmente Disponible (AFD = 50% de AD):** **`15.87 mm`**.
+* **Lámina Máxima de Reposición por Pulso de Riego (10% de AD):** **`3.18 mm por pulso`**.
+
+> [!IMPORTANT]
+> **Regla Operativa de Riego:** Debido a que el suelo contiene 62% de arena y macro-poros de drenaje acelerado, **ningún pulso de riego debe superar los 3.18 mm**. Cualquier lámina mayor percola por gravedad hacia el horizonte profundo lavando el nitrógeno y potasio (lixiviación nutricional) o asfixiando temporalmente la raíz si se acumula sobre el pie de arado.
+
+---
+
+### C. Ecuaciones Logarítmicas de Calibración del Sensor TDR 150
+
+El informe del Dr. Pantoja demostró que la relación entre la lectura en campo del sensor de reflectometría de dominio de tiempo (**FieldScout TDR 150**, calibrado para arena) y la humedad volumétrica real determinada en laboratorio sigue modelos logarítmicos de alta precisión:
+
+* **Ecuación General (Finca Pygan):**
+  $$y = 15.967 \ln(x) - 22.375 \quad (R^2 = 0.7074)$$
+* **Ecuación Antes del Riego:**
+  $$y = 14.247 \ln(x) - 17.898 \quad (R^2 = 0.7724)$$
+* **Ecuación Después del Riego:**
+  $$y = 17.759 \ln(x) - 27.399 \quad (R^2 = 0.6330)$$
+  *(Donde $x$ = Lectura directa del TDR 150 en %, $y$ = Humedad volumétrica en laboratorio en %)*
+
+#### Factor de Corrección por Materia Orgánica:
+Por cada $1.0\%$ de MO analizada en el suelo, se deben sumar **$+2$ unidades** a la lectura del TDR 150. Con el promedio de $2.1\%$ de MO de Pygan, la corrección fija es de **$+4.2$ unidades**.
+
+**Umbrales Operativos de Humedad con TDR 150:**
+* **Capacidad de Campo Óptima ($CC$):** **`25.0%`**
+* **Umbral de Inicio de Riego (Antes de Regar):** **`26.0%`** (lectura de campo $\approx 21-22\%$)
+* **Límite Máximo Post-Riego:** **`24.5% a 25.0%`**
+* **Alerta Sanitaria Vespertina:** Humedades $> 25.0\%$ al final de la tarde provocan **gutación nocturna**, disparando el riesgo de infección por *Botrytis cinerea*.
+
+---
+
+### D. Red de Muestreo de Calicatas (14 Puntos Georreferenciados)
+
+El sistema incorpora los datos edáficos de las 14 calicatas muestreadas en la finca:
+
+| Calicata | Bloque | Condición | Horizonte A | Textura | Horizonte B / Compactación | TDR Antes / Después |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **1** | **154** | Sembrado | 30 cm | Limo-Arenoso (LA) | Masiva compactada a 70 cm | 27.7% / 27.4% |
+| **2** | **103** | Subsolado previo | 30 cm | Limoso (L) | Excelente respuesta al subsolado | 9.9% / 26.7% |
+| **3** | **13B** | Verónica | 30 cm | Limo-Arenoso (LA) | Arcillo-Limoso masivo a 80 cm | 11.5% / 18.3% |
+| **4** | **74** | En descanso | 40 cm | Limo-Arenoso (LA) | Masiva a 90 cm; Limoso a 110+ cm | 15.6% / 10.8% |
+| **5** | **92** | En descanso | 50 cm | Limoso (L) | Perfil profundo de alta retención | 22.6% / 22.8% |
+| **6** | **84** | Con Cascajo | 50 cm | Limoso (L) | Presencia de cascajo y arena gruesa | 22.2% / 24.9% |
+| **7** | **31E** | En descanso | **20 cm** | **Arena-Limosa (AL)** | **Capa muy delgada; arena pura a 90 cm** | 12.5% / 14.5% |
+| **8** | **38** | Subsolado/Sembrado | 30 cm | Limoso (L) | Estructura migajosa óptima (Da=1.00) | 8.9% / 12.1% |
+| **9** | **41H** | Subsolado/Sembrado | 30 cm | Limoso (L) | Subsuelo arcilloso a 100+ cm | 16.9% / 24.7% |
+| **10** | **51C** | Sin sembrar | 30 cm | Limo-Arcilloso (LAr) | Mayor proporción de finos | 21.2% / 22.7% |
+| **11** | **135** | Sin sembrar | 40 cm | Limo-Arcilloso (LAr) | Horizonte C de arena suelta a 60 cm | 32.9% / 30.3% |
+| **12** | **224** | Sin sembrar | 30 cm | Limoso (L) | Da elevada (1.47 g/mL); subsoleo urgente | 28.2% / 29.0% |
+| **13** | **217** | Sin sembrar | 30 cm | Limo-Arenoso (LA) | Horizonte B compactado masivo | 14.9% / 25.4% |
+| **14** | **26** | Sin sembrar | 40 cm | Limoso (L) | Capa arable profunda (40 cm) | 26.2% / 28.2% |
+
+---
+
+## 🧠 11. Dimensiones Avanzadas de Agronomía de Precisión (Suelo + Satélite + IA)
+
+Integrando la física de suelos con la constelación Sentinel-2 y los modelos Random Forest, el sistema ejecuta 6 dimensiones analíticas:
+
+```mermaid
+flowchart TD
+    subgraph Suelo ["Física de Suelos (Ph.D. Pantoja)"]
+        S1["62% Arena + 2.1% MO"] --> S2["Drenaje ultrarrápido<br>Lámina máx: 3.18 mm"]
+        S3["Horizonte B compactado<br>(Pie de arado Da=1.49)"] --> S4["Raíces confinadas<br>a 17-30 cm"]
+        S5["TDR Calibrado<br>CC = 25% | Peligro > 25%"]
+    end
+
+    subgraph Satelite ["Modelo Satelital Sentinel-2"]
+        M1["Índice SAVI (L=0.5)<br>vs NDVI"]
+        M2["NDMI Humedad<br>del Dosel (SWIR/NIR)"]
+        M3["Alerta de Clorofila<br>(NDRE / NDVI P90)"]
+    end
+
+    S1 -.->|"Ajusta el brillo del fondo"| M1
+    S4 -.->|"Aceleración de estrés hídrico"| M2
+    S2 -.->|"Lavado de Nitratos = Clorosis"| M3
+    S5 -.->|"Calibra umbrales de humedad"| M2
+```
+
+### Dimensión 1: Modelado de Evapotranspiración ($ET_c$) y Frecuencia de Riego
+* **$K_c$ Dinámico Espacial:** Calcula el coeficiente de cultivo por bloque en función del SAVI:
+  $$K_c = 1.2 \times \left(\frac{\text{SAVI} - \text{SAVI}_{\text{suelo}}}{\text{SAVI}_{\text{máx}} - \text{SAVI}_{\text{suelo}}}\right)$$
+* **Fraccionamiento Automático:** Si el consumo diario excede la lámina de reposición ($ET_c > 3.18\text{ mm}$), la plataforma alerta la necesidad de **dividir el fertirriego en 2 pulsos** (mañana 07:30 y mediodía 11:30), prohibiendo riegos largos vespertinos.
+
+### Dimensión 2: Sensor Virtual de Humedad Subterránea (TDR Virtual)
+* **Inferencia Espacial:** A partir del NDMI (bandas $B08$ y $B11$) calibrado con la ecuación logarítmica del Dr. Pantoja, se infiere el % de humedad volumétrica TDR para los 250 bloques del predio.
+* **Semáforo Operativo:**
+  * **$< 18\%$ (Déficit Hídrico):** Las plantas gastan energía para absorber agua (disminución de longitud de tallos florales).
+  * **$18\% - 25\%$ (Óptimo a Capacidad de Campo):** Turgencia máxima celular.
+  * **$> 25\%$ (Saturación y Peligro Sanitario):** Anoxia radicular y riesgo de gutación.
+
+### Dimensión 3: Índice de Riesgo de Lixiviación (IRL) de Nitratos
+* Conociendo la textura de 62% arena, la baja MO (2.1%) y la CIC deficiente, los bloques con **bajo dosel foliar (<35%)** o en etapa post-poda/tumba carecen de raíces que absorban la solución nutritiva.
+* Si el operario riega tiempos de rutina en bloques con bajo dosel, **el 60% del fertilizante nitrogenado ($NO_3$) se lixivia**. La plataforma emite una alerta roja:  
+  `Riesgo de Lixiviación ALTO: Reducir lámina a < 2.0 mm y fraccionar pulso.`
+
+### Dimensión 4: Alerta Fitosanitaria de Gutación Nocturna (Riesgo *Botrytis* / Mildiú)
+* Cuando un bloque combina **alta densidad de biomasa ($P_{90} > 0.52$ o dosel cerrado $>65\%$)** con **humedad satelital saturada ($NDMI > 0.17$)**, la presión radicular fuerza la exudación de savia por los bordes de hojas y cálices durante la noche (gutación).
+* Estas gotas ricas en azúcares germinan esporas de *Botrytis cinerea*. El sistema emite la recomendación preventiva:  
+  `Alerta de Gutación: Cortar el riego antes de las 14:00 y favorecer la ventilación lateral de cortinas.`
+
+### Dimensión 5: Detección de "Pie de Arado" y Recomendación de Subsoleo en Bloques Vacíos
+* **Diagnóstico en Lotes en Descanso (Tumba / Vacío):** Los bloques vacíos son la única ventana donde se puede intervenir mecánicamente el perfil. El sistema alerta automáticamente:  
+  `🚜 Pie de Arado: Bloque en descanso. Subsoleo con cincel a 40-50 cm obligatorio antes del armado de camas y siembra.`
+* **Diagnóstico en Lotes Activos:** Bloques con capa arable delgada (como el Bloque 31E con apenas 20 cm) muestran caídas bruscas de vigor al mediodía porque su reserva de agua útil ($AFD$) es inferior a 12 mm.
+
+### Dimensión 6: Detección Temprana de Clorosis por Desbalance Químico ($PO_4$ vs Fe/Zn)
+* El análisis químico evidenció niveles excesivos de Fósforo ($PO_4$) que antagonizan con el Zinc y Hierro. Utilizando el índice **NDRE** (bandas $B05$ a 705 nm y $B08A$ a 865 nm), la plataforma detecta clorosis nutricionales **7 a 10 días antes de que sean visibles para el ojo humano**.
+
+---
+
+## 📚 12. Manual Técnico y Glosario Completo de Siglas
+
+### A. Siglas de Teledetección y Sensores Satelitales
+
+| Sigla | Nombre Completo | Definición Técnica | Rango Típico y Umbral Florícola |
+| :--- | :--- | :--- | :--- |
+| **NDVI** | *Normalized Difference Vegetation Index* | Índice normalizado de vegetación basado en la absorción de luz roja ($B04$) por la clorofila y la reflexión del infrarrojo cercano ($B08$). | **-1.0 a 1.0**. En floricultura: $>0.45$ (vigor alto), $0.35-0.45$ (moderado), $<0.35$ (alerta crítica). |
+| **SAVI** | *Soil Adjusted Vegetation Index* | Índice ajustado a la influencia del suelo mediante el factor $L=0.5$. Esencial en suelos arenosos de Pygan para evitar la distorsión del brillo del fondo. | Similar al NDVI, pero mucho más estable en bloques podados o flor joven (<40% cobertura). |
+| **NDMI** | *Normalized Difference Moisture Index* | Índice de humedad normalizada basado en $B08$ (NIR) y $B11$ (SWIR a 1610 nm). Mide el agua líquida contenida en los tejidos foliares y el suelo. | $>0.15$ (muy hidratado), $0.08-0.15$ (óptimo), $<0.05$ (déficit hídrico o estrés celular). |
+| **NDRE** | *Normalized Difference Red Edge* | Índice del borde rojo que utiliza la banda estrecha $B05$ (705 nm). Sensible a pequeñas variaciones de clorofila y desbalances nutricionales tempranos. | Utilizado para detectar clorosis férrica o toxicidad por fosfatos antes de síntomas visuales. |
+| **P90** | Percentil 90 de NDVI | Representa el vigor del 10% superior de píxeles del bloque. Mide el vigor pico de las mejores camas, descartando pasillos de tierra. | Si $P90$ es alto pero la mediana es baja, hay heterogeneidad en el riego de las camas. |
+| **P10** | Percentil 10 de NDVI | Representa el vigor del 10% inferior del bloque (las camas más débiles o afectadas). | Marcador temprano de focos de marchitez o taponamiento de goteros. |
+| **CV** | Coeficiente de Variación (%) | Desviación estándar dividida entre la media, multiplicada por 100. Evalúa la uniformidad intra-bloque. | **$<15\%$:** Excelente uniformidad. **$>25\%$:** Alta variabilidad (camas desparejas, problemas de goteros). |
+| **RF Cobertura** | Cobertura Foliar Random Forest | Porcentaje de píxeles del bloque clasificados por IA como dosel vegetal vivo versus suelo inerte desnudo. | $0\%$ (suelo puro / post-poda) a $100\%$ (dosel completamente cerrado). |
+
+### B. Siglas de Suelo, Riego e Hidráulica Agronómica
+
+| Sigla | Nombre Completo | Definición Técnica | Valor en Finca Pygan |
+| :--- | :--- | :--- | :--- |
+| **TDR** | *Time-Domain Reflectometry* | Reflectometría en el dominio del tiempo. Mide la constante dieléctrica del suelo para estimar el porcentaje volumétrico de agua ($\theta_v$). | Sensor FieldScout TDR 150. Capacidad de campo calibrada: **`25.0%`**. |
+| **CC** | Capacidad de Campo | Contenido de agua que un suelo puede retener contra la fuerza de gravedad tras el drenaje del agua libre. | **`16.71% gravimétrico`** = **`56.81 mm`** en los primeros 17 cm. |
+| **PMP** | Punto de Marchitez Permanente | Humedad mínima del suelo a la cual la raíz de la flor ya no puede succionar agua (tensión de -15 bar). | **`7.37% gravimétrico`** = **`25.06 mm`**. |
+| **AD** | Agua Disponible ($CC - PMP$) | Lámina total de agua almacenable en el horizonte superficial que las raíces pueden absorber. | **`31.75 mm`** en el horizonte A. |
+| **AFD** | Agua Fácilmente Disponible | 50% del Agua Disponible. El agua que la planta extrae sin experimentar ningún freno fotosintético ni estrés celular. | **`15.87 mm`**. |
+| **Lámina Máx** | Lámina Máxima de Reposición | 10% del Agua Disponible. Lámina máxima segura aplicable en un solo pulso de fertirriego sin causar lavado ni lixiviación. | **`3.18 mm por pulso`**. |
+| **IRL** | Índice de Riesgo de Lixiviación | Métrica que estima la vulnerabilidad de pérdida de nitratos y fertilizantes por drenaje rápido en suelo arenoso según la cobertura foliar. | **Alto** en coberturas $<35\%$; **Bajo** en dosel cerrado $>65\%$. |
+| **Gutación** | Exudación de savia nocturna | Gotas de agua y azúcares expulsadas por hidátodos en las hojas cuando el suelo queda saturado al atardecer ($TDR > 25\%$). | Principal factor predisponente para epidemias de *Botrytis cinerea*. |
+| **Pie de Arado** | Capa compactada masiva | Estrato endurecido en el horizonte B (20 a 70 cm, $Da = 1.49$) que restringe el crecimiento radicular y retiene sales. | Requiere **subsoleo profundo (40-50 cm)** en bloques vacíos antes de la siembra. |
+
+---
+
 *Documentación técnica actualizada y validada para PyGan AgroSat (Finca PyGan / Florsani NDVI).*
+

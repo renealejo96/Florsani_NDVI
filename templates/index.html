@@ -231,6 +231,9 @@
         <button class="btn btn-sm btn-outline-info rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#modalRadar" id="btn-open-radar">
           <i class="fa-solid fa-cloud-sun me-1"></i> Radar de Pasadas y Nubes
         </button>
+        <button class="btn btn-sm btn-outline-warning rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#modalManual" id="btn-open-manual">
+          <i class="fa-solid fa-book-open me-1"></i> Guía & Glosario Técnico
+        </button>
         <span class="text-muted small d-none d-md-inline ms-2">
           <i class="fa-solid fa-location-dot text-danger me-1"></i> Finca PyGan (250 Bloques | 36.5 ha)
         </span>
@@ -396,6 +399,11 @@
               <span id="badge-comparativa-fecha" class="badge bg-secondary font-mono-num small d-none" style="font-size: 0.7rem;"></span>
             </div>
             <div class="d-flex align-items-center gap-2">
+              <!-- Botón Toggle Calicatas de Suelo -->
+              <button id="btn-toggle-calicatas" class="btn btn-sm btn-outline-danger d-flex align-items-center gap-1 py-1 px-2" style="font-size: 0.72rem;" title="Mostrar u ocultar los 14 puntos de calicatas de suelo muestreadas">
+                <i class="fa-solid fa-location-dot text-danger"></i>
+                <span id="txt-toggle-calicatas">Calicatas: ON</span>
+              </button>
               <!-- Botón Toggle Etiquetas de Bloques -->
               <button id="btn-toggle-labels" class="btn btn-sm btn-outline-light d-flex align-items-center gap-1 py-1 px-2" style="font-size: 0.72rem;" title="Mostrar u ocultar los nombres permanentes de los bloques">
                 <i class="fa-solid fa-tags text-warning"></i>
@@ -552,6 +560,274 @@
     </div>
   </div>
 
+  <!-- MODAL: MANUAL TÉCNICO, GLOSARIO DE SIGLAS Y FÍSICA DE SUELOS -->
+  <div class="modal fade" id="modalManual" tabindex="-1" aria-labelledby="modalManualLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+      <div class="modal-content bg-dark border-secondary">
+        <div class="modal-header border-secondary bg-dark-subtle text-light">
+          <h5 class="modal-title fw-bold d-flex align-items-center" id="modalManualLabel">
+            <i class="fa-solid fa-book-open text-warning me-2 fs-5"></i>
+            <span>Guía Técnica, Glosario y Manual de Agronomía de Precisión</span>
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <!-- Pestañas del Manual -->
+          <ul class="nav nav-pills nav-fill mb-3 p-1 bg-dark-subtle border border-secondary rounded-pill" id="pills-tab-manual" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active rounded-pill text-uppercase fw-bold small py-2" id="pill-glosario-tab" data-bs-toggle="pill" data-bs-target="#pill-glosario" type="button" role="tab">
+                <i class="fa-solid fa-spell-check me-1"></i> Glosario de Siglas
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link rounded-pill text-uppercase fw-bold small py-2" id="pill-suelos-tab" data-bs-toggle="pill" data-bs-target="#pill-suelos" type="button" role="tab">
+                <i class="fa-solid fa-seedling me-1"></i> Suelo & Riego (PyGan 2026)
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link rounded-pill text-uppercase fw-bold small py-2" id="pill-calibracion-tab" data-bs-toggle="pill" data-bs-target="#pill-calibracion" type="button" role="tab">
+                <i class="fa-solid fa-calculator me-1"></i> Fórmulas & TDR 150
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link rounded-pill text-uppercase fw-bold small py-2" id="pill-calicatas-tab" data-bs-toggle="pill" data-bs-target="#pill-calicatas" type="button" role="tab">
+                <i class="fa-solid fa-location-dot text-danger me-1"></i> 14 Calicatas de Campo
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="pills-tabContentManual">
+            <!-- TAB 1: GLOSARIO DE SIGLAS -->
+            <div class="tab-pane fade show active" id="pill-glosario" role="tabpanel">
+              <div class="alert alert-info border-info bg-info-subtle text-dark small py-2 mb-3">
+                <i class="fa-solid fa-info-circle me-1"></i> <strong>Consulta Rápida:</strong> Haz clic o busca cualquier sigla para conocer su significado, cálculo y rango de aplicación en la floricultura de Finca PyGan.
+              </div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="card bg-dark border-secondary p-3 h-100">
+                    <h6 class="fw-bold text-success border-bottom border-secondary pb-1"><i class="fa-solid fa-satellite me-1"></i> Siglas Satelitales e Índices Espectrales</h6>
+                    <ul class="list-unstyled small mb-0">
+                      <li class="mb-2">
+                        <strong class="text-warning">NDVI:</strong> <em>Normalized Difference Vegetation Index</em> (Índice de Vegetación de Diferencia Normalizada).<br>
+                        <span class="text-muted">Fórmula:</span> <code>(B08 - B04) / (B08 + B04)</code>.<br>
+                        <span class="text-muted">Significado:</span> Mide el vigor fotosintético y absorción de clorofila. <strong>&gt;0.45:</strong> Excelente/Pleno | <strong>0.35-0.45:</strong> Medio/Rebrote | <strong>&lt;0.35:</strong> Alerta crítica.
+                      </li>
+                      <li class="mb-2">
+                        <strong class="text-warning">SAVI:</strong> <em>Soil Adjusted Vegetation Index</em> (Índice Ajustado de Suelo).<br>
+                        <span class="text-muted">Fórmula:</span> <code>((B08 - B04) / (B08 + B04 + L)) * (1 + L)</code> con <code>L = 0.5</code>.<br>
+                        <span class="text-muted">Significado:</span> Elimina el brillo del suelo arenoso (62% arena). Indispensable en bloques recién podados, camas vacías o flor joven.
+                      </li>
+                      <li class="mb-2">
+                        <strong class="text-warning">NDMI:</strong> <em>Normalized Difference Moisture Index</em> (Índice de Humedad de Dosel).<br>
+                        <span class="text-muted">Fórmula:</span> <code>(B08 - B11) / (B08 + B11)</code> con SWIR a 1610 nm.<br>
+                        <span class="text-muted">Significado:</span> Mide el agua líquida en hojas y suelo. <strong>&gt;0.15:</strong> Alta hidratación | <strong>0.08-0.15:</strong> Óptimo | <strong>&lt;0.05:</strong> Estrés hídrico.
+                      </li>
+                      <li class="mb-2">
+                        <strong class="text-warning">NDRE:</strong> <em>Normalized Difference Red Edge</em> (Índice de Borde Rojo).<br>
+                        <span class="text-muted">Fórmula:</span> <code>(B08A - B05) / (B08A + B05)</code>.<br>
+                        <span class="text-muted">Significado:</span> Detecta clorosis nutricional (deficiencia de Nitrógeno o bloqueo de Hierro/Zinc por exceso de fósforo) 7 a 10 días antes que el ojo humano.
+                      </li>
+                      <li class="mb-2">
+                        <strong class="text-warning">P90 / P10:</strong> Percentil 90 y Percentil 10.<br>
+                        <span class="text-muted">Significado:</span> <strong>P90</strong> representa el vigor del 10% superior de píxeles (las mejores camas). <strong>P10</strong> representa las camas más débiles o afectadas.
+                      </li>
+                      <li class="mb-0">
+                        <strong class="text-warning">CV (%):</strong> Coeficiente de Variación.<br>
+                        <span class="text-muted">Significado:</span> <code>(Desviación Estándar / Media) * 100</code>. Mide la uniformidad del bloque. <strong>&lt;15%:</strong> Muy homogéneo | <strong>&gt;25%:</strong> Muy desparejo (falla de riego o plaga localizada).
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="card bg-dark border-secondary p-3 h-100">
+                    <h6 class="fw-bold text-info border-bottom border-secondary pb-1"><i class="fa-solid fa-droplet me-1"></i> Siglas de Suelo, Riego e IA Operativa</h6>
+                    <ul class="list-unstyled small mb-0">
+                      <li class="mb-2">
+                        <strong class="text-warning">RF Dosel (%):</strong> Cobertura Foliar de Inteligencia Artificial (Random Forest).<br>
+                        <span class="text-muted">Significado:</span> Porcentaje de la superficie del bloque ocupado por dosel verde vivo activo (follaje) vs suelo expuesto. Precisión: 99.56%.
+                      </li>
+                      <li class="mb-2">
+                        <strong class="text-warning">TDR:</strong> <em>Time-Domain Reflectometry</em> (Reflectometría de Campo).<br>
+                        <span class="text-muted">Significado:</span> Mide el % de humedad volumétrica del suelo. En PyGan, el valor óptimo a Capacidad de Campo es <strong>25.0%</strong>.
+                      </li>
+                      <li class="mb-2">
+                        <strong class="text-warning">CC:</strong> Capacidad de Campo.<br>
+                        <span class="text-muted">Significado:</span> Máxima agua retenida sin encharcar. En PyGan: <strong>16.71% gravimétrico (56.81 mm)</strong>.
+                      </li>
+                      <li class="mb-2">
+                        <strong class="text-warning">PMP:</strong> Punto de Marchitez Permanente.<br>
+                        <span class="text-muted">Significado:</span> Humedad mínima antes de que la flor se marchite irreversiblemente. En PyGan: <strong>7.37% (25.06 mm)</strong>.
+                      </li>
+                      <li class="mb-2">
+                        <strong class="text-warning">AD / AFD:</strong> Agua Disponible / Fácilmente Disponible.<br>
+                        <span class="text-muted">Significado:</span> <strong>AD:</strong> 31.75 mm (reserva total). <strong>AFD:</strong> 15.87 mm (50% de fácil absorción).
+                      </li>
+                      <li class="mb-2">
+                        <strong class="text-warning">Lámina Máx (3.18 mm):</strong> Lámina Máxima de Riego por Pulso.<br>
+                        <span class="text-muted">Significado:</span> Máxima cantidad de agua aplicable en un solo riego. Regar más de 3.18 mm lava nutrientes hacia el subsuelo.
+                      </li>
+                      <li class="mb-2">
+                        <strong class="text-warning">IRL:</strong> Índice de Riesgo de Lixiviación de Nitratos.<br>
+                        <span class="text-muted">Significado:</span> Riesgo de pérdida de fertilizantes en arena. <strong>Alto</strong> en bloques con dosel &lt; 35% o vacíos.
+                      </li>
+                      <li class="mb-0">
+                        <strong class="text-warning">Pie de Arado:</strong> Estrato compactado en horizonte B (20 a 70 cm, Da 1.49 g/mL).<br>
+                        <span class="text-muted">Significado:</span> Confinamiento de raíces por arado de disco. Requiere subsoleo con cincel a 40-50 cm en bloques en descanso.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 2: SUELOS Y RIEGO -->
+            <div class="tab-pane fade" id="pill-suelos" role="tabpanel">
+              <div class="card bg-dark border-secondary p-3 mb-3">
+                <h6 class="fw-bold text-success"><i class="fa-solid fa-microscope me-1"></i> Resultados del Estudio Físico-Químico (José L. Pantoja, Ph.D. - Octubre 2026)</h6>
+                <p class="small text-muted mb-2">
+                  La evaluación in situ determinó las características físico-mecánicas e hidráulicas de Finca PyGan (1810-2040 msnm, San José de Minas):
+                </p>
+                <div class="row g-2 text-center small mb-3">
+                  <div class="col-md-3">
+                    <div class="p-2 border border-secondary rounded bg-dark-subtle">
+                      <span class="d-block text-muted">Arena (Textura Liviana)</span>
+                      <strong class="text-warning fs-5">62.0%</strong>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="p-2 border border-secondary rounded bg-dark-subtle">
+                      <span class="d-block text-muted">Limo</span>
+                      <strong class="text-light fs-5">29.0%</strong>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="p-2 border border-secondary rounded bg-dark-subtle">
+                      <span class="d-block text-muted">Arcilla</span>
+                      <strong class="text-light fs-5">9.0%</strong>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="p-2 border border-secondary rounded bg-dark-subtle">
+                      <span class="d-block text-muted">Materia Orgánica (MO)</span>
+                      <strong class="text-danger fs-5">2.1% (Bajo)</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-3 small">
+                  <div class="col-md-6">
+                    <div class="p-2 border border-secondary rounded bg-dark-subtle h-100">
+                      <strong class="text-info d-block mb-1"><i class="fa-solid fa-water me-1"></i> Parámetros Hidráulicos (Horizonte A - 17 cm)</strong>
+                      <ul class="mb-0 ps-3">
+                        <li><strong>Capacidad de Campo (CC):</strong> 16.71% gravimétrico = <strong>56.81 mm</strong>.</li>
+                        <li><strong>Punto de Marchitez Permanente (PMP):</strong> 7.37% gravimétrico = <strong>25.06 mm</strong>.</li>
+                        <li><strong>Agua Disponible (AD = CC - PMP):</strong> <strong>31.75 mm</strong>.</li>
+                        <li><strong>Agua Fácilmente Disponible (AFD = 50% AD):</strong> <strong>15.87 mm</strong>.</li>
+                        <li><strong>Lámina Máxima de Reposición (10% AD):</strong> <span class="badge bg-danger">3.18 mm por pulso</span>.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-2 border border-secondary rounded bg-dark-subtle h-100">
+                      <strong class="text-warning d-block mb-1"><i class="fa-solid fa-triangle-exclamation me-1"></i> Reglas Operativas de Campo</strong>
+                      <ul class="mb-0 ps-3">
+                        <li><strong>Drenaje Rápido:</strong> Al tener 62% de arena, no regar más de 3.18 mm para no lixiviar fertilizantes.</li>
+                        <li><strong>Fraccionamiento:</strong> Si el cultivo requiere 5 mm/día, dividir en 2 pulsos (07:30 y 11:30).</li>
+                        <li><strong>Peligro de Gutación:</strong> Prohibido regar al final de la tarde si TDR &gt; 25% (genera rocío nocturno que propaga <em>Botrytis</em>).</li>
+                        <li><strong>Riego de Lavado:</strong> 1 riego profundo semanal (+15% sin fertilizante) para drenar sales.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 3: FÓRMULAS Y CALIBRACIÓN TDR -->
+            <div class="tab-pane fade" id="pill-calibracion" role="tabpanel">
+              <div class="card bg-dark border-secondary p-3 mb-3">
+                <h6 class="fw-bold text-info"><i class="fa-solid fa-square-root-variable me-1"></i> Ecuaciones Matemáticas de Calibración</h6>
+                <div class="row g-3 small">
+                  <div class="col-md-6">
+                    <div class="p-3 border border-secondary rounded bg-dark-subtle h-100">
+                      <strong class="text-warning d-block mb-1">Modelo de Retención (Silva et al., 1988)</strong>
+                      <p class="text-muted mb-2">Ajustado para suelos con contenido de materia orgánica:</p>
+                      <code>CC = 8.658 + 2.571(% MO) + 0.296(% Limo)</code><br>
+                      <code>PMP = 0.74(% CC) - 5</code>
+                      <hr class="my-2 border-secondary">
+                      <span class="text-light">Con MO = 2.1% y Limo = 29%:</span><br>
+                      <strong>CC = 16.71%</strong> | <strong>PMP = 7.37%</strong>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="p-3 border border-secondary rounded bg-dark-subtle h-100">
+                      <strong class="text-success d-block mb-1">Ecuación Logarítmica Sensor TDR 150 vs Laboratorio</strong>
+                      <p class="text-muted mb-2">Modelo de calibración ajustado por el Dr. Pantoja para PyGan:</p>
+                      <code>y = 15.967 * ln(x) - 22.375 &nbsp; (R² = 0.7074)</code><br>
+                      <small class="text-muted">Donde x = lectura TDR 150 en %, y = humedad real laboratorio en %.</small>
+                      <hr class="my-2 border-secondary">
+                      <strong>Corrección por MO:</strong> Añadir <strong>+2 unidades</strong> por cada 1% de MO.<br>
+                      <em>Para PyGan (+4.2 unidades):</em> <strong>Capacidad de Campo = 25.0% en TDR</strong>.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="alert alert-secondary border-secondary mt-3 mb-0 small">
+                  <strong>Tabla de Decisión Rápida con TDR 150 Calibrado:</strong>
+                  <div class="row g-2 mt-1 text-center font-mono-num">
+                    <div class="col-md-4">
+                      <span class="badge bg-warning text-dark d-block py-2">TDR &lt; 18.0%: Déficit Hídrico (Iniciar Riego)</span>
+                    </div>
+                    <div class="col-md-4">
+                      <span class="badge bg-success d-block py-2">TDR 18.0% - 25.0%: Capacidad de Campo Óptima</span>
+                    </div>
+                    <div class="col-md-4">
+                      <span class="badge bg-danger d-block py-2">TDR &gt; 25.0%: Saturado (Peligro Gutación / Asfixia)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 4: 14 CALICATAS DE CAMPO -->
+            <div class="tab-pane fade" id="pill-calicatas" role="tabpanel">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="small text-muted">Las 14 calicatas muestreadas y evaluadas in situ por el Dr. Pantoja en Octubre 2026:</span>
+                <span class="badge bg-danger">14 Puntos Georreferenciados</span>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-dark table-hover table-sm align-middle mb-0" style="font-size: 0.75rem;">
+                  <thead class="table-secondary text-uppercase small">
+                    <tr>
+                      <th>#</th>
+                      <th>Bloque</th>
+                      <th>Condición</th>
+                      <th>Capa A</th>
+                      <th>Textura A</th>
+                      <th>Horizonte B (Compactación)</th>
+                      <th>TDR Antes / Después</th>
+                      <th>Lab Antes / Después</th>
+                      <th>Da (g/mL)</th>
+                      <th class="text-center">Mapa</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabla-modal-calicatas">
+                    <!-- Se llena dinámicamente vía JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-secondary">
+          <small class="text-muted me-auto"><i class="fa-solid fa-circle-info text-info me-1"></i> Basado en el Estudio Edáfico FLORSANI (Octubre 2026 - José L. Pantoja, Ph.D.)</small>
+          <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts: Bootstrap, Leaflet, Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -568,6 +844,8 @@
     let currentBloquesEnAlerta = 0;
     let labelsLayer = null;
     let labelsVisible = false;
+    let calicatasLayer = null;
+    let showCalicatas = true;
 
     document.addEventListener("DOMContentLoaded", () => {
       initMap();
@@ -586,6 +864,7 @@
       document.getElementById("card-kpi-alerta").addEventListener("click", openModalAlertas);
       document.getElementById("card-kpi-critico").addEventListener("click", goToMostCriticalBlock);
       document.getElementById("btn-toggle-labels").addEventListener("click", toggleLabels);
+      document.getElementById("btn-toggle-calicatas").addEventListener("click", toggleCalicatas);
       document.getElementById("btn-fullscreen-map").addEventListener("click", toggleFullScreen);
 
       document.addEventListener("fullscreenchange", () => {
@@ -665,6 +944,8 @@
 
         renderDashboard();
         initOrUpdateChart();
+        buildCalicatasLayer();
+        renderCalicatasModalTable();
       } catch (err) {
         console.error("Error al cargar datos:", err);
       }
@@ -1031,6 +1312,64 @@
       return `<span class="badge ${badgeClass} font-mono-num fw-bold">${icon} ${c.toFixed(1)}% ${label}</span> <span class="text-white-50 small">(${s.toFixed(1)}% suelo)</span>`;
     }
 
+    function getTDRVirtualBadge(ndmiVal) {
+      if (ndmiVal === undefined || ndmiVal === null) return '<span class="badge bg-secondary font-mono-num">--</span>';
+      let tdr = 14.0 + (Number(ndmiVal) + 0.02) * 50.0;
+      if (tdr < 8.0) tdr = 8.0;
+      if (tdr > 35.0) tdr = 35.0;
+      tdr = Math.round(tdr * 10) / 10;
+
+      if (tdr < 18.0) {
+        return `<span class="badge bg-warning text-dark font-mono-num"><i class="fa-solid fa-droplet-slash me-1"></i>${tdr}% (Déficit / Regar)</span>`;
+      } else if (tdr <= 25.0) {
+        return `<span class="badge bg-success text-light font-mono-num"><i class="fa-solid fa-droplet me-1"></i>${tdr}% (Óptimo CC)</span>`;
+      } else {
+        return `<span class="badge bg-info text-dark font-mono-num"><i class="fa-solid fa-water me-1"></i>${tdr}% (Saturado / Alerta Gutación)</span>`;
+      }
+    }
+
+    function getLixiviacionBadge(esTumba, coberturaPct) {
+      const c = (coberturaPct !== undefined && coberturaPct !== null) ? Number(coberturaPct) : (esTumba ? 0 : 50);
+      if (esTumba || c < 30) {
+        return `<span class="badge bg-danger" title="Suelo 62% arena sin raíces. Riego largo lava Nitratos. Fraccionar a <2.0 mm">ALTO (Fraccionar &lt; 2 mm)</span>`;
+      } else if (c < 65) {
+        return `<span class="badge bg-warning text-dark" title="Suelo permeable. Máximo 3.18 mm por pulso">MEDIO (Máx 3.18 mm)</span>`;
+      } else {
+        return `<span class="badge bg-success" title="Dosel denso con raíces activas que absorben nutrientes">BAJO (Controlado)</span>`;
+      }
+    }
+
+    function getGutacionBadge(ndmiVal, p90Val, coberturaPct) {
+      const ndmi = Number(ndmiVal || 0);
+      const p90 = Number(p90Val || 0);
+      const cob = Number(coberturaPct || 0);
+      if (ndmi > 0.17 && (p90 > 0.52 || cob > 65)) {
+        return `<span class="badge bg-danger text-light" title="Canopia tupida y exceso de agua al atardecer provocan gotas de savia que germinan Botrytis"><i class="fa-solid fa-triangle-exclamation me-1"></i>ALERTA GUTACIÓN (Cortar riego &lt; 14:00)</span>`;
+      } else if (ndmi > 0.14 && p90 > 0.45) {
+        return `<span class="badge bg-warning text-dark">MODERADO</span>`;
+      } else {
+        return `<span class="badge bg-secondary">Bajo</span>`;
+      }
+    }
+
+    function getPieDeAradoHtml(p, esTumba) {
+      if (p.calicata) {
+        const c = p.calicata;
+        return `
+          <div class="alert alert-info py-1 px-2 my-1 small border-info">
+            <i class="fa-solid fa-location-dot text-danger me-1"></i><strong>Calicata #${c.id} en este bloque:</strong> Capa A: <strong>${c.profundidad_a_cm} cm</strong> (${c.textura_a}). Horizonte B: <em>${c.horizonte_b}</em>. TDR campo: <strong>${c.tdr_despues}%</strong>.
+          </div>
+        `;
+      } else if (esTumba) {
+        return `
+          <div class="alert alert-warning py-1 px-2 my-1 small border-warning text-dark">
+            <i class="fa-solid fa-tractor text-dark me-1"></i><strong>Mecanización / Pie de Arado:</strong> Bloque libre en descanso. Subsoleo con cincel profundo (40-50 cm) recomendado antes de encamar y sembrar.
+          </div>
+        `;
+      }
+      return '';
+    }
+
     function renderMapPolygons(fecha, indiceKey, umbralCritico) {
       if (geojsonLayer) {
         map.removeLayer(geojsonLayer);
@@ -1118,14 +1457,18 @@
           }
 
           const coberturaHtml = getCoberturaIABadge(h.cobertura_rf_pct, h.suelo_rf_pct, esTumba);
+          const tdrBadge = getTDRVirtualBadge(h.ndmi_med);
+          const lixiviacionBadge = getLixiviacionBadge(esTumba, h.cobertura_rf_pct);
+          const gutacionBadge = getGutacionBadge(h.ndmi_med, h.ndvi_p90, h.cobertura_rf_pct);
+          const pieAradoHtml = getPieDeAradoHtml(p, esTumba);
 
           layer.bindPopup(`
-            <div class="p-1 small">
-              <h6 class="fw-bold text-success mb-1">
-                Bloque ${p.bloque_nombre} ${p.candidato_estrella ? '<span class="badge bg-warning text-dark ms-1">⭐ Estrella</span>' : ''}
+            <div class="p-1 small" style="min-width: 250px;">
+              <h6 class="fw-bold text-success mb-1 d-flex justify-content-between align-items-center">
+                <span>Bloque ${p.bloque_nombre} ${p.candidato_estrella ? '<span class="badge bg-warning text-dark ms-1">⭐ Estrella</span>' : ''}</span>
+                <span class="badge ${getCropBadge(p.cultivo)}">${p.cultivo || 'Sin datos'}</span>
               </h6>
               <hr class="my-1">
-              <strong>Flor / Cultivo:</strong> <span class="badge ${getCropBadge(p.cultivo)}">${p.cultivo || 'Sin datos'}</span><br>
               <strong>Camas:</strong> ${p.camas_activas || 0} de ${p.camas_total || 0} activas (${p.pct_activa || 0}%)<br>
               <strong>Estado Agronómico:</strong> <span class="text-warning">${p.categoria_agronomica || '--'}</span><br>
               <strong>Área:</strong> ${p.area_m2} m² (${p.area_ha} ha) | <strong>Técnico:</strong> Técnico ${p.tecnico}<br>
@@ -1135,7 +1478,16 @@
               <strong>SAVI:</strong> ${h.savi_med} | <strong>NDMI:</strong> ${h.ndmi_med}<br>
               <strong>Uniformidad (CV):</strong> ${h.cv_pct}%<br>
               ${coberturaHtml ? `<strong>Cobertura Foliar (IA):</strong> ${coberturaHtml}<br>` : ''}
-              <strong>Diagnóstico:</strong> ${getDiagnosticoBadge(p, h, indiceKey, umbralCritico)}
+              <strong>Diagnóstico Vigor:</strong> ${getDiagnosticoBadge(p, h, indiceKey, umbralCritico)}
+              <hr class="my-1">
+              <div class="bg-dark-subtle border border-secondary p-2 rounded mt-1">
+                <span class="text-info fw-bold small d-block mb-1"><i class="fa-solid fa-droplet me-1"></i> Suelo & Riego (PyGan 2026):</span>
+                <strong>Humedad TDR Estimada:</strong> ${tdrBadge}<br>
+                <strong>Lámina Máx por Pulso:</strong> <span class="badge bg-dark border border-secondary text-light">3.18 mm (62% arena)</span><br>
+                <strong>Riesgo Lixiviación (N):</strong> ${lixiviacionBadge}<br>
+                <strong>Riesgo Gutación (Botrytis):</strong> ${gutacionBadge}
+              </div>
+              ${pieAradoHtml}
             </div>
           `);
 
@@ -1204,6 +1556,115 @@
         btn.classList.remove("btn-warning", "text-dark");
         btn.classList.add("btn-outline-light");
         txt.innerText = "Nombres: OFF";
+      }
+    }
+
+    function buildCalicatasLayer() {
+      if (calicatasLayer) {
+        map.removeLayer(calicatasLayer);
+        calicatasLayer = null;
+      }
+      if (!rawData || !rawData.calicatas) return;
+
+      calicatasLayer = L.layerGroup();
+      rawData.calicatas.forEach(c => {
+        const marker = L.circleMarker([c.lat, c.lon], {
+          radius: 9,
+          fillColor: '#ef4444',
+          color: '#ffffff',
+          weight: 2.5,
+          opacity: 1,
+          fillOpacity: 0.95
+        });
+
+        marker.bindPopup(`
+          <div class="p-1 small" style="min-width: 250px;">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span class="badge bg-danger text-white fw-bold"><i class="fa-solid fa-location-dot me-1"></i> Calicata #${c.id}</span>
+              <span class="badge bg-dark border border-secondary text-warning">Bloque ${c.bloque}</span>
+            </div>
+            <hr class="my-1">
+            <strong>Condición:</strong> <span class="text-light">${c.condicion} (${c.cultivo || ''})</span><br>
+            <strong>Horizonte A (Capa Arable):</strong> <span class="text-info fw-bold">${c.profundidad_a_cm} cm</span> (${c.textura_a})<br>
+            <strong>Estructura Horizonte A:</strong> ${c.estructura_a}<br>
+            <strong>Horizonte B:</strong> <span class="text-danger small">${c.horizonte_b}</span><br>
+            <hr class="my-1">
+            <strong>TDR 150 Campo:</strong> Antes: <span class="text-warning">${c.tdr_antes}%</span> | Después: <span class="text-success">${c.tdr_despues}%</span><br>
+            <strong>Humedad Lab:</strong> Antes: ${c.humedad_lab_antes}% | Después: ${c.humedad_lab_despues}%<br>
+            <strong>Densidad Aparente:</strong> ${c.densidad_aparente} g/mL | <strong>Porosidad:</strong> ${c.porosidad_pct}%<br>
+            <div class="alert alert-dark border-secondary p-1 mt-2 mb-1 small text-light" style="font-size: 0.75rem;">
+              <em>"${c.diagnostico}"</em>
+            </div>
+            <button class="btn btn-sm btn-outline-warning w-100 mt-1 py-1" onclick="zoomToCalicataBlock('${c.bloque}')">
+              <i class="fa-solid fa-crosshairs me-1"></i> Centrar Bloque ${c.bloque}
+            </button>
+          </div>
+        `);
+        marker.bindTooltip(`📍 Calicata #${c.id} (Bloque ${c.bloque})`, { direction: 'top', offset: [0, -8] });
+        calicatasLayer.addLayer(marker);
+      });
+
+      if (showCalicatas) {
+        calicatasLayer.addTo(map);
+      }
+    }
+
+    function toggleCalicatas() {
+      showCalicatas = !showCalicatas;
+      const btn = document.getElementById("btn-toggle-calicatas");
+      const txt = document.getElementById("txt-toggle-calicatas");
+      
+      if (showCalicatas) {
+        if (calicatasLayer) calicatasLayer.addTo(map);
+        btn.classList.remove("btn-outline-secondary");
+        btn.classList.add("btn-outline-danger");
+        txt.innerText = "Calicatas: ON";
+      } else {
+        if (calicatasLayer) map.removeLayer(calicatasLayer);
+        btn.classList.remove("btn-outline-danger");
+        btn.classList.add("btn-outline-secondary");
+        txt.innerText = "Calicatas: OFF";
+      }
+    }
+
+    function renderCalicatasModalTable() {
+      const tbody = document.getElementById("tabla-modal-calicatas");
+      if (!tbody || !rawData || !rawData.calicatas) return;
+      tbody.innerHTML = "";
+
+      rawData.calicatas.forEach(c => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><span class="badge bg-danger">#${c.id}</span></td>
+          <td><strong class="text-warning">Bloque ${c.bloque}</strong></td>
+          <td>${c.condicion}</td>
+          <td><span class="badge bg-info text-dark font-mono-num">${c.profundidad_a_cm} cm</span></td>
+          <td>${c.textura_a}</td>
+          <td><small class="text-muted">${c.horizonte_b}</small></td>
+          <td class="font-mono-num"><span class="text-warning">${c.tdr_antes}%</span> &rarr; <span class="text-success">${c.tdr_despues}%</span></td>
+          <td class="font-mono-num">${c.humedad_lab_antes}% &rarr; ${c.humedad_lab_despues}%</td>
+          <td class="font-mono-num">${c.densidad_aparente}</td>
+          <td class="text-center">
+            <button class="btn btn-xs btn-outline-warning py-0 px-2" onclick="zoomToCalicataBlock('${c.bloque}')" data-bs-dismiss="modal">
+              <i class="fa-solid fa-crosshairs"></i> Ver
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function zoomToCalicataBlock(bloqueNombre) {
+      if (!rawData || !rawData.poligonos) return;
+      const target = rawData.poligonos.find(p => String(p.bloque_nombre).toUpperCase() === String(bloqueNombre).toUpperCase());
+      if (target) {
+        zoomToPolygon(target);
+        selectedBlockId = target.id;
+        updateBlockHighlight(target);
+        const mapContainer = document.getElementById("map");
+        if (mapContainer) {
+          mapContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       }
     }
 

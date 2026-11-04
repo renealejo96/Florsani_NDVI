@@ -39,7 +39,40 @@
     ],
     "generado_en": "2026-10-31T15:00:25.558329",
     "actualizado_semana_en": "2026-10-31T15:01:46.970373",
-    "archivo_cultivos_fuente": "bq_sentinel.csv"
+    "archivo_cultivos_fuente": "bq_sentinel.csv",
+    "estudio_suelos_2026": {
+      "fecha": "2026-10-01",
+      "consultor": "José L. Pantoja, Ph.D. (ANALYTIC S.A.S. / AGNLatam S.A.)",
+      "predio": "FLORSANI - Finca Pygan (San José de Minas)",
+      "textura_media": {
+        "arena_pct": 62.0,
+        "limo_pct": 29.0,
+        "arcilla_pct": 9.0,
+        "clasificacion": "Franco-arenoso a Arenoso-limoso"
+      },
+      "materia_organica_pct": 2.1,
+      "densidad_aparente_media_g_ml": 1.22,
+      "porosidad_media_pct": 47.0,
+      "constantes_hidricas_horizonte_a": {
+        "profundidad_media_cm": 17.0,
+        "capacidad_campo_pct_grav": 16.71,
+        "capacidad_campo_mm": 56.81,
+        "punto_marchitez_pct_grav": 7.37,
+        "punto_marchitez_mm": 25.06,
+        "agua_disponible_ad_mm": 31.75,
+        "agua_facilmente_disponible_afd_mm": 15.87,
+        "reposicion_maxima_riego_mm": 3.18
+      },
+      "calibracion_tdr_150": {
+        "ecuacion_logaritmica_general": "y = 15.967 * ln(x) - 22.375",
+        "ecuacion_antes_riego": "y = 14.247 * ln(x) - 17.898",
+        "ecuacion_despues_riego": "y = 17.759 * ln(x) - 27.399",
+        "correccion_materia_organica": "+2 unidades TDR por cada 1% MO (+4.2 unidades para Finca Pygan)",
+        "tdr_optimo_capacidad_campo": 25.0,
+        "tdr_umbral_antes_regar": 26.0,
+        "tdr_limite_tarde_peligro_gutacion": 25.0
+      }
+    }
   },
   "fechas_info": [
     {
@@ -294,7 +327,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 15
+      "camas_variedad_principal": 15,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 1,
@@ -988,7 +1026,25 @@
       "candidato_estrella": false,
       "area_m2": 0.13,
       "area_ha": 0.1307,
-      "calicata": 1,
+      "calicata": {
+        "id": 7,
+        "bloque": "31E",
+        "condicion": "En descanso",
+        "cultivo": "SOLIDAGO / VACIO",
+        "profundidad_a_cm": 20,
+        "textura_a": "Arena-Limosa (AL)",
+        "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+        "horizonte_b": "Arena-limosa a 50 cm; Arena pura masiva a 90+ cm",
+        "tdr_antes": 12.5,
+        "tdr_despues": 14.5,
+        "humedad_lab_antes": 16.04,
+        "humedad_lab_despues": 16.54,
+        "densidad_aparente": 1.17,
+        "porosidad_pct": 44.22,
+        "diagnostico": "ALERTA: Capa arable muy delgada (20 cm) y muy arenosa. Retención de agua mínima (AFD < 12 mm). Requiere pulsos de riego ultra-cortos (<2.0 mm) y adición urgente de MO.",
+        "lat": 0.141793,
+        "lon": -78.386339
+      },
       "sonda": 0,
       "tecnico": 1,
       "geojson": {
@@ -2496,7 +2552,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 32
+      "camas_variedad_principal": 32,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 14,
@@ -2660,7 +2721,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 24
+      "camas_variedad_principal": 24,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 15,
@@ -2824,7 +2890,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 23
+      "camas_variedad_principal": 23,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 16,
@@ -3832,7 +3903,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 22
+      "camas_variedad_principal": 22,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 22,
@@ -3996,7 +4072,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 27
+      "camas_variedad_principal": 27,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 23,
@@ -5542,7 +5623,25 @@
       "candidato_estrella": true,
       "area_m2": 0.13,
       "area_ha": 0.1324,
-      "calicata": 1,
+      "calicata": {
+        "id": 8,
+        "bloque": "38",
+        "condicion": "Subsolado y Sembrado",
+        "cultivo": "Flor Comercial",
+        "profundidad_a_cm": 30,
+        "textura_a": "Limoso (L)",
+        "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+        "horizonte_b": "Limo-arcilloso masivo a 90 cm; Limo-arenoso a 110+ cm",
+        "tdr_antes": 8.9,
+        "tdr_despues": 12.1,
+        "humedad_lab_antes": 13.83,
+        "humedad_lab_despues": 16.83,
+        "densidad_aparente": 1.0,
+        "porosidad_pct": 37.91,
+        "diagnostico": "Subsolado y sembrado. Densidad aparente baja y óptima (1.00 g/mL). Buena aireación radicular.",
+        "lat": 0.141337,
+        "lon": -78.389051
+      },
       "sonda": 0,
       "tecnico": 1,
       "geojson": {
@@ -6026,7 +6125,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 26
+      "camas_variedad_principal": 26,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 35,
@@ -7374,7 +7478,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 15
+      "camas_variedad_principal": 15,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 43,
@@ -7538,7 +7647,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 17
+      "camas_variedad_principal": 17,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 44,
@@ -9226,7 +9340,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 24
+      "camas_variedad_principal": 24,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 54,
@@ -9390,7 +9509,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 24
+      "camas_variedad_principal": 24,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 55,
@@ -9554,7 +9678,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 23
+      "camas_variedad_principal": 23,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 56,
@@ -9742,7 +9871,25 @@
       "candidato_estrella": false,
       "area_m2": 0.14,
       "area_ha": 0.143,
-      "calicata": 1,
+      "calicata": {
+        "id": 9,
+        "bloque": "41H",
+        "condicion": "Subsolado y Sembrado",
+        "cultivo": "Flor Comercial",
+        "profundidad_a_cm": 30,
+        "textura_a": "Limoso (L)",
+        "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+        "horizonte_b": "Limo-arcilloso masivo a 70 cm; Arcilloso a 100+ cm",
+        "tdr_antes": 16.9,
+        "tdr_despues": 24.7,
+        "humedad_lab_antes": 21.9,
+        "humedad_lab_despues": 30.76,
+        "densidad_aparente": 1.49,
+        "porosidad_pct": 56.36,
+        "diagnostico": "Suelo subsolado con sustrato profundo arcilloso (100+ cm). Retención alta, vigilar drenaje en época húmeda.",
+        "lat": 0.140812,
+        "lon": -78.392334
+      },
       "sonda": 1,
       "tecnico": 2,
       "geojson": {
@@ -9912,7 +10059,25 @@
       "candidato_estrella": false,
       "area_m2": 0.08,
       "area_ha": 0.0837,
-      "calicata": 0,
+      "calicata": {
+        "id": 9,
+        "bloque": "41H",
+        "condicion": "Subsolado y Sembrado",
+        "cultivo": "Flor Comercial",
+        "profundidad_a_cm": 30,
+        "textura_a": "Limoso (L)",
+        "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+        "horizonte_b": "Limo-arcilloso masivo a 70 cm; Arcilloso a 100+ cm",
+        "tdr_antes": 16.9,
+        "tdr_despues": 24.7,
+        "humedad_lab_antes": 21.9,
+        "humedad_lab_despues": 30.76,
+        "densidad_aparente": 1.49,
+        "porosidad_pct": 56.36,
+        "diagnostico": "Suelo subsolado con sustrato profundo arcilloso (100+ cm). Retención alta, vigilar drenaje en época húmeda.",
+        "lat": 0.140712,
+        "lon": -78.39254
+      },
       "sonda": 0,
       "tecnico": 2,
       "geojson": {
@@ -10956,7 +11121,25 @@
       "candidato_estrella": false,
       "area_m2": 0.12,
       "area_ha": 0.12,
-      "calicata": 1,
+      "calicata": {
+        "id": 3,
+        "bloque": "13B",
+        "condicion": "Sembrado",
+        "cultivo": "Verónica",
+        "profundidad_a_cm": 30,
+        "textura_a": "Limo-Arenoso (LA)",
+        "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+        "horizonte_b": "Arcillo-Limoso masivo a 80 cm",
+        "tdr_antes": 11.5,
+        "tdr_despues": 18.3,
+        "humedad_lab_antes": 17.05,
+        "humedad_lab_despues": 34.27,
+        "densidad_aparente": 1.36,
+        "porosidad_pct": 51.46,
+        "diagnostico": "Cultivo de Verónica. Transición a arcillo-limoso en B1. Mantener ciclos cortos de riego.",
+        "lat": 0.144189,
+        "lon": -78.388875
+      },
       "sonda": 0,
       "tecnico": 2,
       "geojson": {
@@ -17356,7 +17539,25 @@
       "candidato_estrella": true,
       "area_m2": 0.2,
       "area_ha": 0.1995,
-      "calicata": 1,
+      "calicata": {
+        "id": 14,
+        "bloque": "26",
+        "condicion": "Sin sembrar",
+        "cultivo": "VACIO / TUMBA",
+        "profundidad_a_cm": 40,
+        "textura_a": "Limoso (L)",
+        "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+        "horizonte_b": "Limoso masivo a 80 cm; Limo-arenoso a 100+ cm",
+        "tdr_antes": 26.2,
+        "tdr_despues": 28.2,
+        "humedad_lab_antes": 28.02,
+        "humedad_lab_despues": 29.55,
+        "densidad_aparente": 1.38,
+        "porosidad_pct": 52.0,
+        "diagnostico": "Capa superficial profunda (40 cm). Compactación incipiente a 80 cm. Ideal para cultivos de raíz profunda.",
+        "lat": 0.142766,
+        "lon": -78.391083
+      },
       "sonda": 0,
       "tecnico": 2,
       "geojson": {
@@ -19762,7 +19963,25 @@
       "candidato_estrella": true,
       "area_m2": 0.16,
       "area_ha": 0.1584,
-      "calicata": 1,
+      "calicata": {
+        "id": 4,
+        "bloque": "74",
+        "condicion": "En descanso",
+        "cultivo": "VACIO / TUMBA",
+        "profundidad_a_cm": 40,
+        "textura_a": "Limo-Arenoso (LA)",
+        "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+        "horizonte_b": "Limo-arenoso masivo a 90 cm; Limoso a 110+ cm",
+        "tdr_antes": 15.6,
+        "tdr_despues": 10.8,
+        "humedad_lab_antes": 18.67,
+        "humedad_lab_despues": 13.78,
+        "densidad_aparente": 1.32,
+        "porosidad_pct": 49.95,
+        "diagnostico": "Capa superficial profunda (40 cm). En descanso. Drenaje rápido, requiere enriquecimiento de MO.",
+        "lat": 0.143463,
+        "lon": -78.392442
+      },
       "sonda": 0,
       "tecnico": 3,
       "geojson": {
@@ -19932,7 +20151,25 @@
       "candidato_estrella": true,
       "area_m2": 0.16,
       "area_ha": 0.1561,
-      "calicata": 0,
+      "calicata": {
+        "id": 4,
+        "bloque": "74",
+        "condicion": "En descanso",
+        "cultivo": "VACIO / TUMBA",
+        "profundidad_a_cm": 40,
+        "textura_a": "Limo-Arenoso (LA)",
+        "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+        "horizonte_b": "Limo-arenoso masivo a 90 cm; Limoso a 110+ cm",
+        "tdr_antes": 15.6,
+        "tdr_despues": 10.8,
+        "humedad_lab_antes": 18.67,
+        "humedad_lab_despues": 13.78,
+        "densidad_aparente": 1.32,
+        "porosidad_pct": 49.95,
+        "diagnostico": "Capa superficial profunda (40 cm). En descanso. Drenaje rápido, requiere enriquecimiento de MO.",
+        "lat": 0.143242,
+        "lon": -78.392389
+      },
       "sonda": 0,
       "tecnico": 3,
       "geojson": {
@@ -22694,7 +22931,25 @@
       "candidato_estrella": false,
       "area_m2": 0.25,
       "area_ha": 0.2488,
-      "calicata": 1,
+      "calicata": {
+        "id": 5,
+        "bloque": "92",
+        "condicion": "En descanso",
+        "cultivo": "VACIO / TUMBA",
+        "profundidad_a_cm": 50,
+        "textura_a": "Limoso (L)",
+        "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+        "horizonte_b": "Limoso masivo a 80 cm",
+        "tdr_antes": 22.6,
+        "tdr_despues": 22.8,
+        "humedad_lab_antes": 26.41,
+        "humedad_lab_despues": 25.67,
+        "densidad_aparente": 1.13,
+        "porosidad_pct": 42.57,
+        "diagnostico": "Excelente horizonte A profundo (50 cm). Estabilidad hídrica alta y buena capacidad de retención.",
+        "lat": 0.142208,
+        "lon": -78.393948
+      },
       "sonda": 0,
       "tecnico": 3,
       "geojson": {
@@ -25674,7 +25929,25 @@
       "candidato_estrella": true,
       "area_m2": 0.13,
       "area_ha": 0.1296,
-      "calicata": 1,
+      "calicata": {
+        "id": 10,
+        "bloque": "51C",
+        "condicion": "Sin sembrar",
+        "cultivo": "VACIO / TUMBA",
+        "profundidad_a_cm": 30,
+        "textura_a": "Limo-Arcilloso (LAr)",
+        "estructura_a": "Bloques y Gránulos (BG)",
+        "horizonte_b": "Limo-arenoso masivo a 70 cm; Arcillo-limoso a 100+ cm",
+        "tdr_antes": 21.2,
+        "tdr_despues": 22.7,
+        "humedad_lab_antes": 19.31,
+        "humedad_lab_despues": 25.96,
+        "densidad_aparente": 1.21,
+        "porosidad_pct": 45.77,
+        "diagnostico": "Textura Limo-Arcillosa con mayor contenido de finos. Buena retención hídrica.",
+        "lat": 0.140515,
+        "lon": -78.394053
+      },
       "sonda": 0,
       "tecnico": 2,
       "geojson": {
@@ -27932,7 +28205,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 42
+      "camas_variedad_principal": 42,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 159,
@@ -28496,7 +28774,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 42
+      "camas_variedad_principal": 42,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 162,
@@ -28512,7 +28795,25 @@
       "candidato_estrella": true,
       "area_m2": 0.14,
       "area_ha": 0.1439,
-      "calicata": 1,
+      "calicata": {
+        "id": 6,
+        "bloque": "84",
+        "condicion": "Con Cascajo",
+        "cultivo": "En descanso",
+        "profundidad_a_cm": 50,
+        "textura_a": "Limoso (L)",
+        "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+        "horizonte_b": "Limo-arenoso a 80 cm; Arena-limosa con cascajo a 100+ cm",
+        "tdr_antes": 22.2,
+        "tdr_despues": 24.9,
+        "humedad_lab_antes": 24.19,
+        "humedad_lab_despues": 29.03,
+        "densidad_aparente": 1.29,
+        "porosidad_pct": 48.74,
+        "diagnostico": "Presencia de cascajo y gravilla en profundidad. Drenaje acelerado en B2.",
+        "lat": 0.142539,
+        "lon": -78.395612
+      },
       "sonda": 1,
       "tecnico": 3,
       "geojson": {
@@ -30624,7 +30925,25 @@
       "candidato_estrella": true,
       "area_m2": 0.11,
       "area_ha": 0.1143,
-      "calicata": 0,
+      "calicata": {
+        "id": 2,
+        "bloque": "103",
+        "condicion": "Subsolado en el pasado",
+        "cultivo": "Renovación",
+        "profundidad_a_cm": 30,
+        "textura_a": "Limoso (L)",
+        "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+        "horizonte_b": "Limoso masivo a 70 cm; LA a 100+ cm",
+        "tdr_antes": 9.9,
+        "tdr_despues": 26.7,
+        "humedad_lab_antes": 19.43,
+        "humedad_lab_despues": 40.54,
+        "densidad_aparente": 1.32,
+        "porosidad_pct": 49.92,
+        "diagnostico": "Respuesta muy favorable al subsolado previo; excelente incremento de infiltración (TDR subió de 9.9% a 26.7% post-riego).",
+        "lat": 0.145084,
+        "lon": -78.39222
+      },
       "sonda": 1,
       "tecnico": 4,
       "geojson": {
@@ -33202,7 +33521,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 26
+      "camas_variedad_principal": 26,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 187,
@@ -33370,7 +33694,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 17
+      "camas_variedad_principal": 17,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 188,
@@ -33590,7 +33919,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 41
+      "camas_variedad_principal": 41,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 189,
@@ -33790,7 +34124,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 41
+      "camas_variedad_principal": 41,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 190,
@@ -33954,7 +34293,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 44
+      "camas_variedad_principal": 44,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 191,
@@ -34118,7 +34462,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 46
+      "camas_variedad_principal": 46,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 192,
@@ -34282,7 +34631,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 29
+      "camas_variedad_principal": 29,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 193,
@@ -34446,7 +34800,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 28
+      "camas_variedad_principal": 28,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 194,
@@ -34614,7 +34973,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 44
+      "camas_variedad_principal": 44,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 195,
@@ -34782,7 +35146,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 36
+      "camas_variedad_principal": 36,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 196,
@@ -35642,7 +36011,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 55
+      "camas_variedad_principal": 55,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 201,
@@ -35658,7 +36032,25 @@
       "candidato_estrella": false,
       "area_m2": 0.09,
       "area_ha": 0.092,
-      "calicata": 1,
+      "calicata": {
+        "id": 1,
+        "bloque": "154",
+        "condicion": "Sembrado",
+        "cultivo": "Flor Comercial",
+        "profundidad_a_cm": 30,
+        "textura_a": "Limo-Arenoso (LA)",
+        "estructura_a": "Bloques y Gránulos (BG)",
+        "horizonte_b": "Masiva compactada a 70 cm (LA / LAr)",
+        "tdr_antes": 27.7,
+        "tdr_despues": 27.4,
+        "humedad_lab_antes": 29.33,
+        "humedad_lab_despues": 30.72,
+        "densidad_aparente": 1.28,
+        "porosidad_pct": 48.25,
+        "diagnostico": "Capa arable de 30 cm con horizonte B1 masivo compactado a 70 cm. Retención adecuada pero requiere respetar lámina máxima de 3.18 mm.",
+        "lat": 0.145966,
+        "lon": -78.396376
+      },
       "sonda": 0,
       "tecnico": 4,
       "geojson": {
@@ -35818,7 +36210,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 74
+      "camas_variedad_principal": 74,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 202,
@@ -36026,7 +36423,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 96
+      "camas_variedad_principal": 96,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 203,
@@ -36546,7 +36948,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 25
+      "camas_variedad_principal": 25,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 206,
@@ -36880,7 +37287,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 32
+      "camas_variedad_principal": 32,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 208,
@@ -37044,7 +37456,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 20
+      "camas_variedad_principal": 20,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 209,
@@ -37572,7 +37989,25 @@
       "candidato_estrella": false,
       "area_m2": 0.18,
       "area_ha": 0.1764,
-      "calicata": 0,
+      "calicata": {
+        "id": 11,
+        "bloque": "135",
+        "condicion": "Sin sembrar",
+        "cultivo": "VACIO / TUMBA",
+        "profundidad_a_cm": 40,
+        "textura_a": "Limo-Arcilloso (LAr)",
+        "estructura_a": "Bloques y Gránulos (BG)",
+        "horizonte_b": "Horizonte C de arena pura suelta a 60 cm; Limoso a 100+ cm",
+        "tdr_antes": 32.9,
+        "tdr_despues": 30.3,
+        "humedad_lab_antes": 32.86,
+        "humedad_lab_despues": 31.52,
+        "densidad_aparente": 1.35,
+        "porosidad_pct": 51.12,
+        "diagnostico": "Perfil atípico con horizonte C de arena pura entre 40 y 60 cm. Pérdida hídrica vertical acelerada a partir de los 40 cm.",
+        "lat": 0.143308,
+        "lon": -78.398289
+      },
       "sonda": 0,
       "tecnico": 4,
       "geojson": {
@@ -37892,7 +38327,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 25
+      "camas_variedad_principal": 25,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 214,
@@ -39432,7 +39872,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 40
+      "camas_variedad_principal": 40,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 223,
@@ -40128,7 +40573,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 23
+      "camas_variedad_principal": 23,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 227,
@@ -40296,7 +40746,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 33
+      "camas_variedad_principal": 33,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 228,
@@ -40460,7 +40915,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 19
+      "camas_variedad_principal": 19,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 229,
@@ -40968,7 +41428,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 38
+      "camas_variedad_principal": 38,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 232,
@@ -41132,7 +41597,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 35
+      "camas_variedad_principal": 35,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 233,
@@ -41296,7 +41766,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 39
+      "camas_variedad_principal": 39,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 234,
@@ -41460,7 +41935,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 46
+      "camas_variedad_principal": 46,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 235,
@@ -41624,7 +42104,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 44
+      "camas_variedad_principal": 44,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 236,
@@ -41640,7 +42125,25 @@
       "candidato_estrella": false,
       "area_m2": 0.25,
       "area_ha": 0.2529,
-      "calicata": 1,
+      "calicata": {
+        "id": 13,
+        "bloque": "217",
+        "condicion": "Sin sembrar",
+        "cultivo": "VACIO / TUMBA",
+        "profundidad_a_cm": 30,
+        "textura_a": "Limo-Arenoso (LA)",
+        "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+        "horizonte_b": "Limoso masivo a 70 cm; Arena-limosa a 110+ cm",
+        "tdr_antes": 14.9,
+        "tdr_despues": 25.4,
+        "humedad_lab_antes": 20.98,
+        "humedad_lab_despues": 24.02,
+        "densidad_aparente": 1.28,
+        "porosidad_pct": 48.43,
+        "diagnostico": "Buena respuesta al agua aplicada pero horizonte B muy compactado. Subsoleo recomendado.",
+        "lat": 0.140553,
+        "lon": -78.40217
+      },
       "sonda": 0,
       "tecnico": 5,
       "geojson": {
@@ -41788,7 +42291,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 42
+      "camas_variedad_principal": 42,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 237,
@@ -41952,7 +42460,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 39
+      "camas_variedad_principal": 39,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 238,
@@ -42120,7 +42633,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 46
+      "camas_variedad_principal": 46,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 239,
@@ -42288,7 +42806,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 47
+      "camas_variedad_principal": 47,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 240,
@@ -42456,7 +42979,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 37
+      "camas_variedad_principal": 37,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 241,
@@ -42648,7 +43176,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 35
+      "camas_variedad_principal": 35,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 242,
@@ -42828,7 +43361,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 43
+      "camas_variedad_principal": 43,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 243,
@@ -42844,7 +43382,25 @@
       "candidato_estrella": false,
       "area_m2": 0.17,
       "area_ha": 0.1705,
-      "calicata": 0,
+      "calicata": {
+        "id": 12,
+        "bloque": "224",
+        "condicion": "Sin sembrar",
+        "cultivo": "VACIO / TUMBA",
+        "profundidad_a_cm": 30,
+        "textura_a": "Limoso (L)",
+        "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+        "horizonte_b": "Limo-arcilloso masivo a 60 cm; Limo-arenoso a 90+ cm",
+        "tdr_antes": 28.2,
+        "tdr_despues": 29.0,
+        "humedad_lab_antes": 37.19,
+        "humedad_lab_despues": 32.17,
+        "densidad_aparente": 1.47,
+        "porosidad_pct": 55.42,
+        "diagnostico": "Densidad aparente elevada (1.47 g/mL) y pie de arado en B1. Subsoleo prioritario antes de sembrar.",
+        "lat": 0.139977,
+        "lon": -78.404307
+      },
       "sonda": 0,
       "tecnico": 5,
       "geojson": {
@@ -43012,7 +43568,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 34
+      "camas_variedad_principal": 34,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 244,
@@ -43176,7 +43737,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 24
+      "camas_variedad_principal": 24,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 245,
@@ -43340,7 +43906,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 24
+      "camas_variedad_principal": 24,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 246,
@@ -43528,7 +44099,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 32
+      "camas_variedad_principal": 32,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 247,
@@ -43740,7 +44316,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 38
+      "camas_variedad_principal": 38,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 248,
@@ -43904,7 +44485,12 @@
       "variedades_lista": [],
       "num_variedades": 0,
       "es_monovarietal": true,
-      "camas_variedad_principal": 31
+      "camas_variedad_principal": 31,
+      "pie_de_arado": {
+        "estado": "Vulnerable / Pie de arado probable",
+        "accion_requerida": "Subsoleo con cincel a 40-50 cm antes del armado de camas y siembra.",
+        "justificacion": "Suelos franco-arenosos andinos con compactación histórica por arado de disco en horizonte B."
+      }
     },
     {
       "id": 249,
@@ -44089,6 +44675,274 @@
       "num_variedades": 7,
       "es_monovarietal": false,
       "camas_variedad_principal": 26
+    }
+  ],
+  "calicatas": [
+    {
+      "id": 1,
+      "bloque": "154",
+      "condicion": "Sembrado",
+      "cultivo": "Flor Comercial",
+      "profundidad_a_cm": 30,
+      "textura_a": "Limo-Arenoso (LA)",
+      "estructura_a": "Bloques y Gránulos (BG)",
+      "horizonte_b": "Masiva compactada a 70 cm (LA / LAr)",
+      "tdr_antes": 27.7,
+      "tdr_despues": 27.4,
+      "humedad_lab_antes": 29.33,
+      "humedad_lab_despues": 30.72,
+      "densidad_aparente": 1.28,
+      "porosidad_pct": 48.25,
+      "diagnostico": "Capa arable de 30 cm con horizonte B1 masivo compactado a 70 cm. Retención adecuada pero requiere respetar lámina máxima de 3.18 mm.",
+      "lat": 0.145966,
+      "lon": -78.396376
+    },
+    {
+      "id": 2,
+      "bloque": "103",
+      "condicion": "Subsolado en el pasado",
+      "cultivo": "Renovación",
+      "profundidad_a_cm": 30,
+      "textura_a": "Limoso (L)",
+      "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+      "horizonte_b": "Limoso masivo a 70 cm; LA a 100+ cm",
+      "tdr_antes": 9.9,
+      "tdr_despues": 26.7,
+      "humedad_lab_antes": 19.43,
+      "humedad_lab_despues": 40.54,
+      "densidad_aparente": 1.32,
+      "porosidad_pct": 49.92,
+      "diagnostico": "Respuesta muy favorable al subsolado previo; excelente incremento de infiltración (TDR subió de 9.9% a 26.7% post-riego).",
+      "lat": 0.145084,
+      "lon": -78.39222
+    },
+    {
+      "id": 3,
+      "bloque": "13B",
+      "condicion": "Sembrado",
+      "cultivo": "Verónica",
+      "profundidad_a_cm": 30,
+      "textura_a": "Limo-Arenoso (LA)",
+      "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+      "horizonte_b": "Arcillo-Limoso masivo a 80 cm",
+      "tdr_antes": 11.5,
+      "tdr_despues": 18.3,
+      "humedad_lab_antes": 17.05,
+      "humedad_lab_despues": 34.27,
+      "densidad_aparente": 1.36,
+      "porosidad_pct": 51.46,
+      "diagnostico": "Cultivo de Verónica. Transición a arcillo-limoso en B1. Mantener ciclos cortos de riego.",
+      "lat": 0.144189,
+      "lon": -78.388875
+    },
+    {
+      "id": 4,
+      "bloque": "74",
+      "condicion": "En descanso",
+      "cultivo": "VACIO / TUMBA",
+      "profundidad_a_cm": 40,
+      "textura_a": "Limo-Arenoso (LA)",
+      "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+      "horizonte_b": "Limo-arenoso masivo a 90 cm; Limoso a 110+ cm",
+      "tdr_antes": 15.6,
+      "tdr_despues": 10.8,
+      "humedad_lab_antes": 18.67,
+      "humedad_lab_despues": 13.78,
+      "densidad_aparente": 1.32,
+      "porosidad_pct": 49.95,
+      "diagnostico": "Capa superficial profunda (40 cm). En descanso. Drenaje rápido, requiere enriquecimiento de MO.",
+      "lat": 0.143463,
+      "lon": -78.392442
+    },
+    {
+      "id": 5,
+      "bloque": "92",
+      "condicion": "En descanso",
+      "cultivo": "VACIO / TUMBA",
+      "profundidad_a_cm": 50,
+      "textura_a": "Limoso (L)",
+      "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+      "horizonte_b": "Limoso masivo a 80 cm",
+      "tdr_antes": 22.6,
+      "tdr_despues": 22.8,
+      "humedad_lab_antes": 26.41,
+      "humedad_lab_despues": 25.67,
+      "densidad_aparente": 1.13,
+      "porosidad_pct": 42.57,
+      "diagnostico": "Excelente horizonte A profundo (50 cm). Estabilidad hídrica alta y buena capacidad de retención.",
+      "lat": 0.142208,
+      "lon": -78.393948
+    },
+    {
+      "id": 6,
+      "bloque": "84",
+      "condicion": "Con Cascajo",
+      "cultivo": "En descanso",
+      "profundidad_a_cm": 50,
+      "textura_a": "Limoso (L)",
+      "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+      "horizonte_b": "Limo-arenoso a 80 cm; Arena-limosa con cascajo a 100+ cm",
+      "tdr_antes": 22.2,
+      "tdr_despues": 24.9,
+      "humedad_lab_antes": 24.19,
+      "humedad_lab_despues": 29.03,
+      "densidad_aparente": 1.29,
+      "porosidad_pct": 48.74,
+      "diagnostico": "Presencia de cascajo y gravilla en profundidad. Drenaje acelerado en B2.",
+      "lat": 0.142539,
+      "lon": -78.395612
+    },
+    {
+      "id": 7,
+      "bloque": "31E",
+      "condicion": "En descanso",
+      "cultivo": "SOLIDAGO / VACIO",
+      "profundidad_a_cm": 20,
+      "textura_a": "Arena-Limosa (AL)",
+      "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+      "horizonte_b": "Arena-limosa a 50 cm; Arena pura masiva a 90+ cm",
+      "tdr_antes": 12.5,
+      "tdr_despues": 14.5,
+      "humedad_lab_antes": 16.04,
+      "humedad_lab_despues": 16.54,
+      "densidad_aparente": 1.17,
+      "porosidad_pct": 44.22,
+      "diagnostico": "ALERTA: Capa arable muy delgada (20 cm) y muy arenosa. Retención de agua mínima (AFD < 12 mm). Requiere pulsos de riego ultra-cortos (<2.0 mm) y adición urgente de MO.",
+      "lat": 0.141793,
+      "lon": -78.386339
+    },
+    {
+      "id": 8,
+      "bloque": "38",
+      "condicion": "Subsolado y Sembrado",
+      "cultivo": "Flor Comercial",
+      "profundidad_a_cm": 30,
+      "textura_a": "Limoso (L)",
+      "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+      "horizonte_b": "Limo-arcilloso masivo a 90 cm; Limo-arenoso a 110+ cm",
+      "tdr_antes": 8.9,
+      "tdr_despues": 12.1,
+      "humedad_lab_antes": 13.83,
+      "humedad_lab_despues": 16.83,
+      "densidad_aparente": 1.0,
+      "porosidad_pct": 37.91,
+      "diagnostico": "Subsolado y sembrado. Densidad aparente baja y óptima (1.00 g/mL). Buena aireación radicular.",
+      "lat": 0.141337,
+      "lon": -78.389051
+    },
+    {
+      "id": 9,
+      "bloque": "41H",
+      "condicion": "Subsolado y Sembrado",
+      "cultivo": "Flor Comercial",
+      "profundidad_a_cm": 30,
+      "textura_a": "Limoso (L)",
+      "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+      "horizonte_b": "Limo-arcilloso masivo a 70 cm; Arcilloso a 100+ cm",
+      "tdr_antes": 16.9,
+      "tdr_despues": 24.7,
+      "humedad_lab_antes": 21.9,
+      "humedad_lab_despues": 30.76,
+      "densidad_aparente": 1.49,
+      "porosidad_pct": 56.36,
+      "diagnostico": "Suelo subsolado con sustrato profundo arcilloso (100+ cm). Retención alta, vigilar drenaje en época húmeda.",
+      "lat": 0.140812,
+      "lon": -78.392334
+    },
+    {
+      "id": 10,
+      "bloque": "51C",
+      "condicion": "Sin sembrar",
+      "cultivo": "VACIO / TUMBA",
+      "profundidad_a_cm": 30,
+      "textura_a": "Limo-Arcilloso (LAr)",
+      "estructura_a": "Bloques y Gránulos (BG)",
+      "horizonte_b": "Limo-arenoso masivo a 70 cm; Arcillo-limoso a 100+ cm",
+      "tdr_antes": 21.2,
+      "tdr_despues": 22.7,
+      "humedad_lab_antes": 19.31,
+      "humedad_lab_despues": 25.96,
+      "densidad_aparente": 1.21,
+      "porosidad_pct": 45.77,
+      "diagnostico": "Textura Limo-Arcillosa con mayor contenido de finos. Buena retención hídrica.",
+      "lat": 0.140515,
+      "lon": -78.394053
+    },
+    {
+      "id": 11,
+      "bloque": "135",
+      "condicion": "Sin sembrar",
+      "cultivo": "VACIO / TUMBA",
+      "profundidad_a_cm": 40,
+      "textura_a": "Limo-Arcilloso (LAr)",
+      "estructura_a": "Bloques y Gránulos (BG)",
+      "horizonte_b": "Horizonte C de arena pura suelta a 60 cm; Limoso a 100+ cm",
+      "tdr_antes": 32.9,
+      "tdr_despues": 30.3,
+      "humedad_lab_antes": 32.86,
+      "humedad_lab_despues": 31.52,
+      "densidad_aparente": 1.35,
+      "porosidad_pct": 51.12,
+      "diagnostico": "Perfil atípico con horizonte C de arena pura entre 40 y 60 cm. Pérdida hídrica vertical acelerada a partir de los 40 cm.",
+      "lat": 0.143308,
+      "lon": -78.398289
+    },
+    {
+      "id": 12,
+      "bloque": "224",
+      "condicion": "Sin sembrar",
+      "cultivo": "VACIO / TUMBA",
+      "profundidad_a_cm": 30,
+      "textura_a": "Limoso (L)",
+      "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+      "horizonte_b": "Limo-arcilloso masivo a 60 cm; Limo-arenoso a 90+ cm",
+      "tdr_antes": 28.2,
+      "tdr_despues": 29.0,
+      "humedad_lab_antes": 37.19,
+      "humedad_lab_despues": 32.17,
+      "densidad_aparente": 1.47,
+      "porosidad_pct": 55.42,
+      "diagnostico": "Densidad aparente elevada (1.47 g/mL) y pie de arado en B1. Subsoleo prioritario antes de sembrar.",
+      "lat": 0.139977,
+      "lon": -78.404307
+    },
+    {
+      "id": 13,
+      "bloque": "217",
+      "condicion": "Sin sembrar",
+      "cultivo": "VACIO / TUMBA",
+      "profundidad_a_cm": 30,
+      "textura_a": "Limo-Arenoso (LA)",
+      "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+      "horizonte_b": "Limoso masivo a 70 cm; Arena-limosa a 110+ cm",
+      "tdr_antes": 14.9,
+      "tdr_despues": 25.4,
+      "humedad_lab_antes": 20.98,
+      "humedad_lab_despues": 24.02,
+      "densidad_aparente": 1.28,
+      "porosidad_pct": 48.43,
+      "diagnostico": "Buena respuesta al agua aplicada pero horizonte B muy compactado. Subsoleo recomendado.",
+      "lat": 0.140553,
+      "lon": -78.40217
+    },
+    {
+      "id": 14,
+      "bloque": "26",
+      "condicion": "Sin sembrar",
+      "cultivo": "VACIO / TUMBA",
+      "profundidad_a_cm": 40,
+      "textura_a": "Limoso (L)",
+      "estructura_a": "Bloques, Gránulos y Migajosa (BGM)",
+      "horizonte_b": "Limoso masivo a 80 cm; Limo-arenoso a 100+ cm",
+      "tdr_antes": 26.2,
+      "tdr_despues": 28.2,
+      "humedad_lab_antes": 28.02,
+      "humedad_lab_despues": 29.55,
+      "densidad_aparente": 1.38,
+      "porosidad_pct": 52.0,
+      "diagnostico": "Capa superficial profunda (40 cm). Compactación incipiente a 80 cm. Ideal para cultivos de raíz profunda.",
+      "lat": 0.142766,
+      "lon": -78.391083
     }
   ]
 }
