@@ -400,8 +400,8 @@
             </div>
             <div class="d-flex align-items-center gap-2">
               <!-- Botón Toggle Calicatas de Suelo -->
-              <button id="btn-toggle-calicatas" class="btn btn-sm btn-outline-danger d-flex align-items-center gap-1 py-1 px-2" style="font-size: 0.72rem;" title="Mostrar u ocultar los 14 puntos de calicatas de suelo muestreadas">
-                <i class="fa-solid fa-location-dot text-danger"></i>
+              <button id="btn-toggle-calicatas" class="btn btn-sm btn-outline-light d-flex align-items-center gap-1 py-1 px-2" style="font-size: 0.72rem;" title="Mostrar u ocultar los 14 puntos de calicatas de suelo muestreadas (puntos blancos)">
+                <i class="fa-solid fa-circle-dot text-light"></i>
                 <span id="txt-toggle-calicatas">Calicatas: ON</span>
               </button>
               <!-- Botón Toggle Etiquetas de Bloques -->
@@ -591,7 +591,7 @@
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link rounded-pill text-uppercase fw-bold small py-2" id="pill-calicatas-tab" data-bs-toggle="pill" data-bs-target="#pill-calicatas" type="button" role="tab">
-                <i class="fa-solid fa-location-dot text-danger me-1"></i> 14 Calicatas de Campo
+                <i class="fa-solid fa-circle-dot text-light me-1"></i> 14 Calicatas (Puntos Blancos)
               </button>
             </li>
           </ul>
@@ -794,7 +794,7 @@
             <div class="tab-pane fade" id="pill-calicatas" role="tabpanel">
               <div class="d-flex justify-content-between align-items-center mb-2">
                 <span class="small text-muted">Las 14 calicatas muestreadas y evaluadas in situ por el Dr. Pantoja en Octubre 2026:</span>
-                <span class="badge bg-danger">14 Puntos Georreferenciados</span>
+                <span class="badge bg-light text-dark border border-secondary">⚪ 14 Puntos Georreferenciados (Puntos Blancos)</span>
               </div>
               <div class="table-responsive">
                 <table class="table table-dark table-hover table-sm align-middle mb-0" style="font-size: 0.75rem;">
@@ -1568,19 +1568,20 @@
 
       calicatasLayer = L.layerGroup();
       rawData.calicatas.forEach(c => {
+        // Marcador blanco de alto contraste con borde oscuro
         const marker = L.circleMarker([c.lat, c.lon], {
-          radius: 9,
-          fillColor: '#ef4444',
-          color: '#ffffff',
-          weight: 2.5,
+          radius: 8.5,
+          fillColor: '#ffffff',
+          color: '#0f172a',
+          weight: 3,
           opacity: 1,
-          fillOpacity: 0.95
+          fillOpacity: 1.0
         });
 
         marker.bindPopup(`
           <div class="p-1 small" style="min-width: 250px;">
             <div class="d-flex justify-content-between align-items-center mb-1">
-              <span class="badge bg-danger text-white fw-bold"><i class="fa-solid fa-location-dot me-1"></i> Calicata #${c.id}</span>
+              <span class="badge bg-light text-dark fw-bold border border-secondary"><i class="fa-solid fa-circle-dot text-dark me-1"></i> Calicata #${c.id} (Punto Blanco)</span>
               <span class="badge bg-dark border border-secondary text-warning">Bloque ${c.bloque}</span>
             </div>
             <hr class="my-1">
@@ -1600,7 +1601,7 @@
             </button>
           </div>
         `);
-        marker.bindTooltip(`📍 Calicata #${c.id} (Bloque ${c.bloque})`, { direction: 'top', offset: [0, -8] });
+        marker.bindTooltip(`⚪ Calicata #${c.id} (Bloque ${c.bloque})`, { direction: 'top', offset: [0, -8] });
         calicatasLayer.addLayer(marker);
       });
 
@@ -1617,11 +1618,11 @@
       if (showCalicatas) {
         if (calicatasLayer) calicatasLayer.addTo(map);
         btn.classList.remove("btn-outline-secondary");
-        btn.classList.add("btn-outline-danger");
+        btn.classList.add("btn-outline-light");
         txt.innerText = "Calicatas: ON";
       } else {
         if (calicatasLayer) map.removeLayer(calicatasLayer);
-        btn.classList.remove("btn-outline-danger");
+        btn.classList.remove("btn-outline-light");
         btn.classList.add("btn-outline-secondary");
         txt.innerText = "Calicatas: OFF";
       }
@@ -1635,7 +1636,7 @@
       rawData.calicatas.forEach(c => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-          <td><span class="badge bg-danger">#${c.id}</span></td>
+          <td><span class="badge bg-light text-dark border border-secondary font-mono-num">⚪ #${c.id}</span></td>
           <td><strong class="text-warning">Bloque ${c.bloque}</strong></td>
           <td>${c.condicion}</td>
           <td><span class="badge bg-info text-dark font-mono-num">${c.profundidad_a_cm} cm</span></td>

@@ -316,9 +316,9 @@ Por cada $1.0\%$ de MO analizada en el suelo, se deben sumar **$+2$ unidades** a
 
 ---
 
-### D. Red de Muestreo de Calicatas (14 Puntos Georreferenciados)
+### D. Red de Muestreo de Calicatas (14 Puntos Georreferenciados en Blanco)
 
-El sistema incorpora los datos edáficos de las 14 calicatas muestreadas en la finca:
+El sistema incorpora los datos edáficos de las 14 calicatas muestreadas en la finca, representadas en el mapa satelital como **puntos blancos de alto contraste** (con borde oscuro) para distinguirse claramente de la colorimetría de los polígonos (verde, amarillo, naranja y rojo de alertas):
 
 | Calicata | Bloque | Condición | Horizonte A | Textura | Horizonte B / Compactación | TDR Antes / Después |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
